@@ -1,0 +1,11 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "n_trades": 166,
+    "profit_factor": 1.0677177798120323,
+    "win_rate": 0.4036144578313253,
+    "net_pnl": 9.492443799985267,
+    "sharpe_ann": 0.13390411623412085,
+    "report_dir": "D:\\projectsdata\\backtests\\reports\\tsm_pressure_zone_ethusdt_1d_full"
+  }
+]

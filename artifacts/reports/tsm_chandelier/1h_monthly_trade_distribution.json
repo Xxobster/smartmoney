@@ -1,0 +1,703 @@
+{
+  "freeze_path": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_chandelier\\1h_SHADOW_FREEZE.json",
+  "package_hash_sha256": "9b65a02fdd4fa444a3477ce9099f32a8609eedda28686c57a2ae8bcb4d14f9e0",
+  "db": "D:\\projects\\smartmoney\\artifacts\\datasets\\research_ohlcv.sqlite",
+  "coverage": {
+    "BTCUSDT": {
+      "n": 110418,
+      "min_ts": 1577836800000,
+      "max_ts": 1776585600000
+    },
+    "ETHUSDT": {
+      "n": 110418,
+      "min_ts": 1577836800000,
+      "max_ts": 1776585600000
+    },
+    "SOLUSDT": {
+      "n": 97920,
+      "min_ts": 1599994800000,
+      "max_ts": 1776585600000
+    }
+  },
+  "per_symbol": [
+    {
+      "symbol": "BTCUSDT",
+      "status": "ok",
+      "n_folds": 5,
+      "oos_start_ms": 1698825600000,
+      "oos_end_ms": 1776585600000,
+      "n_trades": 202,
+      "net_pnl": 62.97277795499992,
+      "pooled_pf": 1.485064855978614,
+      "liquidation_status": "MODELLED",
+      "monthly": [
+        {
+          "month": "2023-11",
+          "n_trades": 8,
+          "net_pnl": -1.6237649200000115
+        },
+        {
+          "month": "2023-12",
+          "n_trades": 6,
+          "net_pnl": -0.9399416799999958
+        },
+        {
+          "month": "2024-01",
+          "n_trades": 9,
+          "net_pnl": 0.6465034649999972
+        },
+        {
+          "month": "2024-02",
+          "n_trades": 7,
+          "net_pnl": 7.534942030000011
+        },
+        {
+          "month": "2024-03",
+          "n_trades": 2,
+          "net_pnl": -2.603908404999994
+        },
+        {
+          "month": "2024-04",
+          "n_trades": 7,
+          "net_pnl": 5.891489309999983
+        },
+        {
+          "month": "2024-05",
+          "n_trades": 6,
+          "net_pnl": 2.006075974999997
+        },
+        {
+          "month": "2024-06",
+          "n_trades": 10,
+          "net_pnl": 0.6600329300000032
+        },
+        {
+          "month": "2024-07",
+          "n_trades": 9,
+          "net_pnl": 5.025579430000003
+        },
+        {
+          "month": "2024-08",
+          "n_trades": 12,
+          "net_pnl": 14.629899525000008
+        },
+        {
+          "month": "2024-09",
+          "n_trades": 4,
+          "net_pnl": 2.8461598700000046
+        },
+        {
+          "month": "2024-10",
+          "n_trades": 2,
+          "net_pnl": 2.9699622200000015
+        },
+        {
+          "month": "2024-11",
+          "n_trades": 5,
+          "net_pnl": 5.652691564999985
+        },
+        {
+          "month": "2024-12",
+          "n_trades": 7,
+          "net_pnl": -1.480716275000003
+        },
+        {
+          "month": "2025-01",
+          "n_trades": 7,
+          "net_pnl": 1.0977054249999645
+        },
+        {
+          "month": "2025-02",
+          "n_trades": 3,
+          "net_pnl": -4.529741109999986
+        },
+        {
+          "month": "2025-03",
+          "n_trades": 6,
+          "net_pnl": 1.1646668199999943
+        },
+        {
+          "month": "2025-04",
+          "n_trades": 8,
+          "net_pnl": -4.301157614999994
+        },
+        {
+          "month": "2025-05",
+          "n_trades": 10,
+          "net_pnl": 7.119482354999986
+        },
+        {
+          "month": "2025-06",
+          "n_trades": 7,
+          "net_pnl": 1.678680194999994
+        },
+        {
+          "month": "2025-07",
+          "n_trades": 3,
+          "net_pnl": 4.864852715
+        },
+        {
+          "month": "2025-08",
+          "n_trades": 10,
+          "net_pnl": -5.372917515000012
+        },
+        {
+          "month": "2025-09",
+          "n_trades": 7,
+          "net_pnl": 1.5570292100000205
+        },
+        {
+          "month": "2025-10",
+          "n_trades": 6,
+          "net_pnl": 8.07919651499999
+        },
+        {
+          "month": "2025-11",
+          "n_trades": 4,
+          "net_pnl": 14.418118999999988
+        },
+        {
+          "month": "2025-12",
+          "n_trades": 15,
+          "net_pnl": -10.672870294999992
+        },
+        {
+          "month": "2026-01",
+          "n_trades": 8,
+          "net_pnl": 3.907536009999977
+        },
+        {
+          "month": "2026-02",
+          "n_trades": 5,
+          "net_pnl": 3.3209703250000064
+        },
+        {
+          "month": "2026-03",
+          "n_trades": 3,
+          "net_pnl": -0.13186200499999684
+        },
+        {
+          "month": "2026-04",
+          "n_trades": 6,
+          "net_pnl": -0.4419171150000146
+        }
+      ],
+      "months_in_oos": 30,
+      "zero_trade_months": 0,
+      "avg_trades_per_month": 6.733333333333333,
+      "median_trades_per_month": 7.0,
+      "max_consecutive_zero_months": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "status": "ok",
+      "n_folds": 5,
+      "oos_start_ms": 1698825600000,
+      "oos_end_ms": 1776585600000,
+      "n_trades": 192,
+      "net_pnl": 45.809847589999976,
+      "pooled_pf": 1.7270165506811883,
+      "liquidation_status": "MODELLED",
+      "monthly": [
+        {
+          "month": "2023-11",
+          "n_trades": 5,
+          "net_pnl": 0.019268044999996126
+        },
+        {
+          "month": "2023-12",
+          "n_trades": 7,
+          "net_pnl": 0.5081718349999973
+        },
+        {
+          "month": "2024-01",
+          "n_trades": 6,
+          "net_pnl": 3.153036340000007
+        },
+        {
+          "month": "2024-02",
+          "n_trades": 4,
+          "net_pnl": 1.1393824999999989
+        },
+        {
+          "month": "2024-03",
+          "n_trades": 4,
+          "net_pnl": -3.271467765
+        },
+        {
+          "month": "2024-04",
+          "n_trades": 9,
+          "net_pnl": 2.5285133699999958
+        },
+        {
+          "month": "2024-05",
+          "n_trades": 5,
+          "net_pnl": 3.973646319999994
+        },
+        {
+          "month": "2024-06",
+          "n_trades": 6,
+          "net_pnl": -0.31694123000000496
+        },
+        {
+          "month": "2024-07",
+          "n_trades": 7,
+          "net_pnl": 0.5871526799999969
+        },
+        {
+          "month": "2024-08",
+          "n_trades": 8,
+          "net_pnl": 4.982489229999992
+        },
+        {
+          "month": "2024-09",
+          "n_trades": 7,
+          "net_pnl": 0.9211972650000124
+        },
+        {
+          "month": "2024-10",
+          "n_trades": 8,
+          "net_pnl": -1.5173851850000015
+        },
+        {
+          "month": "2024-11",
+          "n_trades": 5,
+          "net_pnl": 1.6353498600000003
+        },
+        {
+          "month": "2024-12",
+          "n_trades": 6,
+          "net_pnl": 4.78935525
+        },
+        {
+          "month": "2025-01",
+          "n_trades": 5,
+          "net_pnl": 1.8667047700000086
+        },
+        {
+          "month": "2025-02",
+          "n_trades": 5,
+          "net_pnl": -2.7200031449999917
+        },
+        {
+          "month": "2025-03",
+          "n_trades": 7,
+          "net_pnl": 0.3209791650000031
+        },
+        {
+          "month": "2025-04",
+          "n_trades": 6,
+          "net_pnl": -1.3162828099999968
+        },
+        {
+          "month": "2025-05",
+          "n_trades": 6,
+          "net_pnl": 3.428151695000003
+        },
+        {
+          "month": "2025-06",
+          "n_trades": 7,
+          "net_pnl": -0.010513850000005376
+        },
+        {
+          "month": "2025-07",
+          "n_trades": 5,
+          "net_pnl": 1.3214991450000024
+        },
+        {
+          "month": "2025-08",
+          "n_trades": 8,
+          "net_pnl": 2.5160402099999906
+        },
+        {
+          "month": "2025-09",
+          "n_trades": 5,
+          "net_pnl": 0.8588671950000063
+        },
+        {
+          "month": "2025-10",
+          "n_trades": 8,
+          "net_pnl": 11.260796759999995
+        },
+        {
+          "month": "2025-11",
+          "n_trades": 5,
+          "net_pnl": 6.568994949999993
+        },
+        {
+          "month": "2025-12",
+          "n_trades": 11,
+          "net_pnl": -1.47597625000001
+        },
+        {
+          "month": "2026-01",
+          "n_trades": 10,
+          "net_pnl": 3.5957493849999915
+        },
+        {
+          "month": "2026-02",
+          "n_trades": 3,
+          "net_pnl": 0.6548828999999972
+        },
+        {
+          "month": "2026-03",
+          "n_trades": 7,
+          "net_pnl": 1.5150944349999986
+        },
+        {
+          "month": "2026-04",
+          "n_trades": 7,
+          "net_pnl": -1.7069054799999963
+        }
+      ],
+      "months_in_oos": 30,
+      "zero_trade_months": 0,
+      "avg_trades_per_month": 6.4,
+      "median_trades_per_month": 6.0,
+      "max_consecutive_zero_months": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "status": "ok",
+      "n_folds": 5,
+      "oos_start_ms": 1698825600000,
+      "oos_end_ms": 1776585600000,
+      "n_trades": 131,
+      "net_pnl": 19.006311399999998,
+      "pooled_pf": 1.7625739247206254,
+      "liquidation_status": "MODELLED",
+      "monthly": [
+        {
+          "month": "2023-11",
+          "n_trades": 4,
+          "net_pnl": -1.3981868500000005
+        },
+        {
+          "month": "2023-12",
+          "n_trades": 2,
+          "net_pnl": 0.8757091499999996
+        },
+        {
+          "month": "2024-01",
+          "n_trades": 3,
+          "net_pnl": 0.12233320000000063
+        },
+        {
+          "month": "2024-02",
+          "n_trades": 2,
+          "net_pnl": 0.5296354500000001
+        },
+        {
+          "month": "2024-03",
+          "n_trades": 1,
+          "net_pnl": -0.23124729999999927
+        },
+        {
+          "month": "2024-04",
+          "n_trades": 3,
+          "net_pnl": 3.5092239999999992
+        },
+        {
+          "month": "2024-05",
+          "n_trades": 6,
+          "net_pnl": 0.025704849999995227
+        },
+        {
+          "month": "2024-06",
+          "n_trades": 4,
+          "net_pnl": -0.8068751499999995
+        },
+        {
+          "month": "2024-07",
+          "n_trades": 5,
+          "net_pnl": 0.9771081499999996
+        },
+        {
+          "month": "2024-08",
+          "n_trades": 6,
+          "net_pnl": 4.974895750000007
+        },
+        {
+          "month": "2024-09",
+          "n_trades": 5,
+          "net_pnl": -0.14918304999999799
+        },
+        {
+          "month": "2024-10",
+          "n_trades": 2,
+          "net_pnl": 0.8254786999999996
+        },
+        {
+          "month": "2024-11",
+          "n_trades": 2,
+          "net_pnl": 0.6279196999999999
+        },
+        {
+          "month": "2024-12",
+          "n_trades": 4,
+          "net_pnl": -0.2529300000000041
+        },
+        {
+          "month": "2025-01",
+          "n_trades": 5,
+          "net_pnl": 1.6868614000000015
+        },
+        {
+          "month": "2025-02",
+          "n_trades": 3,
+          "net_pnl": -1.6214459500000007
+        },
+        {
+          "month": "2025-03",
+          "n_trades": 4,
+          "net_pnl": 2.6160316999999997
+        },
+        {
+          "month": "2025-04",
+          "n_trades": 7,
+          "net_pnl": -2.0804948999999984
+        },
+        {
+          "month": "2025-05",
+          "n_trades": 3,
+          "net_pnl": 0.07368374999999638
+        },
+        {
+          "month": "2025-06",
+          "n_trades": 9,
+          "net_pnl": -1.1201068500000047
+        },
+        {
+          "month": "2025-07",
+          "n_trades": 2,
+          "net_pnl": 0.6649766499999992
+        },
+        {
+          "month": "2025-08",
+          "n_trades": 3,
+          "net_pnl": 2.2249957500000006
+        },
+        {
+          "month": "2025-09",
+          "n_trades": 3,
+          "net_pnl": 1.7511252500000007
+        },
+        {
+          "month": "2025-10",
+          "n_trades": 4,
+          "net_pnl": 3.013700349999998
+        },
+        {
+          "month": "2025-11",
+          "n_trades": 2,
+          "net_pnl": 2.1971496000000013
+        },
+        {
+          "month": "2025-12",
+          "n_trades": 11,
+          "net_pnl": -0.2996317499999993
+        },
+        {
+          "month": "2026-01",
+          "n_trades": 11,
+          "net_pnl": 1.3185830000000025
+        },
+        {
+          "month": "2026-02",
+          "n_trades": 4,
+          "net_pnl": 0.023712100000000902
+        },
+        {
+          "month": "2026-03",
+          "n_trades": 6,
+          "net_pnl": -0.512215300000002
+        },
+        {
+          "month": "2026-04",
+          "n_trades": 5,
+          "net_pnl": -0.5602
+        }
+      ],
+      "months_in_oos": 30,
+      "zero_trade_months": 0,
+      "avg_trades_per_month": 4.366666666666666,
+      "median_trades_per_month": 4.0,
+      "max_consecutive_zero_months": 0
+    }
+  ],
+  "btc_eth_combined_monthly": [
+    {
+      "month": "2023-11",
+      "n_trades": 13,
+      "net_pnl": -1.6044968750000153
+    },
+    {
+      "month": "2023-12",
+      "n_trades": 13,
+      "net_pnl": -0.4317698449999983
+    },
+    {
+      "month": "2024-01",
+      "n_trades": 15,
+      "net_pnl": 3.799539805000004
+    },
+    {
+      "month": "2024-02",
+      "n_trades": 11,
+      "net_pnl": 8.67432453000001
+    },
+    {
+      "month": "2024-03",
+      "n_trades": 6,
+      "net_pnl": -5.875376169999995
+    },
+    {
+      "month": "2024-04",
+      "n_trades": 16,
+      "net_pnl": 8.420002679999978
+    },
+    {
+      "month": "2024-05",
+      "n_trades": 11,
+      "net_pnl": 5.979722294999991
+    },
+    {
+      "month": "2024-06",
+      "n_trades": 16,
+      "net_pnl": 0.34309169999999833
+    },
+    {
+      "month": "2024-07",
+      "n_trades": 16,
+      "net_pnl": 5.61273211
+    },
+    {
+      "month": "2024-08",
+      "n_trades": 20,
+      "net_pnl": 19.612388755
+    },
+    {
+      "month": "2024-09",
+      "n_trades": 11,
+      "net_pnl": 3.7673571350000166
+    },
+    {
+      "month": "2024-10",
+      "n_trades": 10,
+      "net_pnl": 1.452577035
+    },
+    {
+      "month": "2024-11",
+      "n_trades": 10,
+      "net_pnl": 7.288041424999986
+    },
+    {
+      "month": "2024-12",
+      "n_trades": 13,
+      "net_pnl": 3.3086389749999974
+    },
+    {
+      "month": "2025-01",
+      "n_trades": 12,
+      "net_pnl": 2.964410194999973
+    },
+    {
+      "month": "2025-02",
+      "n_trades": 8,
+      "net_pnl": -7.249744254999977
+    },
+    {
+      "month": "2025-03",
+      "n_trades": 13,
+      "net_pnl": 1.4856459849999974
+    },
+    {
+      "month": "2025-04",
+      "n_trades": 14,
+      "net_pnl": -5.61744042499999
+    },
+    {
+      "month": "2025-05",
+      "n_trades": 16,
+      "net_pnl": 10.547634049999989
+    },
+    {
+      "month": "2025-06",
+      "n_trades": 14,
+      "net_pnl": 1.6681663449999884
+    },
+    {
+      "month": "2025-07",
+      "n_trades": 8,
+      "net_pnl": 6.186351860000003
+    },
+    {
+      "month": "2025-08",
+      "n_trades": 18,
+      "net_pnl": -2.8568773050000216
+    },
+    {
+      "month": "2025-09",
+      "n_trades": 12,
+      "net_pnl": 2.4158964050000264
+    },
+    {
+      "month": "2025-10",
+      "n_trades": 14,
+      "net_pnl": 19.339993274999987
+    },
+    {
+      "month": "2025-11",
+      "n_trades": 9,
+      "net_pnl": 20.987113949999983
+    },
+    {
+      "month": "2025-12",
+      "n_trades": 26,
+      "net_pnl": -12.148846545000001
+    },
+    {
+      "month": "2026-01",
+      "n_trades": 18,
+      "net_pnl": 7.503285394999969
+    },
+    {
+      "month": "2026-02",
+      "n_trades": 8,
+      "net_pnl": 3.9758532250000034
+    },
+    {
+      "month": "2026-03",
+      "n_trades": 10,
+      "net_pnl": 1.3832324300000018
+    },
+    {
+      "month": "2026-04",
+      "n_trades": 13,
+      "net_pnl": -2.148822595000011
+    }
+  ],
+  "btc_eth_avg_trades_per_month": 13.133333333333333,
+  "btc_eth_zero_trade_months": 0,
+  "sol_status": {
+    "symbol": "SOLUSDT",
+    "status": "ok",
+    "n_folds": 5,
+    "oos_start_ms": 1698825600000,
+    "oos_end_ms": 1776585600000,
+    "n_trades": 131,
+    "net_pnl": 19.006311399999998,
+    "pooled_pf": 1.7625739247206254,
+    "liquidation_status": "MODELLED",
+    "months_in_oos": 30,
+    "zero_trade_months": 0,
+    "avg_trades_per_month": 4.366666666666666,
+    "median_trades_per_month": 4.0,
+    "max_consecutive_zero_months": 0
+  },
+  "readiness_note": {
+    "BTCUSDT_ETHUSDT": "Inside frozen SHADOW_READY package (historical).",
+    "SOLUSDT": "NOT in frozen primary symbols; exploratory only. Adding SOL requires a new preregistered generation before claiming readiness."
+  },
+  "btc_eth_max_consecutive_zero_months": 0
+}

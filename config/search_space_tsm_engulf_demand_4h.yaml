@@ -1,0 +1,57 @@
+# PREREGISTERED before any tsm_engulf_demand 4h outer OOS is viewed.
+# Frozen intent: 2026-08-10. Do not expand search space or relax gates after OOS.
+
+generation_id: tsm_engulf_demand_4h_h0_wf_20260810
+parent_generation: batch3_full_history_exploratory
+hypothesis_family: tsm_engulf_demand
+economic_rationale: >
+  Transcript-locked long-only bullish engulfing at demand (UQR4rM9L6Fg):
+  prior 20-bar swing-low demand proxy, classic engulfing of prior bearish body,
+  stop at engulfing low, Reward:Risk 2.0. Sparse strategy — outer test_days=360
+  preregistered before OOS so folds can meet min trades without relaxing gates.
+  Fixed H0 only — trial_budget_total=1, no Take-Profit/Stop-Loss grid.
+
+root_random_seed: 20260810
+trial_budget_total: 1
+engine: tradesim
+evidence_class_market: RESEARCH_PROXY_binance_ohlcv_bybit_cost_model
+gate_profile: trading_bot_v2_1_frozen
+forward_lockbox_days: 90
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+execution_timeframe: 4h
+warmup_bars: 80
+max_hold_bars: 24
+
+outer_folds:
+  count: 5
+  scheme: expanding_from_end
+  min_train_days: 540
+  test_days: 360
+  purge_bars_execution_tf: 6
+  embargo_bars_execution_tf: 3
+
+inner_folds:
+  count: 0
+  scheme: none
+  note: Fixed H0 — no inner search
+
+selection_objective: none_fixed_h0
+tie_breaker: none
+
+logical_seed:
+  strategy_id: tsm_engulf_demand
+  strategy_version: "0.1.0"
+  timeframe: 4h
+  side: long_only
+  swing_lookback: 20
+  target_rr: 2.0
+  max_hold_bars: 24
+  search_space: {}
+
+notes: >
+  Full-history exploratory diagnostics must not be used for selection.
+  If still sparse after 360d folds, abandon or redesign rule in a NEW generation.

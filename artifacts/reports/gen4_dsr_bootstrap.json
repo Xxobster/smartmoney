@@ -1,0 +1,16 @@
+{
+  "n_trades": 3180,
+  "expectancy": 0.04940027465230398,
+  "dsr": 0.0,
+  "dsr_pass": false,
+  "bootstrap_pos_exp": 1.0,
+  "bootstrap_pass": true,
+  "approx_stress_pf": 1.1347638217697962,
+  "approx_stress_pnl": 109.96501137604064,
+  "approx_stress_note": "proxy only (PF/1.15, PnL*0.7); not a full 2x-slip re-sim",
+  "n_trials": 649,
+  "sharpe_ann": 2.3859034974155495,
+  "n_obs_days": 900,
+  "pbo": null,
+  "pbo_status": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX"
+}

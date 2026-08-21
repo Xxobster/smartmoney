@@ -1,0 +1,85 @@
+project_name: smartmoney_smc_finder
+repository_root: D:/projects/smartmoney
+project_memory_directory: docs/project_memory
+research_core_version: 0.1.0
+backtest_entrypoint: research/run_search.py
+walk_forward_entrypoint: research/run_oos.py
+research_database: artifacts/research_registry.sqlite
+market_database: D:/projectsdata/candles/market_ohlcv.sqlite
+research_split_database: artifacts/datasets/research_ohlcv.sqlite
+forward_lockbox_database: artifacts/datasets/forward_lockbox_ohlcv.sqlite
+funding_database: artifacts/datasets/funding.sqlite
+smc_knowledge_root: C:/projects/wavetheory/smart_money_concepts
+
+target_venue: binance
+product_type: linear_perpetual
+evidence_class_if_funding_missing: SPOT_PROXY_OR_NO_FUNDING
+symbols:
+  - BTCUSDT
+  - ETHUSDT
+primary_research_symbols:
+  - BTCUSDT
+  - ETHUSDT
+expansion_symbol_queue:
+  - SOLUSDT
+  - BNBUSDT
+  - XRPUSDT
+  - ADAUSDT
+  - DOGEUSDT
+  - LINKUSDT
+  - AVAXUSDT
+  - DOTUSDT
+settlement_currency: USDT
+signal_market: binance
+execution_market: binance
+signal_price_source: last
+entry_price_source: next_bar_open
+tp_trigger_source: MarkPrice
+sl_trigger_source: MarkPrice
+liquidation_source: MarkPrice
+strategy_timeframes:
+  - 1d
+  - 4h
+  - 1h
+  - 15m
+  - 5m
+execution_replay_timeframe: 1m
+timezone: UTC
+session_definition: 24x7
+
+position_mode: one_way
+margin_mode: isolated
+sizing_mode: fixed_fractional_risk
+wallet_allocation_usdt: 10000.0
+risk_per_trade: 0.005
+max_portfolio_exposure: 1.0
+max_concurrent_positions: 1
+max_margin_utilization: 0.60
+baseline_max_drawdown_budget: 0.20
+moderate_stress_max_drawdown_budget: 0.25
+max_daily_loss: 0.03
+max_weekly_loss: 0.08
+max_risk_of_ruin_or_loss_limit_breach: 0.01
+leverage_policy: lowest_operational_leverage_meeting_frozen_capital_and_liquidation_constraints
+default_leverage: 3
+entry_order_type: market
+entry_time_in_force: GTC
+exit_order_types: [stop_market, take_profit_market]
+
+# Binance USDT-M non-VIP baseline (verify live before deployment)
+maker_fee: 0.0002
+taker_fee: 0.00055  # Bybit USDT-M non-VIP canonical (tradesim research default)
+baseline_slippage_bps: 1.0
+latency_bars: 0
+historical_funding_source: binance_public_api
+maker_fill_evidence: false
+moderate_cost_stress:
+  all_taker: true
+  slippage_multiplier: 2.0
+severe_cost_stress:
+  all_taker: true
+  slippage_multiplier: 3.0
+
+research_execution_location: local
+vps_role: live_and_shadow_only
+default_readiness: LIVE_STOP_RESEARCH_ONLY

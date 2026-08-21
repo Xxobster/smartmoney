@@ -1,0 +1,62 @@
+gate_profile: trading_bot_v2_1_frozen
+frozen_date: "2026-07-16"
+source: docs/project_memory/FROZEN_DEFAULT_GATES_V2_1.md
+
+mechanical:
+  require_all_relevant: true
+  critical_unknown_allowed: false
+
+historical_oos:
+  min_complete_outer_folds: 5
+  min_resolved_trades_per_gating_fold: 10
+  min_pooled_resolved_trades: 50
+  preferred_pooled_resolved_trades: 100
+  sparse_evidence_below_trades: 100
+  net_pnl_min_exclusive: 0.0
+  net_expectancy_min_exclusive: 0.0
+  pooled_pf_min: 1.20
+  annualized_daily_mtm_sharpe_min: 1.00
+  hac_annualized_sharpe_min: 0.75
+  positive_eligible_fold_fraction_min: 0.80
+  bootstrap_positive_expectancy_probability_min: 0.90
+  bootstrap_min_resamples: 10000
+  dsr_probability_min: 0.95
+  pbo_max_when_valid: 0.20
+  win_rate_hard_gate: false
+
+cost_stress:
+  moderate_slippage_multiplier_min: 2.0
+  moderate_all_taker_unless_maker_proven: true
+  moderate_net_pnl_min_exclusive: 0.0
+  moderate_pooled_pf_min: 1.05
+  severe_slippage_multiplier_min: 3.0
+  severe_is_report_only: true
+
+concentration:
+  pnl_excluding_best_trade_positive: true
+  pnl_excluding_best_year_positive: true
+  best_year_positive_pnl_share_max: 0.40
+  parameter_spike_allowed: false
+
+risk:
+  baseline_mtm_mdd_max: 0.20
+  moderate_stress_mtm_mdd_max: 0.25
+  margin_utilization_max: 0.60
+  ruin_or_loss_limit_breach_probability_max_exclusive: 0.01
+  confirmed_liquidations_max: 0
+  hidden_recapitalizations_max: 0
+
+shadow_to_micro_candidate:
+  min_calendar_days: 90
+  min_actionable_signals: 30
+  min_hypothetical_fill_observations: 20
+  unexplained_action_mismatches_max: 0
+  safety_critical_failures_max: 0
+
+micro_to_scale_candidate:
+  min_calendar_days: 180
+  min_resolved_live_trades: 50
+  preferred_resolved_live_trades: 100
+  live_net_expectancy_min_exclusive: 0.0
+  live_pf_min: 1.10
+  safety_critical_failures_max: 0

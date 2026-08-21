@@ -1,0 +1,381 @@
+{
+  "columns": {
+    "active_bear_fvg_bot": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:04:58Z",
+      "last_seen_utc": "2026-08-08T09:05:38Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2089 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bear_fvg_top": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:04:58Z",
+      "last_seen_utc": "2026-08-08T09:05:38Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2076 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bear_ob_bot": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:05:38Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2008 vs forward return h=24",
+        "FORWARD_CORR: |corr|=0.2113 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bear_ob_mid": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:05:38Z",
+      "last_seen_utc": "2026-08-08T09:05:38Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2086 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bear_ob_top": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:05:38Z",
+      "last_seen_utc": "2026-08-08T09:05:38Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2059 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bull_fvg_bot": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "FUTURE_MUTATION: past values changed when future was shocked (max_diff=0.000e+00, nan_mismatch=1)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bull_fvg_top": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "FUTURE_MUTATION: past values changed when future was shocked (max_diff=0.000e+00, nan_mismatch=1)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bull_ob_bot": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=112.80000000000291)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bull_ob_mid": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=35.35000000000582)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "active_bull_ob_top": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=42.10000000000582)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "at_equilibrium": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "bear_ob": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2663 vs forward return h=1"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "bear_sweep": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "bull_bos": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "bull_fvg": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "FUTURE_MUTATION: past values changed when future was shocked (max_diff=1.000e+00, nan_mismatch=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "bull_ob": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=1.0)",
+        "FORWARD_CORR: |corr|=0.2828 vs forward return h=1"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "deep_premium": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "fvg_bot": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "FUTURE_MUTATION: past values changed when future was shocked (max_diff=0.000e+00, nan_mismatch=1)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "fvg_mid": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "FUTURE_MUTATION: past values changed when future was shocked (max_diff=0.000e+00, nan_mismatch=1)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "fvg_top": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "FUTURE_MUTATION: past values changed when future was shocked (max_diff=0.000e+00, nan_mismatch=1)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "last_swing_high": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=2.444e+02, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "last_swing_low": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=2.105e+02, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "long_confluence": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "ob_bot": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=nan)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "ob_mid": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=nan)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "ob_top": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:04:58Z",
+      "reasons": [
+        "STREAMING_BATCH: tip rewritten when history extended past the tip (diff=nan)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "pd_position": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=4.801e-01, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "pd_q25": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.579e+02, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "pd_q50": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.222e+02, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "pd_q75": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.833e+02, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "short_confluence": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "short_sweep": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "swing_high": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    },
+    "swing_low": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T09:03:33Z",
+      "last_seen_utc": "2026-08-08T09:03:33Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=1.000e+00, nan_only_in_prefix=0)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "15m"
+    }
+  },
+  "updated_at_utc": "2026-08-08T09:05:38Z"
+}

@@ -1,0 +1,32 @@
+{
+  "freeze_hash": "09cff63a8cb929bb1b19b1b4316a62a6f06313ff25be80b9069b4c132ce2e98a",
+  "best_inner_score": 17.09450993958353,
+  "spec": {
+    "name": "optuna_0",
+    "bias_timeframe": "4h",
+    "structure_timeframe": "1h",
+    "execution_timeframe": "15m",
+    "swing_left": 3,
+    "swing_right": 3,
+    "bos_requires_close": true,
+    "fvg_model": "wick",
+    "require_liquidity_sweep": true,
+    "require_bos_or_choch": true,
+    "require_fvg": true,
+    "require_order_block": true,
+    "require_premium_discount": true,
+    "min_confluence_count": 4,
+    "volume_confirm_lookback": 5,
+    "volume_confirm_mult": 1.2,
+    "stop_beyond_sweep_atr_mult": 0.1,
+    "target_rr": 3.0,
+    "use_pd_targets": true,
+    "max_hold_bars": 96,
+    "risk_fraction": 0.005,
+    "rationale": "Heuristic fallback: highest-confluence SMC recipe from RULES.md",
+    "economic_justification": "Liquidity sweep + BOS/CHOCH + FVG (+ optional OB) in HTF direction, enter on retrace in discount/premium with volume confirmation."
+  },
+  "n_trials_logged": 58,
+  "funding_available": true,
+  "outer_folds_reserved": 5
+}

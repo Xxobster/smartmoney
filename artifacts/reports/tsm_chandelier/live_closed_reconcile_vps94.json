@@ -1,0 +1,216 @@
+{
+  "generated_utc": "2026-08-12T05:49:18.213283+00:00",
+  "live_db": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_chandelier\\live_vps94_tsm_chandelier_live.sqlite",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "FORWARD_MICRO_LIVE_RECONCILE",
+  "open_trades": [
+    {
+      "symbol": "BTCUSDT",
+      "side": "short",
+      "entry_utc": "2026-08-11T15:00:00+00:00",
+      "entry_price": 63766.7,
+      "stop": 64240.614285714284,
+      "target": 62266.15714285715
+    }
+  ],
+  "closed_reconcile": [
+    {
+      "symbol": "ETHUSDT",
+      "live": {
+        "entry_utc": "2026-08-11T15:00:00+00:00",
+        "exit_utc": "2026-08-12T04:21:03.663000+00:00",
+        "side_close_record": "Buy",
+        "qty": 0.01,
+        "entry": 1872.33,
+        "exit": 1890.98,
+        "planned_stop": 1890.1749999999997,
+        "planned_target": 1820.155000000001,
+        "closed_pnl_exchange": -0.20505348,
+        "exec_type": "Trade",
+        "stop_exit_slip": 0.805000000000291
+      },
+      "fee_model_taker": {
+        "entry_fee": 0.010297815,
+        "exit_fee": 0.01040039,
+        "total_fee": 0.020698205,
+        "rate": 0.00055,
+        "note": "Bybit USDT perp Fee = Qty * ExecutedPrice * Rate; baseline taker 0.055%"
+      },
+      "execution_truth": {
+        "source": "Bybit get_executions on VPS 2026-08-12",
+        "entry": {
+          "execTime_ms": 1786460430723,
+          "price": 1872.33,
+          "execFee": 0.01029782,
+          "feeRate": 0.00055,
+          "side": "Sell"
+        },
+        "exit": {
+          "execTime_ms": 1786508463659,
+          "price": 1890.98,
+          "execFee": 0.01040039,
+          "feeRate": 0.00055,
+          "side": "Buy",
+          "execType": "Trade"
+        },
+        "funding_credits": [
+          {
+            "execTime_ms": 1786464000000,
+            "execFee": -0.00059236,
+            "feeRate": -3.1e-05,
+            "price": 1862.21
+          },
+          {
+            "execTime_ms": 1786492800000,
+            "execFee": -0.00155237,
+            "feeRate": -8.2e-05,
+            "price": 1881.67
+          }
+        ],
+        "totals": {
+          "trade_fees_paid": 0.02069821,
+          "funding_credit": 0.00214473,
+          "gross_pnl_prices": -0.1865,
+          "implied_net": -0.20505348,
+          "exchange_closed_pnl": -0.20505348,
+          "identity_check": "gross - trade_fees + funding_credit ~= closedPnl"
+        }
+      },
+      "accounting": {
+        "gross_pnl_from_prices": -0.18650000000000092,
+        "gross_minus_model_fees": -0.2071982050000009,
+        "exchange_closed_pnl": -0.20505348,
+        "exchange_vs_gross_minus_fees": 0.002144725000000902
+      },
+      "resim": {
+        "status": "ok",
+        "n_signals": 1,
+        "n_trades": 1,
+        "trades": [
+          {
+            "side": -1,
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "exit_ts_ms": 1786507200000,
+            "exit_utc": "2026-08-12T04:00:00+00:00",
+            "entry_price": 1871.74,
+            "exit_price": 1890.17,
+            "qty": 0.01,
+            "fees": 0.020690505000000005,
+            "funding": 0.0,
+            "slippage_cost": 0.009400000000000545,
+            "gross_pnl": -0.18430000000000063,
+            "realized_pnl": -0.20499050500000063,
+            "exit_reason": "stop",
+            "stop_price": 1890.17,
+            "target_price": 1820.16
+          }
+        ],
+        "fills": [
+          {
+            "ts_ms": 1786460400000,
+            "ts_utc": "2026-08-11T15:00:00+00:00",
+            "role": "entry",
+            "side": "sell",
+            "qty": 0.01,
+            "price": 1871.74,
+            "fee": 0.010294570000000001,
+            "fee_rate": 0.00055,
+            "slippage_cost": 0.009400000000000545
+          },
+          {
+            "ts_ms": 1786507200000,
+            "ts_utc": "2026-08-12T04:00:00+00:00",
+            "role": "stop",
+            "side": "buy",
+            "qty": 0.01,
+            "price": 1890.17,
+            "fee": 0.010395935000000002,
+            "fee_rate": 0.00055,
+            "slippage_cost": 0.0
+          }
+        ],
+        "metrics": {
+          "net_pnl": -0.204990505000751,
+          "n_trades": 1
+        },
+        "compare_notes": [
+          "Resim entry uses next-bar open +/- entry slippage model; live uses Bybit market fill.",
+          "Resim stop exit uses planned stop (no exit slip when limit-touch assumed); live SL was market-triggered.",
+          "1m touch series may be absent locally \u2014 exit bar then comes from 1h path."
+        ]
+      },
+      "funding_while_open": [
+        {
+          "symbol": "ETHUSDT",
+          "ts_utc": "2026-08-11T16:00:00+00:00",
+          "funding": 0.00059236,
+          "cash_flow": 0.0,
+          "size": -0.01,
+          "side": "Sell"
+        },
+        {
+          "symbol": "ETHUSDT",
+          "ts_utc": "2026-08-12T00:00:00+00:00",
+          "funding": 0.00155237,
+          "cash_flow": 0.0,
+          "size": -0.01,
+          "side": "Sell"
+        }
+      ]
+    }
+  ],
+  "funding": [
+    {
+      "symbol": "ETHUSDT",
+      "ts_utc": "2026-08-11T16:00:00+00:00",
+      "funding": 0.00059236,
+      "cash_flow": 0.0,
+      "size": -0.01,
+      "side": "Sell"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "ts_utc": "2026-08-12T00:00:00+00:00",
+      "funding": 0.00155237,
+      "cash_flow": 0.0,
+      "size": -0.01,
+      "side": "Sell"
+    }
+  ],
+  "equity_mtm": {
+    "BTCUSDT": {
+      "n": 428,
+      "first_utc": "2026-08-10T16:27:56Z",
+      "last_utc": "2026-08-12T05:45:23Z",
+      "equity_start": 13.09170546,
+      "equity_end": 12.79609688,
+      "equity_min": 12.77348111,
+      "equity_max": 13.66181296,
+      "delta": -0.2956085799999997
+    },
+    "ETHUSDT": {
+      "n": 428,
+      "first_utc": "2026-08-10T16:28:01Z",
+      "last_utc": "2026-08-12T05:44:27Z",
+      "equity_start": 13.09170546,
+      "equity_end": 12.79707775,
+      "equity_min": 12.78274216,
+      "equity_max": 13.66181296,
+      "delta": -0.2946277100000003
+    }
+  },
+  "verdict": {
+    "signal_stop_target_parity": "PASS (prior)",
+    "closed_trade_count": 1,
+    "open_trade_count": 1,
+    "full_live_backtest_identity": false,
+    "principal_blockers": [
+      "BTCUSDT (or other) still open \u2014 full exit/funding/MTM parity incomplete until flat.",
+      "funding_events.cash_flow is 0 while funding!=0 \u2014 verify Bybit funding field mapping before trusting wallet funding parity.",
+      "Evidence remains RESEARCH_PROXY (Binance signal candles vs Bybit fills).",
+      "Do not raise size/leverage on this thin forward sample."
+    ],
+    "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY"
+  }
+}

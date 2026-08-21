@@ -1,0 +1,27 @@
+{
+  "columns": {
+    "channel_high": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T14:41:43Z",
+      "last_seen_utc": "2026-08-08T14:41:43Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=0.000e+00, nan_only_in_prefix=2)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "channel_low": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-08T14:41:43Z",
+      "last_seen_utc": "2026-08-08T14:41:43Z",
+      "reasons": [
+        "PREFIX_INVARIANCE: depends on future bars (max_diff=0.000e+00, nan_only_in_prefix=2)"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    }
+  },
+  "updated_at_utc": "2026-08-08T14:41:43Z"
+}

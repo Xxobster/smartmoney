@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "n_trades": 1138,
+    "profit_factor": 0.897779217440696,
+    "sharpe_ann": -0.5111177937884006,
+    "hac_sharpe_ann": -0.512878639450731,
+    "max_drawdown": 0.008326194596045163,
+    "win_rate": 0.3945518453427065,
+    "net_pnl": -48.31327616000999,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.3 days  (2020-01-01 -> 2026-04-19)\ntrades             : 1138  (longs 529 / shorts 609)  15.06/month\nsimultaneous open  : max 1  avg 0.26  (longs max 1 / avg 0.11; shorts max 1 / avg 0.15)\nexits              : TP 353  SL 619  other 166  {'max_hold': 166, 'stop': 619, 'target': 353}\nhold bars          : avg 12.41  min 0  max 36\nhold hours         : avg 12.41  min 0.00  max 36.00\nwallet             : 10,000.00 -> 9,951.69  peak 10,032.41\nnet PnL            : -48.31 USDT   on invested 57,356.52  (-0.08% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : -0.48% of starting equity  buy&hold 948.87%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : -42.11 / -6.21  WR 38.94% / 39.90%\nexpectancy         : -0.0425 USDT/trade  (-0.0439% per unit invested)\nprofit factor      : 0.8978 \nwin rate           : 39.46%  [36.66%, 42.33%] Wilson 95%\npayoff             : 1.378   avg win 0.95 / avg loss -0.69\nSQN / Kelly        : -1.344 / -0.045\nstreaks (W/L)      : 9 / 11\nSharpe daily raw   : -0.0268   (n=2300)\nSharpe annualised  : -0.5111   (factor sqrt(365))\nSharpe HAC raw/ann : -0.0268 / -0.5129   (Bartlett lag 8)\nSortino annualised : -0.3929\nvolatility (ann.)  : 0.15%\nmax drawdown (MTM) : 83.53  (0.83%) over 1452.8 days\navg drawdown       : 0.20%  over 31.0 days\nCalmar / recovery  : -0.0923 / -0.5784\nexposure / turnover: 25.58% / 11.47x\nfees / slip / fund : 63.07 / 28.74 / 0.00\nentry-bar exits    : 97 (8.5%)\nambiguous intrabar : 5 (0.4%)\nliquidations       : 0   status UNKNOWN\nskips              : 294 {'SKIP_POSITION_LIMIT': 294}\n==============================================================================\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "n_trades": 1149,
+    "profit_factor": 1.009072419925677,
+    "sharpe_ann": 0.04573491250364592,
+    "hac_sharpe_ann": 0.046215609938373106,
+    "max_drawdown": 0.003366707748699523,
+    "win_rate": 0.3907745865970409,
+    "net_pnl": 2.57901277500423,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.3 days  (2020-01-01 -> 2026-04-19)\ntrades             : 1149  (longs 539 / shorts 610)  15.20/month\nsimultaneous open  : max 1  avg 0.24  (longs max 1 / avg 0.11; shorts max 1 / avg 0.13)\nexits              : TP 370  SL 647  other 132  {'target': 370, 'stop': 647, 'max_hold': 132}\nhold bars          : avg 11.73  min 0  max 36\nhold hours         : avg 11.73  min 0.00  max 36.00\nwallet             : 10,000.00 -> 10,002.58  peak 10,024.28\nnet PnL            : 2.58 USDT   on invested 26,401.60  (0.01% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : 0.03% of starting equity  buy&hold 1698.70%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : -0.60 / 3.18  WR 40.63% / 37.70%\nexpectancy         : 0.0022 USDT/trade  (-0.0221% per unit invested)\nprofit factor      : 1.0091 \nwin rate           : 39.08%  [36.30%, 41.93%] Wilson 95%\npayoff             : 1.573   avg win 0.64 / avg loss -0.41\nSQN / Kelly        : 0.114 / 0.004\nstreaks (W/L)      : 11 / 13\nSharpe daily raw   : 0.0024   (n=2300)\nSharpe annualised  : 0.0457   (factor sqrt(365))\nSharpe HAC raw/ann : 0.0024 / 0.0462   (Bartlett lag 8)\nSortino annualised : 0.0364\nvolatility (ann.)  : 0.09%\nmax drawdown (MTM) : 33.75  (0.34%) over 1438.1 days\navg drawdown       : 0.11%  over 28.5 days\nCalmar / recovery  : 0.0122 / 0.0764\nexposure / turnover: 24.40% / 5.28x\nfees / slip / fund : 29.04 / 13.27 / 0.00\nentry-bar exits    : 78 (6.8%)\nambiguous intrabar : 4 (0.3%)\nliquidations       : 0   status UNKNOWN\nskips              : 285 {'SKIP_POSITION_LIMIT': 285}\n==============================================================================\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "4h",
+    "n_trades": 340,
+    "profit_factor": 1.1487079943650114,
+    "sharpe_ann": 0.3866049934096556,
+    "hac_sharpe_ann": 0.35647763168446456,
+    "max_drawdown": 0.0027308970100578347,
+    "win_rate": 0.4411764705882353,
+    "net_pnl": 37.08971805499823,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.3 days  (2020-01-01 -> 2026-04-19)\ntrades             : 340  (longs 167 / shorts 173)  4.50/month\nsimultaneous open  : max 1  avg 0.27  (longs max 1 / avg 0.13; shorts max 1 / avg 0.14)\nexits              : TP 110  SL 164  other 66  {'stop': 164, 'target': 110, 'max_hold': 66}\nhold bars          : avg 10.70  min 0  max 24\nhold hours         : avg 42.80  min 0.00  max 96.00\nwallet             : 10,000.00 -> 10,037.09  peak 10,058.19\nnet PnL            : 37.09 USDT   on invested 17,200.39  (0.22% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : 0.37% of starting equity  buy&hold 946.26%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : 16.10 / 20.99  WR 46.71% / 41.62%\nexpectancy         : 0.1091 USDT/trade  (0.2702% per unit invested)\nprofit factor      : 1.1487 \nwin rate           : 44.12%  [38.93%, 49.43%] Wilson 95%\npayoff             : 1.455   avg win 1.91 / avg loss -1.31\nSQN / Kelly        : 0.967 / 0.057\nstreaks (W/L)      : 4 / 8\nSharpe daily raw   : 0.0202   (n=2300)\nSharpe annualised  : 0.3866   (factor sqrt(365))\nSharpe HAC raw/ann : 0.0187 / 0.3565   (Bartlett lag 8)\nSortino annualised : 0.2512\nvolatility (ann.)  : 0.15%\nmax drawdown (MTM) : 27.47  (0.27%) over 794.3 days\navg drawdown       : 0.07%  over 26.0 days\nCalmar / recovery  : 0.2152 / 1.3503\nexposure / turnover: 26.36% / 3.44x\nfees / slip / fund : 18.92 / 8.62 / 0.00\nentry-bar exits    : 16 (4.7%)\nambiguous intrabar : 2 (0.6%)\nliquidations       : 0   status UNKNOWN\nskips              : 66 {'SKIP_POSITION_LIMIT': 66}\n==============================================================================\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "4h",
+    "n_trades": 316,
+    "profit_factor": 1.0756310998530056,
+    "sharpe_ann": 0.19370104866068677,
+    "hac_sharpe_ann": 0.187551883027136,
+    "max_drawdown": 0.0016022981592017072,
+    "win_rate": 0.370253164556962,
+    "net_pnl": 10.937186205026592,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.3 days  (2020-01-01 -> 2026-04-19)\ntrades             : 316  (longs 149 / shorts 167)  4.18/month\nsimultaneous open  : max 1  avg 0.22  (longs max 1 / avg 0.10; shorts max 1 / avg 0.12)\nexits              : TP 92  SL 178  other 46  {'target': 92, 'max_hold': 46, 'stop': 178}\nhold bars          : avg 9.32  min 0  max 24\nhold hours         : avg 37.29  min 0.00  max 96.00\nwallet             : 10,000.00 -> 10,010.94  peak 10,016.65\nnet PnL            : 10.94 USDT   on invested 7,062.83  (0.15% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : 0.11% of starting equity  buy&hold 1689.27%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : -7.14 / 18.08  WR 34.23% / 39.52%\nexpectancy         : 0.0346 USDT/trade  (0.0239% per unit invested)\nprofit factor      : 1.0756 \nwin rate           : 37.03%  [31.89%, 42.48%] Wilson 95%\npayoff             : 1.829   avg win 1.33 / avg loss -0.73\nSQN / Kelly        : 0.491 / 0.026\nstreaks (W/L)      : 6 / 9\nSharpe daily raw   : 0.0101   (n=2300)\nSharpe annualised  : 0.1937   (factor sqrt(365))\nSharpe HAC raw/ann : 0.0098 / 0.1876   (Bartlett lag 8)\nSortino annualised : 0.1255\nvolatility (ann.)  : 0.09%\nmax drawdown (MTM) : 16.05  (0.16%) over 1328.2 days\navg drawdown       : 0.07%  over 48.3 days\nCalmar / recovery  : 0.1083 / 0.6815\nexposure / turnover: 21.34% / 1.41x\nfees / slip / fund : 7.76 / 3.55 / 0.00\nentry-bar exits    : 16 (5.1%)\nambiguous intrabar : 0 (0.0%)\nliquidations       : 0   status UNKNOWN\nskips              : 94 {'SKIP_POSITION_LIMIT': 94}\n==============================================================================\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  }
+]

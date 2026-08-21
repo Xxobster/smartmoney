@@ -1,0 +1,660 @@
+{
+  "generated_utc": "2026-08-19T03:53:24.519932+00:00",
+  "period": {
+    "since_ms": 1786320000000,
+    "until_ms": 1787111604519,
+    "since_utc": "2026-08-10T00:00:00+00:00",
+    "until_utc": "2026-08-19T03:53:24.519000+00:00"
+  },
+  "readiness_max": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "FORWARD_MICRO_LIVE_RECONCILE (RESEARCH_PROXY candles)",
+  "code_hashes": {
+    "research_signals.py": "c9325a4e53929c44",
+    "live_signals_core.py": "8a2d6fe0a8ff145c"
+  },
+  "symbols": {
+    "BTCUSDT": {
+      "data_compare": {
+        "label_a": "local_research_db",
+        "label_b": "vps_shared_candles",
+        "n_a": 57966,
+        "n_b": 58088,
+        "n_both": 57966,
+        "only_a": 0,
+        "only_b": 122,
+        "n_mismatch_cells": 36,
+        "ohlc_exact_match": false,
+        "window_both": 54,
+        "window_first": "2026-08-10T00:00:00+00:00",
+        "window_last": "2026-08-12T05:00:00+00:00",
+        "diffs": {
+          "open": {
+            "max_abs": 56.89999999999418,
+            "n_ne": 3
+          },
+          "high": {
+            "max_abs": 125.0,
+            "n_ne": 5
+          },
+          "low": {
+            "max_abs": 177.10000000000582,
+            "n_ne": 4
+          },
+          "close": {
+            "max_abs": 120.19999999999709,
+            "n_ne": 3
+          },
+          "volume": {
+            "max_abs": 23890.642,
+            "n_ne": 21
+          }
+        },
+        "window_compare": {
+          "label_a": "local_window",
+          "label_b": "vps_window",
+          "n_a": 54,
+          "n_b": 176,
+          "n_both": 54,
+          "only_a": 0,
+          "only_b": 122,
+          "n_mismatch_cells": 0,
+          "ohlc_exact_match": false,
+          "window_both": 54,
+          "window_first": "2026-08-10T00:00:00+00:00",
+          "window_last": "2026-08-12T05:00:00+00:00",
+          "diffs": {
+            "open": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "high": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "low": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "close": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "volume": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            }
+          }
+        }
+      },
+      "logic_research_vs_live_core_equal": true,
+      "logic_detail": {
+        "atr": true,
+        "long_signal": true,
+        "short_signal": true,
+        "stop_price": true,
+        "target_price": true
+      },
+      "expected_signals_on_vps_candles": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "signal_utc": "2026-08-11T14:00:00+00:00",
+          "entry_ts_ms": 1786460400000,
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "side": "short",
+          "close": 63747.0,
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715,
+          "atr": 186.87142857142837
+        },
+        {
+          "signal_ts_ms": 1786748400000,
+          "signal_utc": "2026-08-14T23:00:00+00:00",
+          "entry_ts_ms": 1786752000000,
+          "entry_utc": "2026-08-15T00:00:00+00:00",
+          "side": "short",
+          "close": 63015.0,
+          "stop": 63555.50714285714,
+          "target": 61393.47857142858,
+          "atr": 239.03571428571377
+        }
+      ],
+      "expected_signals_on_local_db": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "signal_utc": "2026-08-11T14:00:00+00:00",
+          "entry_ts_ms": 1786460400000,
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "side": "short",
+          "close": 63747.0,
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715,
+          "atr": 186.87142857142837
+        }
+      ],
+      "live_signals_helper_count": 2,
+      "live_filled": [
+        {
+          "event_ts_utc": "2026-08-11T15:00:39Z",
+          "side": "short",
+          "entry_ts_ms": 1786460400000,
+          "signal_ts_ms": 1786456800000,
+          "entry_price": 63766.7,
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715,
+          "qty": 0.001,
+          "leverage": 55,
+          "source": "entry_filled"
+        },
+        {
+          "event_ts_utc": "2026-08-12T12:05:07Z",
+          "side": "long",
+          "entry_ts_ms": 1786460400000,
+          "signal_ts_ms": null,
+          "entry_price": 63766.7,
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715,
+          "exit_price": 64243.3,
+          "closed_pnl": -0.53846109,
+          "qty": 0.001,
+          "source": "closed_trade"
+        }
+      ],
+      "live_open": [],
+      "matches": [
+        {
+          "expected": {
+            "signal_ts_ms": 1786456800000,
+            "signal_utc": "2026-08-11T14:00:00+00:00",
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "side": "short",
+            "close": 63747.0,
+            "stop": 64240.614285714284,
+            "target": 62266.15714285715,
+            "atr": 186.87142857142837
+          },
+          "live_hit": true,
+          "live": {
+            "event_ts_utc": "2026-08-11T15:00:39Z",
+            "side": "short",
+            "entry_ts_ms": 1786460400000,
+            "signal_ts_ms": 1786456800000,
+            "entry_price": 63766.7,
+            "stop": 64240.614285714284,
+            "target": 62266.15714285715,
+            "qty": 0.001,
+            "leverage": 55,
+            "source": "entry_filled"
+          },
+          "stop_match": true,
+          "target_match": true,
+          "fill_vs_signal_close_slip_bps": -3.090341506266505
+        },
+        {
+          "expected": {
+            "signal_ts_ms": 1786748400000,
+            "signal_utc": "2026-08-14T23:00:00+00:00",
+            "entry_ts_ms": 1786752000000,
+            "entry_utc": "2026-08-15T00:00:00+00:00",
+            "side": "short",
+            "close": 63015.0,
+            "stop": 63555.50714285714,
+            "target": 61393.47857142858,
+            "atr": 239.03571428571377
+          },
+          "live_hit": false,
+          "live": null,
+          "stop_match": null,
+          "target_match": null,
+          "fill_vs_signal_close_slip_bps": null
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "data_compare": {
+        "label_a": "local_research_db",
+        "label_b": "vps_shared_candles",
+        "n_a": 57966,
+        "n_b": 58078,
+        "n_both": 57966,
+        "only_a": 0,
+        "only_b": 112,
+        "n_mismatch_cells": 33,
+        "ohlc_exact_match": false,
+        "window_both": 54,
+        "window_first": "2026-08-10T00:00:00+00:00",
+        "window_last": "2026-08-12T05:00:00+00:00",
+        "diffs": {
+          "open": {
+            "max_abs": 12.190000000000055,
+            "n_ne": 2
+          },
+          "high": {
+            "max_abs": 30.0,
+            "n_ne": 3
+          },
+          "low": {
+            "max_abs": 10.769999999999982,
+            "n_ne": 4
+          },
+          "close": {
+            "max_abs": 24.779999999999745,
+            "n_ne": 2
+          },
+          "volume": {
+            "max_abs": 126393.75099999999,
+            "n_ne": 22
+          }
+        },
+        "window_compare": {
+          "label_a": "local_window",
+          "label_b": "vps_window",
+          "n_a": 54,
+          "n_b": 166,
+          "n_both": 54,
+          "only_a": 0,
+          "only_b": 112,
+          "n_mismatch_cells": 0,
+          "ohlc_exact_match": false,
+          "window_both": 54,
+          "window_first": "2026-08-10T00:00:00+00:00",
+          "window_last": "2026-08-12T05:00:00+00:00",
+          "diffs": {
+            "open": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "high": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "low": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "close": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "volume": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            }
+          }
+        }
+      },
+      "logic_research_vs_live_core_equal": true,
+      "logic_detail": {
+        "atr": true,
+        "long_signal": true,
+        "short_signal": true,
+        "stop_price": true,
+        "target_price": true
+      },
+      "expected_signals_on_vps_candles": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "signal_utc": "2026-08-11T14:00:00+00:00",
+          "entry_ts_ms": 1786460400000,
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "side": "short",
+          "close": 1872.67,
+          "stop": 1890.1749999999997,
+          "target": 1820.155000000001,
+          "atr": 7.684999999999978
+        },
+        {
+          "signal_ts_ms": 1786575600000,
+          "signal_utc": "2026-08-12T23:00:00+00:00",
+          "entry_ts_ms": 1786579200000,
+          "entry_utc": "2026-08-13T00:00:00+00:00",
+          "side": "short",
+          "close": 1878.8,
+          "stop": 1890.1607142857142,
+          "target": 1844.7178571428572,
+          "atr": 10.463571428571445
+        }
+      ],
+      "expected_signals_on_local_db": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "signal_utc": "2026-08-11T14:00:00+00:00",
+          "entry_ts_ms": 1786460400000,
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "side": "short",
+          "close": 1872.67,
+          "stop": 1890.1749999999997,
+          "target": 1820.155000000001,
+          "atr": 7.684999999999978
+        }
+      ],
+      "live_signals_helper_count": 2,
+      "live_filled": [
+        {
+          "event_ts_utc": "2026-08-11T15:00:41Z",
+          "side": "short",
+          "entry_ts_ms": 1786460400000,
+          "signal_ts_ms": 1786456800000,
+          "entry_price": 1872.33,
+          "stop": 1890.1749999999997,
+          "target": 1820.155000000001,
+          "qty": 0.01,
+          "leverage": 48,
+          "source": "entry_filled"
+        },
+        {
+          "event_ts_utc": "2026-08-12T04:21:13Z",
+          "side": "long",
+          "entry_ts_ms": 1786460400000,
+          "signal_ts_ms": null,
+          "entry_price": 1872.33,
+          "stop": 1890.1749999999997,
+          "target": 1820.155000000001,
+          "exit_price": 1890.98,
+          "closed_pnl": -0.20505348,
+          "qty": 0.01,
+          "source": "closed_trade"
+        }
+      ],
+      "live_open": [],
+      "matches": [
+        {
+          "expected": {
+            "signal_ts_ms": 1786456800000,
+            "signal_utc": "2026-08-11T14:00:00+00:00",
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "side": "short",
+            "close": 1872.67,
+            "stop": 1890.1749999999997,
+            "target": 1820.155000000001,
+            "atr": 7.684999999999978
+          },
+          "live_hit": true,
+          "live": {
+            "event_ts_utc": "2026-08-11T15:00:41Z",
+            "side": "short",
+            "entry_ts_ms": 1786460400000,
+            "signal_ts_ms": 1786456800000,
+            "entry_price": 1872.33,
+            "stop": 1890.1749999999997,
+            "target": 1820.155000000001,
+            "qty": 0.01,
+            "leverage": 48,
+            "source": "entry_filled"
+          },
+          "stop_match": true,
+          "target_match": true,
+          "fill_vs_signal_close_slip_bps": 1.8155895058934328
+        },
+        {
+          "expected": {
+            "signal_ts_ms": 1786575600000,
+            "signal_utc": "2026-08-12T23:00:00+00:00",
+            "entry_ts_ms": 1786579200000,
+            "entry_utc": "2026-08-13T00:00:00+00:00",
+            "side": "short",
+            "close": 1878.8,
+            "stop": 1890.1607142857142,
+            "target": 1844.7178571428572,
+            "atr": 10.463571428571445
+          },
+          "live_hit": false,
+          "live": null,
+          "stop_match": null,
+          "target_match": null,
+          "fill_vs_signal_close_slip_bps": null
+        }
+      ]
+    },
+    "SOLUSDT": {
+      "data_compare": {
+        "label_a": "local_research_db",
+        "label_b": "vps_shared_candles",
+        "n_a": 51791,
+        "n_b": 51903,
+        "n_both": 51791,
+        "only_a": 0,
+        "only_b": 112,
+        "n_mismatch_cells": 28,
+        "ohlc_exact_match": false,
+        "window_both": 54,
+        "window_first": "2026-08-10T00:00:00+00:00",
+        "window_last": "2026-08-12T05:00:00+00:00",
+        "diffs": {
+          "open": {
+            "max_abs": 0.3800000000000239,
+            "n_ne": 2
+          },
+          "high": {
+            "max_abs": 0.9699999999999989,
+            "n_ne": 2
+          },
+          "low": {
+            "max_abs": 0.539999999999992,
+            "n_ne": 3
+          },
+          "close": {
+            "max_abs": 0.9699999999999989,
+            "n_ne": 2
+          },
+          "volume": {
+            "max_abs": 281143.0,
+            "n_ne": 19
+          }
+        },
+        "window_compare": {
+          "label_a": "local_window",
+          "label_b": "vps_window",
+          "n_a": 54,
+          "n_b": 166,
+          "n_both": 54,
+          "only_a": 0,
+          "only_b": 112,
+          "n_mismatch_cells": 0,
+          "ohlc_exact_match": false,
+          "window_both": 54,
+          "window_first": "2026-08-10T00:00:00+00:00",
+          "window_last": "2026-08-12T05:00:00+00:00",
+          "diffs": {
+            "open": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "high": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "low": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "close": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            },
+            "volume": {
+              "max_abs": 0.0,
+              "n_ne": 0
+            }
+          }
+        }
+      },
+      "logic_research_vs_live_core_equal": true,
+      "logic_detail": {
+        "atr": true,
+        "long_signal": true,
+        "short_signal": true,
+        "stop_price": true,
+        "target_price": true
+      },
+      "expected_signals_on_vps_candles": [
+        {
+          "signal_ts_ms": 1786575600000,
+          "signal_utc": "2026-08-12T23:00:00+00:00",
+          "entry_ts_ms": 1786579200000,
+          "entry_utc": "2026-08-13T00:00:00+00:00",
+          "side": "short",
+          "close": 75.59,
+          "stop": 76.005,
+          "target": 74.34500000000003,
+          "atr": 0.42499999999999716
+        },
+        {
+          "signal_ts_ms": 1786914000000,
+          "signal_utc": "2026-08-16T21:00:00+00:00",
+          "entry_ts_ms": 1786917600000,
+          "entry_utc": "2026-08-16T22:00:00+00:00",
+          "side": "short",
+          "close": 74.3,
+          "stop": 74.80357142857143,
+          "target": 72.7892857142857,
+          "atr": 0.26785714285714285
+        }
+      ],
+      "expected_signals_on_local_db": [],
+      "live_signals_helper_count": 2,
+      "live_filled": [
+        {
+          "event_ts_utc": "2026-08-16T22:01:04Z",
+          "side": "short",
+          "entry_ts_ms": 1786917600000,
+          "signal_ts_ms": 1786914000000,
+          "entry_price": 74.13,
+          "stop": 74.80357142857143,
+          "target": 72.7892857142857,
+          "qty": 0.1,
+          "leverage": 49,
+          "source": "entry_filled"
+        },
+        {
+          "event_ts_utc": "2026-08-17T01:02:33Z",
+          "side": "long",
+          "entry_ts_ms": 1786917600000,
+          "signal_ts_ms": null,
+          "entry_price": 74.13,
+          "stop": 74.80357142857143,
+          "target": 72.7892857142857,
+          "exit_price": 74.8,
+          "closed_pnl": -0.0750593,
+          "qty": 0.1,
+          "source": "closed_trade"
+        }
+      ],
+      "live_open": [],
+      "matches": [
+        {
+          "expected": {
+            "signal_ts_ms": 1786575600000,
+            "signal_utc": "2026-08-12T23:00:00+00:00",
+            "entry_ts_ms": 1786579200000,
+            "entry_utc": "2026-08-13T00:00:00+00:00",
+            "side": "short",
+            "close": 75.59,
+            "stop": 76.005,
+            "target": 74.34500000000003,
+            "atr": 0.42499999999999716
+          },
+          "live_hit": false,
+          "live": null,
+          "stop_match": null,
+          "target_match": null,
+          "fill_vs_signal_close_slip_bps": null
+        },
+        {
+          "expected": {
+            "signal_ts_ms": 1786914000000,
+            "signal_utc": "2026-08-16T21:00:00+00:00",
+            "entry_ts_ms": 1786917600000,
+            "entry_utc": "2026-08-16T22:00:00+00:00",
+            "side": "short",
+            "close": 74.3,
+            "stop": 74.80357142857143,
+            "target": 72.7892857142857,
+            "atr": 0.26785714285714285
+          },
+          "live_hit": true,
+          "live": {
+            "event_ts_utc": "2026-08-16T22:01:04Z",
+            "side": "short",
+            "entry_ts_ms": 1786917600000,
+            "signal_ts_ms": 1786914000000,
+            "entry_price": 74.13,
+            "stop": 74.80357142857143,
+            "target": 72.7892857142857,
+            "qty": 0.1,
+            "leverage": 49,
+            "source": "entry_filled"
+          },
+          "stop_match": true,
+          "target_match": true,
+          "fill_vs_signal_close_slip_bps": 22.88021534320346
+        }
+      ]
+    }
+  },
+  "live": {
+    "open_trades": [],
+    "handled": [
+      {
+        "symbol": "BTCUSDT",
+        "entry_ts_ms": 1786460400000,
+        "side": "short",
+        "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3612.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+        "created_utc": "2026-08-11T16:00:16Z"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "entry_ts_ms": 1786460400000,
+        "side": "short",
+        "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3619.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 1872.67, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+        "created_utc": "2026-08-11T16:00:25Z"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "entry_ts_ms": 1786917600000,
+        "side": "short",
+        "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3613.0, \"decision_delay_sec\": 3613.0, \"candle_lag_sec\": 3613.0, \"candle_behind_sec\": 3600.0, \"last_closed_ts_ms\": 1786914000000, \"expected_closed_ts_ms\": 1786917600000, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786914000000, \"entry_ts_ms\": 1786917600000, \"entry_ref_price\": 74.3, \"stop_price\": 74.80357142857143, \"target_price\": 72.7892857142857, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+        "created_utc": "2026-08-16T23:00:16Z"
+      }
+    ],
+    "closed_n": 3,
+    "entry_filled_events": [
+      {
+        "id": 4,
+        "ts_utc": "2026-08-11T15:00:39Z",
+        "symbol": "BTCUSDT",
+        "kind": "entry_filled",
+        "detail_json": "{\"symbol\": \"BTCUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 63766.7, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"qty\": 0.001, \"leverage\": 55, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460420000, \"decision_delay_sec\": 20.0, \"entry_est\": 63766.7, \"qty\": 0.001, \"leverage\": 55, \"equity_base\": 13.10336746, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"64240.6\", \"target\": \"62266.2\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.001, \"avgPrice\": 63766.7}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 55}}"
+      },
+      {
+        "id": 5,
+        "ts_utc": "2026-08-11T15:00:41Z",
+        "symbol": "ETHUSDT",
+        "kind": "entry_filled",
+        "detail_json": "{\"symbol\": \"ETHUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 1872.33, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"qty\": 0.01, \"leverage\": 48, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460425000, \"decision_delay_sec\": 25.0, \"entry_est\": 1872.44, \"qty\": 0.01, \"leverage\": 48, \"equity_base\": 13.06829577, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"1890.17\", \"target\": \"1820.16\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.01, \"avgPrice\": 1872.33}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 1872.67, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 48}}"
+      },
+      {
+        "id": 180,
+        "ts_utc": "2026-08-16T22:01:04Z",
+        "symbol": "SOLUSDT",
+        "kind": "entry_filled",
+        "detail_json": "{\"symbol\": \"SOLUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786917600000, \"entry_price\": 74.13, \"stop_price\": 74.80357142857143, \"target_price\": 72.7892857142857, \"qty\": 0.1, \"leverage\": 49, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786917600000, \"signal_ts_ms\": 1786914000000, \"last_closed_ts_ms\": 1786914000000, \"expected_closed_ts_ms\": 1786914000000, \"decision_ts_ms\": 1786917626000, \"decision_delay_sec\": 26.0, \"candle_lag_sec\": 26.0, \"candle_behind_sec\": 0.0, \"entry_est\": 74.23, \"qty\": 0.1, \"leverage\": 50, \"equity_base\": 12.35985289, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"74.80\", \"target\": \"72.79\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.1, \"avgPrice\": 74.13}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786914000000, \"entry_ts_ms\": 1786917600000, \"entry_ref_price\": 74.3, \"stop_price\": 74.80357142857143, \"target_price\": 72.7892857142857, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 49}}"
+      }
+    ]
+  },
+  "verdict": {
+    "data_similar_exact_on_overlap_window": false,
+    "indicator_strategy_logic_identical_research_vs_live_core": true,
+    "live_entries_match_resim_signals_stops_targets": false,
+    "principal_blockers": [
+      "Local research OHLCV does not exactly match VPS shared Binance 1h on the live window (local may be stale or diverge).",
+      "Live fills/open trades do not match re-sim signals/stops/targets on VPS candles.",
+      "botsgeneral freshness: at each hour open, last complete 1h bar often lags ~2h briefly (collector delay) \u2192 bot waits / can skip entries.",
+      "Protective stop set_trading_stop returned ErrCode 34040 (not modified) after BTC/ETH fills \u2014 verify exchange SL/TP actually present.",
+      "Evidence class remains RESEARCH_PROXY (Binance Last candles vs Bybit execution)."
+    ],
+    "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "note": "Historical SHADOW_READY unchanged; this is forward micro-live reconciliation only. Exact live/backtest identity also requires same fill model (Bybit taker vs sim), margin mode, and protective-order success."
+  }
+}

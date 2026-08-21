@@ -1,0 +1,52 @@
+{
+  "generated_utc": "2026-08-13T05:03:19.095959+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "RESEARCH_PROXY_binance_1h_bybit_cost_model",
+  "note": "Full-history 1h path (research_ohlcv.sqlite). BTC/ETH have no 1m in research DB; SOL 1m is incomplete. SOL is exploratory and not inside the frozen BTC+ETH SHADOW_READY claim. Last-6-month trade list is a slice of the full-history run, not a new selection.",
+  "last_6m_start_utc": "2026-02-13T00:00:00+00:00",
+  "symbols": [
+    {
+      "symbol": "ETHUSDT",
+      "status": "ok",
+      "bars_start_utc": "2020-01-01T00:00:00+00:00",
+      "bars_end_utc": "2026-08-12T05:00:00+00:00",
+      "metrics": {
+        "n_trades": 520,
+        "n_longs": 260,
+        "n_shorts": 260,
+        "start_utc": "2020-01-01T00:00:00+00:00",
+        "end_utc": "2026-08-12T05:00:00+00:00",
+        "span_days": 2415.2083333333335,
+        "trades_per_month": 6.5532649012335025,
+        "net_pnl": 67.95868068997515,
+        "ending_equity": 10067.958680689975,
+        "return_on_invested": 0.006053574523432104,
+        "total_return": 0.006795868068997515,
+        "profit_factor": 1.4907411501171954,
+        "win_rate": 0.4326923076923077,
+        "expectancy": 0.13068977055769226,
+        "payoff_ratio": 1.9545272857092117,
+        "sharpe_ann": 1.2395177511292066,
+        "hac_sharpe_ann": 1.2456705633268328,
+        "sortino_ann": 0.9552780624214754,
+        "max_drawdown_pct": 0.0008368410014452066,
+        "max_drawdown_duration_days": 451.08333333333337,
+        "exposure": 0.17515440085567402,
+        "total_fees": 12.353519310000001,
+        "total_slippage": 5.645700000000015,
+        "total_funding": 0.0,
+        "n_exits_tp": 111,
+        "n_exits_sl": 246,
+        "n_exits_other": 163,
+        "long_pnl": 38.345717399999984,
+        "short_pnl": 29.612963289999996,
+        "avg_hold_hours": 19.525,
+        "liquidations": 0,
+        "wallet_blown": false,
+        "buy_hold_return": 13.677068778140042,
+        "n_trades_last_6m": 42,
+        "net_pnl_last_6m": -1.2000941050000065
+      }
+    }
+  ]
+}

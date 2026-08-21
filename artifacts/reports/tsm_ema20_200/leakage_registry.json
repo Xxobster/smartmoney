@@ -1,0 +1,71 @@
+{
+  "columns": {
+    "close": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T04:10:11Z",
+      "last_seen_utc": "2026-08-10T04:10:11Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2063 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1d"
+    },
+    "ema20": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T04:10:11Z",
+      "last_seen_utc": "2026-08-10T04:10:11Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2152 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1d"
+    },
+    "ema200": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T04:10:11Z",
+      "last_seen_utc": "2026-08-10T04:10:11Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2338 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1d"
+    },
+    "high": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T04:10:11Z",
+      "last_seen_utc": "2026-08-10T04:10:11Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2065 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1d"
+    },
+    "low": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T04:10:11Z",
+      "last_seen_utc": "2026-08-10T04:10:11Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2058 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1d"
+    },
+    "open": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T04:10:11Z",
+      "last_seen_utc": "2026-08-10T04:10:11Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2065 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1d"
+    }
+  },
+  "updated_at_utc": "2026-08-10T04:10:11Z"
+}

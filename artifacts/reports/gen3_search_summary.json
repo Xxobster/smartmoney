@@ -1,0 +1,46 @@
+{
+  "generation": "gen3_quality_over_churn_20260727",
+  "freeze_hash": "3094f22aa8354b7954fbb871dbc20ea805a2934aced160f65e9fc7f596d9e250",
+  "best_inner_score": -0.027598272345777497,
+  "best_family": "H2_sweep_fvg_strict",
+  "spec": {
+    "name": "optuna_SMC_Fallback_ollama:qwen2.5:1.5b-instruct_1",
+    "bias_timeframe": "1h",
+    "structure_timeframe": "1h",
+    "execution_timeframe": "5m",
+    "swing_left": 3,
+    "swing_right": 5,
+    "bos_requires_close": true,
+    "fvg_model": "wick",
+    "require_liquidity_sweep": true,
+    "require_bos_or_choch": true,
+    "require_fvg": true,
+    "require_order_block": false,
+    "require_premium_discount": true,
+    "min_confluence_count": 3,
+    "volume_confirm_lookback": 8,
+    "volume_confirm_mult": 2.0,
+    "stop_beyond_sweep_atr_mult": 0.1,
+    "target_rr": 4.0,
+    "use_pd_targets": false,
+    "max_hold_bars": 96,
+    "risk_fraction": 0.005,
+    "event_lookback": 36,
+    "rationale": "Parse failed; used logical seed. Raw snippet: ```json\n{\n  \"name\": \"Smart Money Build Position Strategy\",\n  \"bias_timeframe\": \"1h\", // 1 hour bias time frame\n  \"structure_timeframe\": \"4h\", // 4 hours structure time frame\n  \"execution_timeframe\": \"",
+    "economic_justification": ""
+  },
+  "family_results": [
+    {
+      "family": "H1_sweep_vol_pd",
+      "score": -0.02924907491662233,
+      "has_spec": true
+    },
+    {
+      "family": "H2_sweep_fvg_strict",
+      "score": -0.027598272345777497,
+      "has_spec": true
+    }
+  ],
+  "n_trials": 487,
+  "engine": "tradesim"
+}

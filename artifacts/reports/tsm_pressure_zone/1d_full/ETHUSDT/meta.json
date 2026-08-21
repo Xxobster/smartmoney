@@ -1,0 +1,16 @@
+{
+  "symbol": "ETHUSDT",
+  "timeframe": "1d",
+  "strategy_id": "tsm_pressure_zone",
+  "run_id": "tsm_pressure_zone_ethusdt_1d_full",
+  "report_dir": "D:\\projectsdata\\backtests\\reports\\tsm_pressure_zone_ethusdt_1d_full",
+  "n_trades": 166,
+  "readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "RESEARCH_PROXY",
+  "artifacts": {
+    "metrics": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_pressure_zone\\1d_full\\ETHUSDT\\metrics_full.json",
+    "trades_csv": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_pressure_zone\\1d_full\\ETHUSDT\\trades_all.csv",
+    "trades_json": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_pressure_zone\\1d_full\\ETHUSDT\\trades_all.json",
+    "headline": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_pressure_zone\\1d_full\\ETHUSDT\\headline.txt"
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "generated_utc": "2026-08-12T04:08:34.081201+00:00",
+  "period_utc": [
+    "2026-08-10T00:00:00+00:00",
+    "2026-08-12T04:00:00+00:00"
+  ],
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "FORWARD_MICRO_LIVE_RECONCILE + RESEARCH_PROXY",
+  "code": {
+    "research_signals_sha": "c9325a4e53929c44",
+    "live_signals_core_sha": "8a2d6fe0a8ff145c"
+  },
+  "local_research_db_coverage": {
+    "BTCUSDT": {
+      "n": 55209,
+      "min_utc": "2020-01-01T00:00:00+00:00",
+      "max_utc": "2026-04-19T08:00:00+00:00",
+      "covers_live_window": false
+    },
+    "ETHUSDT": {
+      "n": 55209,
+      "min_utc": "2020-01-01T00:00:00+00:00",
+      "max_utc": "2026-04-19T08:00:00+00:00",
+      "covers_live_window": false
+    },
+    "SOLUSDT": {
+      "n": 49034,
+      "min_utc": "2020-09-14T07:00:00+00:00",
+      "max_utc": "2026-04-19T08:00:00+00:00",
+      "covers_live_window": false
+    }
+  },
+  "symbols": {
+    "BTCUSDT": {
+      "vps_vs_binance_api_window": {
+        "n_both": 52,
+        "only_a": 0,
+        "only_b": 0,
+        "cols": {
+          "open": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "high": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "low": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "close": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "volume": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          }
+        },
+        "exact": true,
+        "ohlc_exact_ignoring_volume_and_coverage": true
+      },
+      "logic_research_equals_live_core": true,
+      "expected_signals_vps": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "signal_utc": "2026-08-11T14:00:00+00:00",
+          "entry_ts_ms": 1786460400000,
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "side": "short",
+          "close": 63747.0,
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715
+        }
+      ],
+      "expected_signals_api_hist": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "side": "short",
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715,
+          "close": 63747.0
+        }
+      ],
+      "signals_vps_vs_api_key_agree": true,
+      "matches": [
+        {
+          "expected": {
+            "signal_ts_ms": 1786456800000,
+            "signal_utc": "2026-08-11T14:00:00+00:00",
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "side": "short",
+            "close": 63747.0,
+            "stop": 64240.614285714284,
+            "target": 62266.15714285715
+          },
+          "status": "MATCH",
+          "live_entry_price": 63766.7,
+          "live_stop": 64240.614285714284,
+          "live_target": 62266.15714285715,
+          "stop_ok": true,
+          "target_ok": true,
+          "fill_vs_signal_close_slip_bps_adverse": -3.090341506266505,
+          "qty": 0.001,
+          "leverage": 55
+        }
+      ],
+      "handled_entries": [
+        {
+          "symbol": "BTCUSDT",
+          "entry_ts_ms": 1786460400000,
+          "side": "short",
+          "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3612.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+          "created_utc": "2026-08-11T16:00:16Z"
+        }
+      ],
+      "entry_filled_events": [
+        {
+          "ts_utc": "2026-08-11T15:00:39Z",
+          "symbol": "BTCUSDT",
+          "kind": "entry_filled",
+          "detail_json": "{\"symbol\": \"BTCUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 63766.7, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"qty\": 0.001, \"leverage\": 55, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460420000, \"decision_delay_sec\": 20.0, \"entry_est\": 63766.7, \"qty\": 0.001, \"leverage\": 55, \"equity_base\": 13.10336746, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"64240.6\", \"target\": \"62266.2\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.001, \"avgPrice\": 63766.7}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 55}}"
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "vps_vs_binance_api_window": {
+        "n_both": 52,
+        "only_a": 0,
+        "only_b": 0,
+        "cols": {
+          "open": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "high": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "low": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "close": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "volume": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          }
+        },
+        "exact": true,
+        "ohlc_exact_ignoring_volume_and_coverage": true
+      },
+      "logic_research_equals_live_core": true,
+      "expected_signals_vps": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "signal_utc": "2026-08-11T14:00:00+00:00",
+          "entry_ts_ms": 1786460400000,
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "side": "short",
+          "close": 1872.67,
+          "stop": 1890.1749999999997,
+          "target": 1820.155000000001
+        }
+      ],
+      "expected_signals_api_hist": [
+        {
+          "signal_ts_ms": 1786456800000,
+          "side": "short",
+          "stop": 1890.1749999999997,
+          "target": 1820.155000000001,
+          "close": 1872.67
+        }
+      ],
+      "signals_vps_vs_api_key_agree": true,
+      "matches": [
+        {
+          "expected": {
+            "signal_ts_ms": 1786456800000,
+            "signal_utc": "2026-08-11T14:00:00+00:00",
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "side": "short",
+            "close": 1872.67,
+            "stop": 1890.1749999999997,
+            "target": 1820.155000000001
+          },
+          "status": "MATCH",
+          "live_entry_price": 1872.33,
+          "live_stop": 1890.1749999999997,
+          "live_target": 1820.155000000001,
+          "stop_ok": true,
+          "target_ok": true,
+          "fill_vs_signal_close_slip_bps_adverse": 1.8155895058934328,
+          "qty": 0.01,
+          "leverage": 48
+        }
+      ],
+      "handled_entries": [
+        {
+          "symbol": "ETHUSDT",
+          "entry_ts_ms": 1786460400000,
+          "side": "short",
+          "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3619.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 1872.67, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+          "created_utc": "2026-08-11T16:00:25Z"
+        }
+      ],
+      "entry_filled_events": [
+        {
+          "ts_utc": "2026-08-11T15:00:41Z",
+          "symbol": "ETHUSDT",
+          "kind": "entry_filled",
+          "detail_json": "{\"symbol\": \"ETHUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 1872.33, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"qty\": 0.01, \"leverage\": 48, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460425000, \"decision_delay_sec\": 25.0, \"entry_est\": 1872.44, \"qty\": 0.01, \"leverage\": 48, \"equity_base\": 13.06829577, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"1890.17\", \"target\": \"1820.16\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.01, \"avgPrice\": 1872.33}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 1872.67, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 48}}"
+        }
+      ]
+    },
+    "SOLUSDT": {
+      "vps_vs_binance_api_window": {
+        "n_both": 52,
+        "only_a": 0,
+        "only_b": 0,
+        "cols": {
+          "open": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "high": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "low": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "close": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          },
+          "volume": {
+            "n_ne": 0,
+            "max_abs": 0.0
+          }
+        },
+        "exact": true,
+        "ohlc_exact_ignoring_volume_and_coverage": true
+      },
+      "logic_research_equals_live_core": true,
+      "expected_signals_vps": [],
+      "expected_signals_api_hist": [],
+      "signals_vps_vs_api_key_agree": true,
+      "matches": [],
+      "handled_entries": [],
+      "entry_filled_events": []
+    }
+  },
+  "exchange_positions_checked": {
+    "BTCUSDT": {
+      "side": "Sell",
+      "size": 0.001,
+      "avg": 63766.7,
+      "sl": 64240.6,
+      "tp": 62266.2,
+      "lev": 55
+    },
+    "ETHUSDT": {
+      "side": "Sell",
+      "size": 0.01,
+      "avg": 1872.33,
+      "sl": 1890.17,
+      "tp": 1820.16,
+      "lev": 48
+    },
+    "SOLUSDT": {
+      "side": null,
+      "size": 0
+    }
+  },
+  "verdict": {
+    "data_vps_matches_binance_public_ohlc": true,
+    "calculations_indicators_strategy_logic_identical": true,
+    "live_trades_match_resim_on_same_candles": true,
+    "exactly_same_end_to_end": true,
+    "principal_blockers": [
+      "Local research_ohlcv.sqlite does not cover the live window (max before live period) \u2014 local backtest without refresh cannot equal VPS.",
+      "botsgeneral does not store the forming 1h bar; at each hour open the just-closed bar can lag a few minutes, so candles_fresh (max 2x interval from bar open ts) flaps stale and delays entries.",
+      "Fill prices differ from signal close (Bybit market vs Binance close) \u2014 expected under RESEARCH_PROXY; not exact PnL parity.",
+      "Live margin mode REGULAR_MARGIN (cross) vs research isolated assumption \u2014 liquidation/margin not exact.",
+      "No closed round-trips yet (positions still open) \u2014 exit/funding/PnL parity not testable."
+    ]
+  }
+}

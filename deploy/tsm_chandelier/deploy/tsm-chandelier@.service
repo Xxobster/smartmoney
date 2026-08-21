@@ -1,0 +1,18 @@
+[Unit]
+Description=tsm-chandelier live bot %i (Bybit Xxobster6)
+After=network-online.target botsgeneral-collector@94.156.189.76.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/tsm-chandelier
+Environment=SHARED_CANDLES_DB=/var/lib/botsgeneral/shared_candles.db
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/tsm-chandelier/src
+ExecStart=/opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol %i --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,95 @@
+# Preregistered before any outer OOS is viewed. Do not edit after OOS inspection.
+hypothesis_family: smc_confluence_retrace
+economic_rationale: >
+  Smart money concepts (SMC) assert price seeks liquidity, leaves footprints in
+  volume/spread and fair value gaps (FVG), parks unfinished business in order
+  blocks (OB), and manipulates retail with sweeps. Edge is hypothesized from
+  higher-timeframe (HTF) order-flow alignment + liquidity event + structure
+  shift (Break of Structure / Change of Character) + confluence zone entry on
+  retrace (never chase expansion), with stops beyond sweep extreme and targets
+  at opposing liquidity / premium-discount quarters / >=3R.
+
+root_random_seed: 20260724
+trial_budget_total: 200
+llm_proposal_budget: 20
+optuna_trials_per_proposal: 10
+first_round: logical_course_seed
+
+outer_folds:
+  count: 5
+  scheme: expanding
+  min_train_days: 365
+  test_days: 90
+  purge_bars_execution_tf: 48
+  embargo_bars_execution_tf: 24
+
+inner_folds:
+  count: 3
+  scheme: expanding
+  purge_bars_execution_tf: 24
+  embargo_bars_execution_tf: 12
+
+selection_objective: inner_mean_expectancy_after_costs
+tie_breaker: lower_max_drawdown_then_fewer_params
+
+# Course-aligned logical seed (StrategySpec defaults)
+logical_seed:
+  name: SMC_Confluence_Retrace_v0
+  bias_timeframe: 4h
+  structure_timeframe: 1h
+  execution_timeframe: 15m
+  swing_left: 3
+  swing_right: 3
+  bos_requires_close: true
+  fvg_model: wick
+  require_liquidity_sweep: true
+  require_bos_or_choch: true
+  require_fvg: true
+  require_order_block: false
+  require_premium_discount: true
+  min_confluence_count: 3
+  volume_confirm_lookback: 5
+  volume_confirm_mult: 1.2
+  stop_beyond_sweep_atr_mult: 0.1
+  target_rr: 3.0
+  use_pd_targets: true
+  max_hold_bars: 96
+  risk_fraction: 0.005
+
+search_space:
+  swing_left: [2, 3, 5]
+  swing_right: [2, 3, 5]
+  bias_timeframe: [1d, 4h, 1h]
+  structure_timeframe: [4h, 1h, 15m]
+  execution_timeframe: [15m, 5m]
+  fvg_model: [wick, body]
+  bos_requires_close: [true, false]
+  require_liquidity_sweep: [true]
+  require_bos_or_choch: [true]
+  require_fvg: [true, false]
+  require_order_block: [true, false]
+  require_premium_discount: [true, false]
+  min_confluence_count: [2, 3, 4]
+  volume_confirm_lookback: [3, 5, 8]
+  volume_confirm_mult: [1.0, 1.2, 1.5]
+  stop_beyond_sweep_atr_mult: [0.05, 0.1, 0.25]
+  target_rr: [2.0, 3.0, 4.0]
+  use_pd_targets: [true, false]
+  max_hold_bars: [48, 96, 192]
+  risk_fraction: [0.0025, 0.005]
+
+hard_rejects:
+  - against_htf_order_flow
+  - fvg_alone
+  - ob_alone
+  - chase_displacement
+  - multi_tested_sr_without_sweep
+  - low_volume_breakout_in_range
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+# Chronological split: last N days locked in forward lockbox (untouched until final freeze)
+forward_lockbox_days: 90
+research_start_utc: "2020-01-01T00:00:00Z"

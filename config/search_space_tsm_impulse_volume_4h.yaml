@@ -1,0 +1,62 @@
+# PREREGISTERED before any tsm_impulse_volume 4h outer OOS is viewed.
+# Frozen intent: 2026-08-10. Do not expand search space or relax gates after OOS.
+
+generation_id: tsm_impulse_volume_4h_h0_wf_20260810
+parent_generation: batch2_full_history_exploratory
+hypothesis_family: tsm_impulse_volume
+economic_rationale: >
+  Transcript-locked impulse + volume proxy from The Secret Mindset price-action video
+  (owz1w37cVHs): Exponential Moving Average 50 trend filter, touch of EMA50 or prior
+  10-bar swing, impulse close beyond prior bar with body >= 60% of range and volume
+  above 20-bar Simple Moving Average volume, stop at trigger-bar extreme, Reward:Risk 2.0.
+  Fixed H0 confirmation only — trial_budget_total=1, no Take-Profit/Stop-Loss grid.
+  4h chosen as exploratory denser-than-daily / quieter-than-1h candidate; full-history
+  diagnostics are not selection evidence.
+
+root_random_seed: 20260810
+trial_budget_total: 1
+engine: tradesim
+evidence_class_market: RESEARCH_PROXY_binance_ohlcv_bybit_cost_model
+gate_profile: trading_bot_v2_1_frozen
+forward_lockbox_days: 90
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+execution_timeframe: 4h
+warmup_bars: 80
+max_hold_bars: 24
+
+outer_folds:
+  count: 5
+  scheme: expanding_from_end
+  min_train_days: 540
+  test_days: 180
+  purge_bars_execution_tf: 6
+  embargo_bars_execution_tf: 3
+
+inner_folds:
+  count: 0
+  scheme: none
+  note: Fixed H0 — no inner search
+
+selection_objective: none_fixed_h0
+tie_breaker: none
+
+logical_seed:
+  strategy_id: tsm_impulse_volume
+  strategy_version: "0.1.0"
+  timeframe: 4h
+  ema_filter: 50
+  swing_lookback: 10
+  body_frac_min: 0.60
+  volume_sma: 20
+  target_rr: 2.0
+  max_hold_bars: 24
+  search_space: {}
+
+notes: >
+  Full-history exploratory diagnostics must not be used for selection.
+  If outer OOS is sparse, redesign fold length in a NEW generation YAML —
+  do not open parameter grids.

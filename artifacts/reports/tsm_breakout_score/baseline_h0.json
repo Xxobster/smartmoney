@@ -1,0 +1,54 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "15m",
+    "n_trades": 3,
+    "profit_factor": 0.0,
+    "sharpe_ann": -0.3496639409611547,
+    "hac_sharpe_ann": -0.5153663763193033,
+    "max_drawdown": 8.209184831004799e-05,
+    "win_rate": 0.0,
+    "net_pnl": -0.7750967450028838,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.4 days  (2020-01-01 -> 2026-04-19)\ntrades             : 3  (longs 1 / shorts 2)  0.04/month\nsimultaneous open  : max 1  avg 0.00  (longs max 1 / avg 0.00; shorts max 1 / avg 0.00)\nexits              : TP 0  SL 3  other 0  {'stop': 3}\nhold bars          : avg 14.67  min 0  max 36\nhold hours         : avg 3.67  min 0.00  max 9.00\nwallet             : 10,000.00 -> 9,999.22  peak 10,000.05\nnet PnL            : -0.78 USDT   on invested 105.21  (-0.74% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : -0.01% of starting equity  buy&hold 948.18%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : -0.53 / -0.25  WR 0.00% / 0.00%\nexpectancy         : -0.2584 USDT/trade  (-0.8664% per unit invested)\nprofit factor      : 0.0000 \nwin rate           : 0.00%  [0.00%, 56.15%] Wilson 95%\npayoff             : nan   avg win nan / avg loss -0.26\nSQN / Kelly        : -1.919 / nan\nstreaks (W/L)      : 0 / 3\nSharpe daily raw   : -0.0183   (n=2300)\nSharpe annualised  : -0.3497   (factor sqrt(365))\nSharpe HAC raw/ann : -0.0270 / -0.5154   (Bartlett lag 8)\nSortino annualised : -0.0134\nvolatility (ann.)  : 0.00%\nmax drawdown (MTM) : 0.82  (0.01%) over 1347.4 days\navg drawdown       : 0.00%  over 1047.9 days\nCalmar / recovery  : -0.1498 / -0.9442\nexposure / turnover: 0.02% / 0.02x\nfees / slip / fund : 0.12 / 0.05 / 0.00\nentry-bar exits    : 1 (33.3%)\nambiguous intrabar : 0 (0.0%)\nliquidations       : 0   status UNKNOWN\nskips              : 0 \n==============================================================================\nWARNING: 1 of 3 trades (33.3%) exited on their entry bar. Above 25% the stop is inside ordinary single-bar noise: the strategy is paying entry and exit costs to be shaken out, and this must be stated prominently in any report (standard section 9.6).\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "15m",
+    "n_trades": 2,
+    "profit_factor": 0.0,
+    "sharpe_ann": -0.5466418147370515,
+    "hac_sharpe_ann": -0.5485634228358611,
+    "max_drawdown": 1.672107699996559e-05,
+    "win_rate": 0.0,
+    "net_pnl": -0.1672107699996559,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.4 days  (2020-01-01 -> 2026-04-19)\ntrades             : 2  (longs 1 / shorts 1)  0.03/month\nsimultaneous open  : max 1  avg 0.00  (longs max 1 / avg 0.00; shorts max 1 / avg 0.00)\nexits              : TP 0  SL 2  other 0  {'stop': 2}\nhold bars          : avg 2.50  min 2  max 3\nhold hours         : avg 0.62  min 0.50  max 0.75\nwallet             : 10,000.00 -> 9,999.83  peak 10,000.00\nnet PnL            : -0.17 USDT   on invested 25.12  (-0.67% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : -0.00% of starting equity  buy&hold 1698.01%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : -0.10 / -0.06  WR 0.00% / 0.00%\nexpectancy         : -0.0836 USDT/trade  (-0.7074% per unit invested)\nprofit factor      : 0.0000 \nwin rate           : 0.00%  [0.00%, 65.76%] Wilson 95%\npayoff             : nan   avg win nan / avg loss -0.08\nSQN / Kelly        : -3.998 / nan\nstreaks (W/L)      : 0 / 2\nSharpe daily raw   : -0.0286   (n=2300)\nSharpe annualised  : -0.5466   (factor sqrt(365))\nSharpe HAC raw/ann : -0.0287 / -0.5486   (Bartlett lag 8)\nSortino annualised : -0.0161\nvolatility (ann.)  : 0.00%\nmax drawdown (MTM) : 0.17  (0.00%) over 2039.1 days\navg drawdown       : 0.00%  over 2039.1 days\nCalmar / recovery  : -0.1587 / -1.0000\nexposure / turnover: 0.00% / 0.01x\nfees / slip / fund : 0.03 / 0.01 / 0.00\nentry-bar exits    : 0 (0.0%)\nambiguous intrabar : 0 (0.0%)\nliquidations       : 0   status UNKNOWN\nskips              : 0 \n==============================================================================\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "n_trades": 0,
+    "status": "no_signals",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "n_trades": 1,
+    "profit_factor": 0.0,
+    "sharpe_ann": -0.3983662287065924,
+    "hac_sharpe_ann": -0.3991489457830208,
+    "max_drawdown": 6.011312500049825e-06,
+    "win_rate": 0.0,
+    "net_pnl": -0.06011312500049826,
+    "status": "ok",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "evidence_class": "RESEARCH_PROXY",
+    "headline": "\n==============================================================================\nHEADLINE\n==============================================================================\nconformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN\n  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.\n------------------------------------------------------------------------------\nperiod             : 2300.3 days  (2020-01-01 -> 2026-04-19)\ntrades             : 1  (longs 1 / shorts 0)  0.01/month\nsimultaneous open  : max 1  avg 1.00  (longs max 1 / avg 1.00; shorts max 0 / avg 0.00)\nexits              : TP 0  SL 1  other 0  {'stop': 1}\nhold bars          : avg 4.00  min 4  max 4\nhold hours         : avg 4.00  min 4.00  max 4.00\nwallet             : 10,000.00 -> 9,999.94  peak 10,000.00\nnet PnL            : -0.06 USDT   on invested 12.22  (-0.49% ROI on investment)  [headline money % \u2014 not wallet %]\nwallet return      : -0.00% of starting equity  buy&hold 1698.70%  [secondary \u2014 wallet is oversized so margin never binds]\nlong/short PnL     : -0.06 / 0.00  WR 0.00% / nan%\nexpectancy         : -0.0601 USDT/trade  (-0.4920% per unit invested)\nprofit factor      : 0.0000 \nwin rate           : 0.00%  [0.00%, 79.35%] Wilson 95%\npayoff             : nan   avg win nan / avg loss -0.06\nSQN / Kelly        : nan / nan\nstreaks (W/L)      : 0 / 1\nSharpe daily raw   : -0.0209   (n=2300)\nSharpe annualised  : -0.3984   (factor sqrt(365))\nSharpe HAC raw/ann : -0.0209 / -0.3991   (Bartlett lag 8)\nSortino annualised : -0.0083\nvolatility (ann.)  : 0.00%\nmax drawdown (MTM) : 0.06  (0.00%) over 1211.3 days\navg drawdown       : 0.00%  over 1211.3 days\nCalmar / recovery  : -0.1587 / -1.0000\nexposure / turnover: 0.01% / 0.00x\nfees / slip / fund : 0.01 / 0.01 / 0.00\nentry-bar exits    : 0 (0.0%)\nambiguous intrabar : 0 (0.0%)\nliquidations       : 0   status UNKNOWN\nskips              : 0 \n==============================================================================\nWARNING: liquidation status is UNKNOWN: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).\n"
+  }
+]

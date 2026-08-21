@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "summary": "PASS \u2014 79 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=5",
+  "n_bars": 8000,
+  "symbol": "BTCUSDT",
+  "timeframe": "15m",
+  "findings": [
+    "Finding(check=<CheckId.FORWARD_CORR: 'FORWARD_CORR'>, severity=<Severity.ADVISORY: 'ADVISORY'>, column='active_bear_fvg_top', message='|corr|=0.2076 vs forward return h=24', detail={'corr': -0.20761107937243822, 'horizon': 24, 'n': 3436})",
+    "Finding(check=<CheckId.FORWARD_CORR: 'FORWARD_CORR'>, severity=<Severity.ADVISORY: 'ADVISORY'>, column='active_bear_fvg_bot', message='|corr|=0.2089 vs forward return h=24', detail={'corr': -0.2088696275096883, 'horizon': 24, 'n': 3436})",
+    "Finding(check=<CheckId.FORWARD_CORR: 'FORWARD_CORR'>, severity=<Severity.ADVISORY: 'ADVISORY'>, column='active_bear_ob_top', message='|corr|=0.2059 vs forward return h=24', detail={'corr': -0.20588234377674106, 'horizon': 24, 'n': 4957})",
+    "Finding(check=<CheckId.FORWARD_CORR: 'FORWARD_CORR'>, severity=<Severity.ADVISORY: 'ADVISORY'>, column='active_bear_ob_bot', message='|corr|=0.2113 vs forward return h=24', detail={'corr': -0.21125235545164203, 'horizon': 24, 'n': 4957})",
+    "Finding(check=<CheckId.FORWARD_CORR: 'FORWARD_CORR'>, severity=<Severity.ADVISORY: 'ADVISORY'>, column='active_bear_ob_mid', message='|corr|=0.2086 vs forward return h=24', detail={'corr': -0.2086366095559396, 'horizon': 24, 'n': 4957})"
+  ]
+}

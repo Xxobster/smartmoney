@@ -1,0 +1,39 @@
+
+==============================================================================
+HEADLINE
+==============================================================================
+conformance stamp  : tradesim 1.0.0 @ UNKNOWN_DIRTY | fixtures 9a037b290c8a | 0/0 | NOT GREEN
+  *** NOT QUOTABLE EVIDENCE: the engine that produced these numbers has no green conformance stamp.
+------------------------------------------------------------------------------
+period             : 2415.2 days  (2020-01-01 -> 2026-08-12)
+trades             : 520  (longs 260 / shorts 260)  6.55/month
+simultaneous open  : max 1  avg 0.18  (longs max 1 / avg 0.09; shorts max 1 / avg 0.08)
+exits              : TP 111  SL 246  other 163  {'max_hold': 163, 'stop': 246, 'target': 111}
+hold bars          : avg 19.52  min 0  max 36
+hold hours         : avg 19.52  min 0.00  max 36.00
+wallet             : 10,000.00 -> 10,067.96  peak 10,072.31
+net PnL            : 67.96 USDT   on invested 11,226.21  (0.61% ROI on investment)  [headline money % — not wallet %]
+wallet return      : 0.68% of starting equity  buy&hold 1367.71%  [secondary — wallet is oversized so margin never binds]
+long/short PnL     : 38.35 / 29.61  WR 45.00% / 41.54%
+expectancy         : 0.1307 USDT/trade  (0.5766% per unit invested)
+profit factor      : 1.4907 
+win rate           : 43.27%  [39.08%, 47.56%] Wilson 95%
+payoff             : 1.955   avg win 0.92 / avg loss -0.47
+SQN / Kelly        : 3.169 / 0.142
+streaks (W/L)      : 8 / 11
+Sharpe daily raw   : 0.0649   (n=2415)
+Sharpe annualised  : 1.2395   (factor sqrt(365))
+Sharpe HAC raw/ann : 0.0652 / 1.2457   (Bartlett lag 8)
+Sortino annualised : 0.9553
+volatility (ann.)  : 0.08%
+max drawdown (MTM) : 8.40  (0.08%) over 451.1 days
+avg drawdown       : 0.03%  over 10.7 days
+Calmar / recovery  : 1.2237 / 8.0951
+exposure / turnover: 17.52% / 2.25x
+fees / slip / fund : 12.35 / 5.65 / 0.00
+entry-bar exits    : 43 (8.3%)
+ambiguous intrabar : 3 (0.6%)
+liquidations       : 0   status SIMPLIFIED
+skips              : 40 {'SKIP_POSITION_LIMIT': 40}
+==============================================================================
+WARNING: liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3).

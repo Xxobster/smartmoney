@@ -1,0 +1,48 @@
+{
+  "freeze_id": "tsm_chandelier_1h_shadow_freeze_20260810",
+  "frozen_at_utc": "2026-08-10T15:39:07.087599+00:00",
+  "generation_id": "tsm_chandelier_1h_h0_wf_20260810",
+  "strategy_id": "tsm_chandelier",
+  "strategy_version": "0.1.0",
+  "execution_timeframe": "1h",
+  "symbols_frozen_primary": [
+    "BTCUSDT",
+    "ETHUSDT"
+  ],
+  "symbols_shadow_requested": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "logical_seed": {
+    "strategy_id": "tsm_chandelier",
+    "strategy_version": "0.1.0",
+    "timeframe": "1h",
+    "atr_band_mult": 2.5,
+    "chandelier_lookback": 22,
+    "chandelier_atr_mult": 3.0,
+    "ema_filter": 50,
+    "max_hold_bars": 36,
+    "search_space": {}
+  },
+  "search_space_yaml": "D:\\projects\\smartmoney\\config\\search_space_tsm_chandelier_1h.yaml",
+  "hashes": {
+    "search_space_tsm_chandelier_1h.yaml": "ec27f54a0849150d347b6e6c92861bd6b05eb583e51680eb8093e31f0e0790b6",
+    "signals.py": "c9325a4e53929c44dfb91d655206d7431f6cd024f0de744026cac2f0141f3a17",
+    "1h_gate_bcd_summary.json": "600882a9acdb538b3bc589789e67df348885d5d288dfdcc72a1b303e10b7c5ed",
+    "1h_oos_summary.json": "4070ed866fe6e8c1003a4d044e6148cfa3330b4c62b9f338d3b18594844313f9"
+  },
+  "sizing": {
+    "mode": "research_sizing_min_exchange_qty",
+    "leverage": 1.0,
+    "starting_equity_usdt": 10000.0,
+    "note": "Shadow/micro-live size must stay at min exchange qty until ops + reconciliation pass; do not raise size from this freeze alone."
+  },
+  "costs": "tradesim.research_costs() Bybit USDT perp non-VIP taker baseline",
+  "evidence_class": "RESEARCH_PROXY_binance_ohlcv_bybit_cost_model",
+  "maximum_earned_readiness": "LIVE_STOP / SHADOW_READY",
+  "authorization": "NOT_GRANTED_BY_THIS_FILE",
+  "dsr_primary_n_trials": 1,
+  "dsr_note": "Primary DSR uses only this generation trial_budget_total=1. Other TSM packages must not be folded into this claim.",
+  "package_hash_sha256": "9b65a02fdd4fa444a3477ce9099f32a8609eedda28686c57a2ae8bcb4d14f9e0"
+}

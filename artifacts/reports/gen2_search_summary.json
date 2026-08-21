@@ -1,0 +1,51 @@
+{
+  "generation": "gen2_sparse_redesign_20260727",
+  "freeze_hash": "2c65ce212a96ecb16e6519b55a8eaa39dacdf51cac5bc6a4e2d3797f1dd4af3a",
+  "best_inner_score": 0.0193500744222027,
+  "best_family": "H3_hq_but_5m",
+  "spec": {
+    "name": "optuna_SMC_Gen2_H3_HQ5m_2",
+    "bias_timeframe": "1h",
+    "structure_timeframe": "1h",
+    "execution_timeframe": "5m",
+    "swing_left": 5,
+    "swing_right": 2,
+    "bos_requires_close": true,
+    "fvg_model": "wick",
+    "require_liquidity_sweep": false,
+    "require_bos_or_choch": true,
+    "require_fvg": false,
+    "require_order_block": true,
+    "require_premium_discount": false,
+    "min_confluence_count": 3,
+    "volume_confirm_lookback": 3,
+    "volume_confirm_mult": 1.5,
+    "stop_beyond_sweep_atr_mult": 0.15,
+    "target_rr": 2.0,
+    "use_pd_targets": false,
+    "max_hold_bars": 120,
+    "risk_fraction": 0.005,
+    "event_lookback": 24,
+    "rationale": "",
+    "economic_justification": ""
+  },
+  "family_results": [
+    {
+      "family": "H1_freq_confluence2",
+      "score": -0.01699440538133619,
+      "has_spec": true
+    },
+    {
+      "family": "H2_structure_volume",
+      "score": 0.018956671579944562,
+      "has_spec": true
+    },
+    {
+      "family": "H3_hq_but_5m",
+      "score": 0.0193500744222027,
+      "has_spec": true
+    }
+  ],
+  "n_trials": 325,
+  "engine": "tradesim"
+}

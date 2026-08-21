@@ -1,0 +1,58 @@
+# PREREGISTERED before any tsm_heikin_ashi_ema50 1h outer OOS is viewed.
+# Frozen intent: 2026-08-09. Do not expand search space or relax gates after OOS.
+
+generation_id: tsm_heikin_ashi_ema50_1h_wf_20260809
+parent_generation: batch1_full_history_exploratory
+hypothesis_family: tsm_heikin_ashi_ema50
+economic_rationale: >
+  Caption-locked Heikin Ashi rising-wedge break below support and below EMA50 (shorts);
+  falling-wedge mirror longs for crypto two-sided test. Window W=30, stop at wedge extreme,
+  Take-Profit max(2R, wedge width). Fixed H0 confirmation on 1h only (15m full-history failed).
+  trial_budget_total=1 — no wedge-window / RR / EMA-length grid.
+
+root_random_seed: 202608091
+trial_budget_total: 1
+engine: tradesim
+evidence_class_market: RESEARCH_PROXY_binance_ohlcv_bybit_cost_model
+gate_profile: trading_bot_v2_1_frozen
+forward_lockbox_days: 90
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+execution_timeframe: 1h
+warmup_bars: 250
+max_hold_bars: 48
+
+outer_folds:
+  count: 5
+  scheme: expanding_from_end
+  min_train_days: 540
+  test_days: 180
+  purge_bars_execution_tf: 48
+  embargo_bars_execution_tf: 24
+
+inner_folds:
+  count: 0
+  scheme: none
+  note: Fixed H0 — no inner search
+
+selection_objective: none_fixed_h0
+tie_breaker: none
+
+logical_seed:
+  strategy_id: tsm_heikin_ashi_ema50
+  strategy_version: "0.1.0"
+  timeframe: 1h
+  wedge_window: 30
+  ema_length: 50
+  ema_on: ha_close
+  target_rule: max_2R_or_wedge_width
+  max_hold_bars: 48
+  sides: rising_wedge_short_and_falling_wedge_long_mirror
+  search_space: {}
+
+notes: >
+  BTC 1h full-history PF≈1.00 is not selection evidence. Evaluate outer OOS once.
+  If failed, abandon or preregister a new economic redesign — do not optimize exits.

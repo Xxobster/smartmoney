@@ -1,0 +1,49 @@
+{
+  "pack_id": "tsm_chandelier_1h_btc_eth_sol_xxobster6_v1",
+  "created_utc": "2026-08-10",
+  "mode": "LIVE",
+  "readiness_earned": "LIVE_STOP / SHADOW_READY",
+  "authorization": "user_explicit_deploy_xxobster6_vps94_btc_eth_sol_min_size",
+  "freeze_ref": "artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json",
+  "notes": [
+    "BTC+ETH inside historical SHADOW_READY freeze; SOL exploratory but user-authorized for this micro-live.",
+    "Candles: botsgeneral shared Binance 1h (research proxy parity with backtest).",
+    "Size: exchange minimum. Leverage: stop-derived with mm/mark buffers + 80% haircut."
+  ],
+  "venue": "bybit",
+  "product": "usdt_linear_perpetual",
+  "margin_mode": "isolated_preferred_uta_may_force_cross",
+  "wallet_policy": "exchange_minimum_size_until_full_size_authorized",
+  "account": "Xxobster6",
+  "timeframe": "1h",
+  "candles_exchange": "binance",
+  "use_min_size": true,
+  "symbols": ["BTCUSDT", "ETHUSDT", "SOLUSDT"],
+  "strategy": {
+    "name": "tsm_chandelier",
+    "atr_band_mult": 2.5,
+    "chandelier_lookback": 22,
+    "chandelier_atr_mult": 3.0,
+    "ema_filter": 50,
+    "max_hold_bars": 36
+  },
+  "costs": {
+    "starting_equity_per_pair": 10000.0,
+    "risk_frac": 0.005,
+    "taker_fee": 0.00055,
+    "slippage": 0.0002
+  },
+  "leverage_policy": "SL_derived_floor_1_(sl_pct+0.005+0.002)_haircut_0.80_capped",
+  "poll_sec": 60,
+  "dense_poll_sec": 5,
+  "idle_poll_sec": 60,
+  "pre_close_sec": 45,
+  "post_close_sec": 180,
+  "min_bars": 80,
+  "min_notional_buffer": 0.02,
+  "snapshot_interval_sec": 300,
+  "bar_settle_sec": 20,
+  "max_entry_delay_sec": 600,
+  "trigger_price": "LastPrice",
+  "dry_run": false
+}

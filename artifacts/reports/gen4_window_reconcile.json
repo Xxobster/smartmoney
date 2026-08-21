@@ -1,0 +1,218 @@
+[
+  {
+    "window": "last_4m",
+    "symbol": "BTCUSDT",
+    "n": 310,
+    "net": -37.97,
+    "pf": 0.18169359032298574,
+    "sharpe": -14.780400681015678,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "last_4m",
+    "symbol": "ETHUSDT",
+    "n": 297,
+    "net": -11.99,
+    "pf": 0.261379405982263,
+    "sharpe": -13.280459827942485,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "last_4m",
+    "symbol": "POOLED",
+    "n": 607,
+    "net": -49.96,
+    "pf": 0.2023,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "fold4_reported",
+    "symbol": "BTCUSDT",
+    "n": 462,
+    "net": -62.1,
+    "pf": 0.15547838612118697,
+    "sharpe": -14.661759911532833,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold4_reported",
+    "symbol": "ETHUSDT",
+    "n": 457,
+    "net": -19.81,
+    "pf": 0.28853662839317107,
+    "sharpe": -12.488974502627446,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold4_reported",
+    "symbol": "POOLED",
+    "n": 919,
+    "net": -81.91,
+    "pf": 0.192,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "full_oos_span",
+    "symbol": "BTCUSDT",
+    "n": 2640,
+    "net": -340.29,
+    "pf": 0.1487131549979658,
+    "sharpe": -16.70047442690376,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "full_oos_span",
+    "symbol": "ETHUSDT",
+    "n": 2444,
+    "net": -107.83,
+    "pf": 0.28149746852492846,
+    "sharpe": -13.192539960408414,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "full_oos_span",
+    "symbol": "POOLED",
+    "n": 5084,
+    "net": -448.12,
+    "pf": 0.185,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "fold0",
+    "symbol": "BTCUSDT",
+    "n": 519,
+    "net": -42.88,
+    "pf": 0.18931867988856155,
+    "sharpe": -15.185415672617992,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold0",
+    "symbol": "ETHUSDT",
+    "n": 513,
+    "net": -21.89,
+    "pf": 0.23886770425807763,
+    "sharpe": -13.25359630274134,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold0",
+    "symbol": "POOLED",
+    "n": 1032,
+    "net": -64.77,
+    "pf": 0.2068,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "fold1",
+    "symbol": "BTCUSDT",
+    "n": 590,
+    "net": -65.1,
+    "pf": 0.12451508419545139,
+    "sharpe": -18.344846038668525,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold1",
+    "symbol": "ETHUSDT",
+    "n": 503,
+    "net": -22.09,
+    "pf": 0.24829748582702232,
+    "sharpe": -14.657653616971384,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold1",
+    "symbol": "POOLED",
+    "n": 1093,
+    "net": -87.19,
+    "pf": 0.1596,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "fold2",
+    "symbol": "BTCUSDT",
+    "n": 535,
+    "net": -81.02,
+    "pf": 0.16871443317820004,
+    "sharpe": -17.191066564560963,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold2",
+    "symbol": "ETHUSDT",
+    "n": 463,
+    "net": -18.48,
+    "pf": 0.32334443752592357,
+    "sharpe": -12.974074035469515,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold2",
+    "symbol": "POOLED",
+    "n": 998,
+    "net": -99.5,
+    "pf": 0.2026,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "fold3",
+    "symbol": "BTCUSDT",
+    "n": 534,
+    "net": -89.19,
+    "pf": 0.12117009049225332,
+    "sharpe": -20.699349290431982,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold3",
+    "symbol": "ETHUSDT",
+    "n": 508,
+    "net": -25.57,
+    "pf": 0.3049563255216787,
+    "sharpe": -12.902842968895555,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold3",
+    "symbol": "POOLED",
+    "n": 1042,
+    "net": -114.76,
+    "pf": 0.1701,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  },
+  {
+    "window": "fold4",
+    "symbol": "BTCUSDT",
+    "n": 462,
+    "net": -62.1,
+    "pf": 0.15547838612118697,
+    "sharpe": -14.661759911532833,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold4",
+    "symbol": "ETHUSDT",
+    "n": 457,
+    "net": -19.81,
+    "pf": 0.28853662839317107,
+    "sharpe": -12.488974502627446,
+    "entry_bar_exit_note": "see headline if printed"
+  },
+  {
+    "window": "fold4",
+    "symbol": "POOLED",
+    "n": 919,
+    "net": -81.91,
+    "pf": 0.192,
+    "sharpe": null,
+    "entry_bar_exit_note": ""
+  }
+]

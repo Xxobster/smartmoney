@@ -1,0 +1,4 @@
+{
+  "ok": true,
+  "summary": "PASS \u2014 9 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=6"
+}

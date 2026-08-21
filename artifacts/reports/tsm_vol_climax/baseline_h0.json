@@ -1,0 +1,30 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "n_trades": 0,
+    "status": "no_signals",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "n_trades": 0,
+    "status": "no_signals",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "4h",
+    "n_trades": 0,
+    "status": "no_signals",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "4h",
+    "n_trades": 0,
+    "status": "no_signals",
+    "readiness": "LIVE_STOP / RESEARCH_ONLY"
+  }
+]

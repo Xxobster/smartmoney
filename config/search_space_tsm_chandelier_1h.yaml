@@ -1,0 +1,53 @@
+# PREREGISTERED before any tsm_chandelier 1h outer OOS is viewed.
+# Frozen intent: 2026-08-10. Do not expand search space or relax gates after OOS.
+
+generation_id: tsm_chandelier_1h_h0_wf_20260810
+parent_generation: channel_continuation_exploratory
+hypothesis_family: tsm_chandelier
+economic_rationale: >
+  Transcript-locked Chandelier / ATR-band breakout proxy (HzkU6cbcI1o):
+  break of prior-bar ±2.5 ATR band with EMA50 trend filter; stop at
+  Chandelier highest/lowest(22) +/- 3 ATR; synthetic 3R target with max-hold.
+  Fixed H0 confirmation only — trial_budget_total=1, no TP/SL grid.
+
+root_random_seed: 20260810
+trial_budget_total: 1
+engine: tradesim
+evidence_class_market: RESEARCH_PROXY_binance_ohlcv_bybit_cost_model
+gate_profile: trading_bot_v2_1_frozen
+forward_lockbox_days: 90
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+execution_timeframe: 1h
+warmup_bars: 80
+max_hold_bars: 36
+
+outer_folds:
+  count: 5
+  scheme: expanding_from_end
+  min_train_days: 540
+  test_days: 180
+  purge_bars_execution_tf: 8
+  embargo_bars_execution_tf: 4
+
+inner_folds:
+  count: 0
+  scheme: none
+  note: Fixed H0 — no inner search
+
+selection_objective: none_fixed_h0
+tie_breaker: none
+
+logical_seed:
+  strategy_id: tsm_chandelier
+  strategy_version: "0.1.0"
+  timeframe: 1h
+  atr_band_mult: 2.5
+  chandelier_lookback: 22
+  chandelier_atr_mult: 3.0
+  ema_filter: 50
+  max_hold_bars: 36
+  search_space: {}

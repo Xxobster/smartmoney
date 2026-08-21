@@ -1,0 +1,163 @@
+{
+  "maximum_earned_readiness": "SHADOW_READY_CANDIDATE_PENDING_DSR_BOOTSTRAP",
+  "evidence_class": "nested_outer_oos_stitched_tradesim_RESEARCH_PROXY",
+  "principal_blocker": null,
+  "generation": "gen4_killzone_moderate_20260727",
+  "engine": "tradesim (botsgeneral)",
+  "authorization": "LIVE_STOP_RESEARCH_ONLY",
+  "search": {
+    "generation": "gen4_killzone_moderate_20260727",
+    "freeze_hash": "57c595a6848d3f6fdccf827b931eab1f14d42dbf0d32772c4577d61788c30cf7",
+    "best_inner_score": 0.011540766508430257,
+    "best_family": "H2_killzone_ob",
+    "spec": {
+      "name": "optuna_SMC_Gen4_H2_OB_Killzone_0",
+      "bias_timeframe": "1h",
+      "structure_timeframe": "1h",
+      "execution_timeframe": "5m",
+      "swing_left": 3,
+      "swing_right": 3,
+      "bos_requires_close": true,
+      "fvg_model": "wick",
+      "require_liquidity_sweep": false,
+      "require_bos_or_choch": true,
+      "require_fvg": false,
+      "require_order_block": true,
+      "require_premium_discount": false,
+      "min_confluence_count": 2,
+      "volume_confirm_lookback": 3,
+      "volume_confirm_mult": 1.3,
+      "stop_beyond_sweep_atr_mult": 0.15,
+      "target_rr": 2.0,
+      "use_pd_targets": false,
+      "max_hold_bars": 96,
+      "risk_fraction": 0.005,
+      "event_lookback": 24,
+      "session_mode": "killzones",
+      "confirm_bars": 0,
+      "rationale": "",
+      "economic_justification": ""
+    },
+    "family_results": [
+      {
+        "family": "H1_killzone_sweep",
+        "score": -0.014883189991465312,
+        "has_spec": true
+      },
+      {
+        "family": "H2_killzone_ob",
+        "score": 0.011540766508430257,
+        "has_spec": true
+      }
+    ],
+    "n_trials": 649,
+    "engine": "tradesim"
+  },
+  "oos": {
+    "readiness": "SHADOW_READY_CANDIDATE_PENDING_DSR_BOOTSTRAP",
+    "evidence_class": "nested_outer_oos_stitched_tradesim_RESEARCH_PROXY",
+    "generation": "gen4_killzone_moderate_20260727",
+    "pooled_trades": 3180,
+    "fold_trade_sum": 3196,
+    "net_pnl": 157.09287339434377,
+    "expectancy": 0.04940027465230398,
+    "pooled_pf": 1.3049783950352656,
+    "sharpe_daily_ann": 2.3859034974155495,
+    "hac_sharpe_ann": 2.3728933998852346,
+    "max_drawdown": 0.0030249618605649765,
+    "positive_eligible_fold_fraction": 0.8,
+    "n_eligible_folds": 5,
+    "n_outer_folds": 5,
+    "checks": {
+      "min_complete_outer_folds": true,
+      "min_pooled_trades": true,
+      "net_pnl_positive": true,
+      "expectancy_positive": true,
+      "pooled_pf": true,
+      "sharpe": true,
+      "hac_sharpe": true,
+      "positive_fold_frac": true,
+      "mdd": true
+    },
+    "fold_summaries": [
+      {
+        "fold_id": 0,
+        "n_trades": 634,
+        "net_pnl": 22.83400186628569,
+        "eligible": true,
+        "positive": true,
+        "test_start_ms": 1698828900000,
+        "test_end_ms": 1714380900000
+      },
+      {
+        "fold_id": 1,
+        "n_trades": 658,
+        "net_pnl": 17.933216603818437,
+        "eligible": true,
+        "positive": true,
+        "test_start_ms": 1714380900000,
+        "test_end_ms": 1729932900000
+      },
+      {
+        "fold_id": 2,
+        "n_trades": 622,
+        "net_pnl": 50.16588552884059,
+        "eligible": true,
+        "positive": true,
+        "test_start_ms": 1729932900000,
+        "test_end_ms": 1745484900000
+      },
+      {
+        "fold_id": 3,
+        "n_trades": 625,
+        "net_pnl": -0.6889338236342155,
+        "eligible": true,
+        "positive": false,
+        "test_start_ms": 1745484900000,
+        "test_end_ms": 1761036900000
+      },
+      {
+        "fold_id": 4,
+        "n_trades": 657,
+        "net_pnl": 66.96709384493442,
+        "eligible": true,
+        "positive": true,
+        "test_start_ms": 1761036900000,
+        "test_end_ms": 1776588900000
+      }
+    ],
+    "principal_blocker": null,
+    "engine": "tradesim",
+    "freeze_hash": "57c595a6848d3f6fdccf827b931eab1f14d42dbf0d32772c4577d61788c30cf7",
+    "spec": {
+      "name": "optuna_SMC_Gen4_H2_OB_Killzone_0",
+      "bias_timeframe": "1h",
+      "structure_timeframe": "1h",
+      "execution_timeframe": "5m",
+      "swing_left": 3,
+      "swing_right": 3,
+      "bos_requires_close": true,
+      "fvg_model": "wick",
+      "require_liquidity_sweep": false,
+      "require_bos_or_choch": true,
+      "require_fvg": false,
+      "require_order_block": true,
+      "require_premium_discount": false,
+      "min_confluence_count": 2,
+      "volume_confirm_lookback": 3,
+      "volume_confirm_mult": 1.3,
+      "stop_beyond_sweep_atr_mult": 0.15,
+      "target_rr": 2.0,
+      "use_pd_targets": false,
+      "max_hold_bars": 96,
+      "risk_fraction": 0.005,
+      "event_lookback": 24,
+      "session_mode": "killzones",
+      "confirm_bars": 0,
+      "rationale": "",
+      "economic_justification": ""
+    },
+    "best_family": "H2_killzone_ob"
+  },
+  "next_bounded_action": "If failed: abandon or preregister a NEW generation with a new hypothesis BEFORE OOS \u2014 do not expand this generation's space after this OOS view."
+}

@@ -1,0 +1,124 @@
+# GENERATION 3 — preregistered BEFORE Gen3 OOS is viewed.
+# Frozen: 2026-07-27.
+# Economic reason (NOT from ranking OOS winners): Gen2 produced ample trades but
+# fees/slip (~$250 BTC alone) crushed PF below 1.20. Hypothesis: raise entry
+# quality (require liquidity sweep + volume confirm + HTF/PD) and lengthen
+# targets so expectancy covers Bybit taker costs. Do not cherry-pick symbols
+# from Gen2 OOS.
+
+generation_id: gen3_quality_over_churn_20260727
+parent_generation: gen2_sparse_redesign_20260727
+hypothesis_family: smc_quality_retrace
+economic_rationale: >
+  Fee-aware SMC: same liquidity/structure story, but entries must clear a
+  higher quality bar so trade rate falls and average R rises enough that
+  post-taker PF can clear 1.20. Execution stays 5m for sample sufficiency;
+  folds stay expanding_from_end 180d x5.
+
+root_random_seed: 20260727
+trial_budget_total: 60
+llm_proposal_budget: 2
+optuna_trials_per_proposal: 3
+engine: tradesim
+evidence_class_market: RESEARCH_PROXY_binance_ohlcv_bybit_cost_model
+
+outer_folds:
+  count: 5
+  scheme: expanding_from_end
+  min_train_days: 540
+  test_days: 180
+  purge_bars_execution_tf: 96
+  embargo_bars_execution_tf: 48
+
+inner_folds:
+  count: 3
+  scheme: expanding
+  purge_bars_execution_tf: 48
+  embargo_bars_execution_tf: 24
+
+selection_objective: inner_mean_expectancy_after_costs
+tie_breaker: higher_inner_pf_then_more_trades
+
+families:
+  - id: H1_sweep_vol_pd
+    description: Require sweep + structure + PD + volume; FVG optional; RR>=2.5
+    logical_seed:
+      name: SMC_Gen3_H1_Quality
+      bias_timeframe: 4h
+      structure_timeframe: 1h
+      execution_timeframe: 5m
+      swing_left: 3
+      swing_right: 3
+      bos_requires_close: true
+      fvg_model: wick
+      require_liquidity_sweep: true
+      require_bos_or_choch: true
+      require_fvg: false
+      require_order_block: false
+      require_premium_discount: true
+      min_confluence_count: 3
+      volume_confirm_lookback: 5
+      volume_confirm_mult: 1.5
+      stop_beyond_sweep_atr_mult: 0.15
+      target_rr: 3.0
+      use_pd_targets: true
+      max_hold_bars: 96
+      risk_fraction: 0.005
+      event_lookback: 24
+
+  - id: H2_sweep_fvg_strict
+    description: Sweep + structure + FVG + volume; min confluence 4; RR 3
+    logical_seed:
+      name: SMC_Gen3_H2_Strict
+      bias_timeframe: 4h
+      structure_timeframe: 1h
+      execution_timeframe: 5m
+      swing_left: 3
+      swing_right: 3
+      bos_requires_close: true
+      fvg_model: wick
+      require_liquidity_sweep: true
+      require_bos_or_choch: true
+      require_fvg: true
+      require_order_block: false
+      require_premium_discount: true
+      min_confluence_count: 4
+      volume_confirm_lookback: 5
+      volume_confirm_mult: 1.5
+      stop_beyond_sweep_atr_mult: 0.1
+      target_rr: 3.0
+      use_pd_targets: true
+      max_hold_bars: 96
+      risk_fraction: 0.005
+      event_lookback: 36
+
+search_space:
+  swing_left: [2, 3, 5]
+  swing_right: [2, 3, 5]
+  bias_timeframe: [4h, 1h]
+  structure_timeframe: [1h, 15m]
+  execution_timeframe: [5m]
+  fvg_model: [wick]
+  bos_requires_close: [true]
+  require_liquidity_sweep: [true]  # frozen quality bar
+  require_bos_or_choch: [true]
+  require_fvg: [true, false]
+  require_order_block: [false]
+  require_premium_discount: [true]
+  min_confluence_count: [3, 4]
+  volume_confirm_lookback: [5, 8]
+  volume_confirm_mult: [1.3, 1.5, 2.0]
+  stop_beyond_sweep_atr_mult: [0.1, 0.15]
+  target_rr: [2.5, 3.0, 4.0]
+  use_pd_targets: [true, false]
+  max_hold_bars: [64, 96, 120]
+  risk_fraction: [0.005]
+  event_lookback: [24, 36]
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+forward_lockbox_days: 90
+research_start_utc: "2020-01-01T00:00:00Z"
+gate_profile: trading_bot_v2_1_frozen

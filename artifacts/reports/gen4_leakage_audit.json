@@ -1,0 +1,85 @@
+{
+  "symbol_window": "BTCUSDT 5m 2025-12-19..2026-04-19 UTC",
+  "spec_name": "optuna_SMC_Gen4_H2_OB_Killzone_0",
+  "session_mode": "killzones",
+  "all_causality_pass": true,
+  "checks": [
+    {
+      "step": "1_swing_confirmation",
+      "pass": true,
+      "prefix_equals_full": true,
+      "n_swing_high": 3391,
+      "n_swing_low": 3310,
+      "detail": "left=3 right=3; flags only after +3 bars (prefix test)"
+    },
+    {
+      "step": "2_htf_lag_alignment",
+      "pass": true,
+      "available_ms_gt_open": true,
+      "htf": "1h",
+      "detail": "HTF features available only at open+3600000ms (candle close)"
+    },
+    {
+      "step": "3_session_mask_utc",
+      "pass": true,
+      "mode": "killzones",
+      "on_frac": 0.2916666666666667,
+      "detail": "UTC hour mask only; no future info"
+    },
+    {
+      "step": "0_primitive_parity_suite",
+      "pass": true,
+      "future_mutation": true,
+      "truncation": true,
+      "detail": "engine.parity_tests on 4m BTC 5m window"
+    },
+    {
+      "step": "4_signal_score_causality",
+      "pass": true,
+      "truncation_invariance": true,
+      "future_mutation_invariant": true,
+      "compared_bars": 34803,
+      "detail": "long/short flags on prefix ignore future bars"
+    },
+    {
+      "step": "5_entry_timing_contract",
+      "pass": true,
+      "n_signals_sample_window": 1039,
+      "detail": "Signal.ts_ms = decision bar open; tradesim research default = entry at next open + entry slip (close-based signal not filled at that close)"
+    },
+    {
+      "step": "6_selection_before_oos",
+      "pass": true,
+      "detail": "Inner-fold selection only; one frozen outer OOS eval. Do not interpret this as cryptographic proof \u2014 process from run_gen2."
+    },
+    {
+      "step": "7_db_separation",
+      "pass": true,
+      "research_db": "D:\\projects\\smartmoney\\artifacts\\datasets\\research_ohlcv.sqlite",
+      "lockbox_db": "D:\\projects\\smartmoney\\artifacts\\datasets\\forward_lockbox_ohlcv.sqlite",
+      "detail": "Features computed on research DB only for OOS; lockbox untouched"
+    }
+  ],
+  "residual_risks": [
+    {
+      "risk": "RESEARCH_PROXY",
+      "severity": "evidence",
+      "detail": "Binance OHLCV vs Bybit costs \u2014 not venue parity PASS"
+    },
+    {
+      "risk": "OPTUNA_SWING_ON_CACHED_FEATURES",
+      "severity": "search_integrity",
+      "detail": "Inner Optuna can suggest swing_left/right but features are precomputed from proposal seed \u2014 those swing trials are partly ineffective (not leakage, but search incompleteness)."
+    },
+    {
+      "risk": "SAME_BAR_ENTRY_EXIT_AMBIGUITY",
+      "severity": "execution",
+      "detail": "tradesim reports ambiguous intrabar; no 1m touch series in default research DB"
+    },
+    {
+      "risk": "LIQUIDATION_UNKNOWN",
+      "severity": "risk",
+      "detail": "No mark/maintenance tiers supplied"
+    }
+  ]
+}

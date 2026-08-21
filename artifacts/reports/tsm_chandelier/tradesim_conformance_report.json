@@ -1,0 +1,1206 @@
+{
+  "engine": "tradesim",
+  "engine_version": "1.0.0",
+  "contract": "perp_bracket_backtest",
+  "ok": true,
+  "required": 58,
+  "satisfied": 58,
+  "unsatisfied": [],
+  "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+  "stamp": {
+    "engine_name": "tradesim",
+    "engine_version": "1.0.0",
+    "engine_commit": "UNKNOWN_DIRTY",
+    "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+    "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+    "contract": "perp_bracket_backtest",
+    "checked_at_ms": 1786362995962,
+    "passed": true,
+    "required_count": 58,
+    "satisfied_count": 58,
+    "unsatisfied": [],
+    "checker_version": "1",
+    "detail": {
+      "checker_version": "1",
+      "unknown_identifiers_in_tests": [],
+      "n_fixtures": 50
+    }
+  },
+  "identifiers": [
+    {
+      "identifier": "DATA-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_001_duplicate_timestamp_is_rejected",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_001_out_of_order_bars_are_rejected_not_sorted"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "DATA-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_002_ohlc_invariants_are_enforced",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_002_non_positive_prices_are_rejected"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "DATA-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_003_pre_launch_bars_are_skipped_with_a_reason"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "DATA-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_004_spacing_must_match_the_declared_timeframe",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_004_timestamps_name_the_bar_open"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "DATA-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_005_touch_gap_refuses_lower_timeframe_resolution",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_data_validation.py::test_data_005_complete_touch_coverage_is_still_used"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "CAUS-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_001_signal_bar_range_is_not_post_entry",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_001_close_entry_ref_still_excludes_the_decision_bar"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "CAUS-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_002_future_bars_cannot_change_a_resolved_trade"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "CAUS-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_003_truncation_reproduces_identical_trades"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "CAUS-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_004_touch_replay_reads_only_this_decision_bar"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "CAUS-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_005_trailing_update_cannot_use_the_bar_it_resolves",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_causality.py::test_caus_005_break_even_cannot_arm_and_rescue_on_one_bar"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_001_signal_fills_at_the_next_executable_price"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_002_entry_slippage_moves_the_price_not_the_rate",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_002_entry_slippage_is_adverse_for_a_short"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_003_fee_is_per_fill_at_the_role_rate"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_004_gap_through_the_stop_fills_at_the_gap_price",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_004_stop_limit_rests_at_its_level"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_005_take_profit_limit_does_not_take_a_favourable_gap",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_005_market_triggered_take_profit_does_slip"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-006",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_006_both_levels_in_one_bar_resolve_adversely_and_are_labelled",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_006_favourable_policy_is_a_sensitivity_not_a_headline",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_006_touch_bars_resolve_the_ambiguity_with_data"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-007",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_007_continuous_path_reaches_the_stop_before_liquidation",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_007_a_gap_past_both_levels_is_a_liquidation"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-008",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_008_max_hold_exits_at_the_expiring_bars_open",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_008_per_signal_max_hold_overrides_the_run_default"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-009",
+      "required": false,
+      "test_status": "NO_BINDING",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-010",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_010_entry_bar_stop_closes_on_entry_bar",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_010_entry_bar_stop_short_side",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_014_quiet_entry_bar_does_not_close"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-011",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_011_entry_bar_target_closes_on_entry_bar"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-012",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_012_entry_bar_both_takes_adverse_and_labels_ambiguous",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_012_entry_bar_both_resolved_by_touch_data"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-013",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_013_entry_bar_liquidation_resolves_before_the_stop"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-014",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_014_quiet_entry_bar_does_not_close",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_014_quiet_entry_bar_then_target"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-015",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_015_same_bar_round_trip_is_charged_funding"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-016",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_016_same_bar_exit_reports_zero_hold",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_entry_bar.py::test_exec_016_max_hold_arithmetic_counts_from_the_entry_bar"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-017",
+      "required": false,
+      "test_status": "NO_BINDING",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-018",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_018_multi_leg_take_profit_fills_each_leg_at_its_own_price",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_018_a_leg_that_cannot_be_executed_is_refused_not_rounded_away"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-019",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_019_trailing_stop_only_ratchets_favourably",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_019_trailing_activation_offset_is_respected"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "EXEC-020",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_020_break_even_arms_after_the_bar_that_triggers_it",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_exec_core.py::test_exec_020_break_even_does_not_rescue_the_activating_bar"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "FUND-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_001_positive_rate_is_paid_by_the_long",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_001_positive_rate_is_received_by_the_short"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "FUND-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_002_negative_rate_reverses_the_cashflow"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "FUND-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_003_no_funding_while_flat"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "FUND-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_004_each_settlement_is_charged_once_at_its_own_mark"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "FUND-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_005_holding_window_is_entry_inclusive_and_exit_exclusive",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_005_bar_start_boundary_is_available_and_undercharges"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "FUND-006",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_006_funding_moves_the_wallet_chronologically",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_funding.py::test_fund_006_funding_can_cause_the_liquidation_it_precedes"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_001_prices_and_quantities_land_on_the_venue_grid",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_001_entry_rounding_never_manufactures_a_better_fill"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_002_below_minimum_notional_is_skipped_with_a_reason",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_002_quantity_that_rounds_to_zero_is_skipped_not_zero_filled"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_003_minimum_order_breaching_the_risk_cap_is_skipped",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_003_minimum_executable_quantity_respects_both_minimums"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_004_insufficient_margin_rejects_the_order",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_004_margin_utilisation_cap_is_separate_from_running_out"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_005_leverage_changes_margin_not_price_pnl"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-006",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_006_liquidation_uses_the_tier_for_the_position_notional",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_006_missing_tiers_or_mark_series_downgrade_the_status"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-007",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_007_the_engine_says_which_of_stop_or_liquidation_happened",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_007_liquidation_price_is_solved_not_approximated"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-008",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_008_the_wallet_reconciles"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-009",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_009_a_ruined_wallet_stops_trading"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "QTY-010",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_010_a_stop_beyond_liquidation_is_rejected",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_quantity_margin.py::test_qty_010_the_same_stop_is_accepted_at_a_leverage_that_supports_it"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_001_profit_factor_is_pooled_and_uncapped",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_001_profit_factor_is_not_capped_at_a_sentinel"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_002_zero_gross_loss_is_infinity_with_a_warning"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_003_drawdown_uses_mark_to_market_equity",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_003_max_drawdown_reports_magnitude_fraction_and_duration"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_004_raw_and_annualised_sharpe_are_separate_numbers",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_004_sharpe_is_undefined_rather_than_zero_on_thin_samples"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_005_hac_sharpe_is_reported_next_to_the_iid_value"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-006",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_006_execution_costs_and_coverage_are_reported"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-007",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_007_entry_bar_exit_frequency_is_counted_and_warned_about",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_007_ambiguous_intrabar_count_is_reported"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "METR-008",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_008_win_rate_carries_an_uncertainty_interval",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_metrics.py::test_metr_008_the_report_never_shows_a_bare_win_rate"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "VALD-001",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_001_every_result_carries_a_stamp",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_001_assert_quotable_refuses_absent_and_red_stamps",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_001_a_critical_unknown_blocks_a_green_engine"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "VALD-002",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_002_a_missing_binding_fails_the_check",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_002_an_unknown_identifier_in_a_test_fails_the_check"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "VALD-003",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_003_the_fixture_pack_is_content_hashed"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "VALD-004",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_004_a_dirty_working_tree_stamps_unknown_dirty"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "VALD-005",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_005_a_skipped_bound_test_is_a_failure",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_005_a_failing_bound_test_is_reported_against_its_identifier"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "VALD-006",
+      "required": true,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_006_run_id_is_accepted_and_propagated",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_validation_stamp.py::test_vald_006_the_config_digest_travels_with_the_result"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "PORT-001",
+      "required": false,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_001_one_chronological_wallet_across_symbols",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_001_shared_wallet_is_not_the_sum_of_standalone_runs"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "PORT-002",
+      "required": false,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_002_simultaneous_signals_use_a_declared_priority",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_002_priority_is_repeatable"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "PORT-003",
+      "required": false,
+      "test_status": "PASSED",
+      "fixture_status": "PASS",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_003_shared_margin_rejects_the_second_signal_and_records_it"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "PORT-004",
+      "required": false,
+      "test_status": "PASSED",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_004_the_portfolio_ledger_reconciles_to_its_components",
+        "C:/projects/botsgeneral/packages/tradesim/tests/test_portfolio.py::test_port_004_equity_rows_track_used_margin_and_open_positions"
+      ],
+      "problems": []
+    },
+    {
+      "identifier": "LIVE-001",
+      "required": false,
+      "test_status": "NO_BINDING",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [],
+      "problems": []
+    },
+    {
+      "identifier": "LIVE-002",
+      "required": false,
+      "test_status": "NO_BINDING",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [],
+      "problems": []
+    },
+    {
+      "identifier": "LIVE-003",
+      "required": false,
+      "test_status": "NO_BINDING",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [],
+      "problems": []
+    },
+    {
+      "identifier": "LIVE-004",
+      "required": false,
+      "test_status": "NO_BINDING",
+      "fixture_status": "NO_FIXTURE",
+      "bindings": [],
+      "problems": []
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "DATA-001_duplicate_timestamp",
+      "ids": [
+        "DATA-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "DATA-001_out_of_order_timestamp",
+      "ids": [
+        "DATA-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "DATA-002_non_positive_price",
+      "ids": [
+        "DATA-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "DATA-002_ohlc_invariant_violation",
+      "ids": [
+        "DATA-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-001_no_retroactive_close_fill",
+      "ids": [
+        "EXEC-001",
+        "CAUS-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-002_entry_slippage_moves_price",
+      "ids": [
+        "EXEC-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-003_fee_per_fill_maker_taker",
+      "ids": [
+        "EXEC-003"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-004_gap_through_stop",
+      "ids": [
+        "EXEC-004"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-005_tp_limit_no_favourable_slip",
+      "ids": [
+        "EXEC-005"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-005_tp_market_does_slip",
+      "ids": [
+        "EXEC-005"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-006_both_in_bar_adverse",
+      "ids": [
+        "EXEC-006"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-006_both_in_bar_touch_resolved",
+      "ids": [
+        "EXEC-006",
+        "CAUS-004"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-007_stop_before_liquidation_continuous",
+      "ids": [
+        "EXEC-007",
+        "QTY-007"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-008_max_hold_exits_at_open_of_nth_bar",
+      "ids": [
+        "EXEC-008",
+        "EXEC-016"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-010_entry_bar_stop",
+      "ids": [
+        "EXEC-010"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-010_entry_bar_stop_short",
+      "ids": [
+        "EXEC-010"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-011_entry_bar_target",
+      "ids": [
+        "EXEC-011"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-012_entry_bar_both_adverse",
+      "ids": [
+        "EXEC-012"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-012_entry_bar_both_touch_resolved",
+      "ids": [
+        "EXEC-012"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-013_entry_bar_liquidation",
+      "ids": [
+        "EXEC-013"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-014_quiet_entry_bar_negative_control",
+      "ids": [
+        "EXEC-014"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-015_entry_bar_funding",
+      "ids": [
+        "EXEC-015",
+        "FUND-005"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-016_same_bar_hold_is_zero",
+      "ids": [
+        "EXEC-016"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-018_multi_leg_take_profit",
+      "ids": [
+        "EXEC-018"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-019_trailing_stop_ratchet",
+      "ids": [
+        "EXEC-019",
+        "CAUS-005"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-020_break_even_arms_then_fires",
+      "ids": [
+        "EXEC-020"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "EXEC-020_break_even_cannot_rescue_same_bar",
+      "ids": [
+        "EXEC-020",
+        "CAUS-005"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "FUND-001_long_pays_positive_rate",
+      "ids": [
+        "FUND-001",
+        "FUND-004",
+        "FUND-006"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "FUND-001_short_receives_positive_rate",
+      "ids": [
+        "FUND-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "FUND-002_negative_rate_reverses",
+      "ids": [
+        "FUND-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "FUND-003_no_funding_while_flat",
+      "ids": [
+        "FUND-003"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "FUND-004_each_settlement_once",
+      "ids": [
+        "FUND-004"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-001_profit_factor_is_pooled",
+      "ids": [
+        "METR-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-001_profit_factor_is_uncapped",
+      "ids": [
+        "METR-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-002_zero_gross_loss_is_infinite",
+      "ids": [
+        "METR-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-003_drawdown_on_the_equity_curve",
+      "ids": [
+        "METR-003"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-004_raw_and_annualised_sharpe",
+      "ids": [
+        "METR-004"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-004_sharpe_undefined_on_a_flat_curve",
+      "ids": [
+        "METR-004"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-005_hac_sharpe_alongside_iid",
+      "ids": [
+        "METR-005"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "METR-007_entry_bar_exit_rate_warning",
+      "ids": [
+        "METR-007"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "PORT-001_shared_wallet_two_symbols",
+      "ids": [
+        "PORT-001",
+        "PORT-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "PORT-003_shared_margin_rejects_second",
+      "ids": [
+        "PORT-003"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-001_tick_and_step_rounding",
+      "ids": [
+        "QTY-001"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-002_below_min_notional_skips",
+      "ids": [
+        "QTY-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-002_below_min_qty_skips",
+      "ids": [
+        "QTY-002"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-003_min_qty_exceeds_risk_cap",
+      "ids": [
+        "QTY-003"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-004_insufficient_margin_rejects",
+      "ids": [
+        "QTY-004"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-007_gap_reverses_stop_liquidation_order",
+      "ids": [
+        "QTY-007",
+        "EXEC-007"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-008_wallet_reconciles",
+      "ids": [
+        "QTY-008"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    },
+    {
+      "fixture": "QTY-010_stop_beyond_liquidation_rejected",
+      "ids": [
+        "QTY-010"
+      ],
+      "status": "PASS",
+      "failures": [],
+      "detail": ""
+    }
+  ]
+}

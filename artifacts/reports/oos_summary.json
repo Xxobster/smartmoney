@@ -1,0 +1,90 @@
+{
+  "readiness": "SPARSE_OR_INSUFFICIENT_EVIDENCE",
+  "evidence_class": "nested_outer_oos_stitched",
+  "freeze_hash": "09cff63a8cb929bb1b19b1b4316a62a6f06313ff25be80b9069b4c132ce2e98a",
+  "funding_available": true,
+  "n_outer_folds": 5,
+  "n_eligible_folds": 0,
+  "pooled_trades": 14,
+  "net_pnl": 181.93984763263845,
+  "expectancy": 12.995703402331317,
+  "pooled_pf": 2.624766856500678,
+  "sharpe_daily_ann": 0.032006116302260565,
+  "hac_sharpe_ann": 0.06960089739474111,
+  "max_drawdown": 0.019588867757418447,
+  "dsr": 0.0,
+  "bootstrap_pos_exp": 0.995,
+  "positive_eligible_fold_fraction": 0.0,
+  "pbo": null,
+  "pbo_status": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+  "checks": {
+    "min_complete_outer_folds": true,
+    "min_pooled_trades": false,
+    "net_pnl_positive": true,
+    "expectancy_positive": true,
+    "pooled_pf": true,
+    "sharpe": false,
+    "hac_sharpe": false,
+    "positive_fold_frac": false,
+    "bootstrap": true,
+    "dsr": false,
+    "mdd": true,
+    "stress_pnl": true,
+    "stress_pf": true,
+    "no_liquidations_gate": true
+  },
+  "fold_summaries": [
+    {
+      "fold_id": 0,
+      "n_trades": 2,
+      "net_pnl": 24.603000100000187,
+      "profit_factor": Infinity,
+      "eligible": false,
+      "positive": true,
+      "test_start_ms": 1609372800000,
+      "test_end_ms": 1617148800000
+    },
+    {
+      "fold_id": 1,
+      "n_trades": 4,
+      "net_pnl": 95.95655485764013,
+      "profit_factor": Infinity,
+      "eligible": false,
+      "positive": true,
+      "test_start_ms": 1617148800000,
+      "test_end_ms": 1624924800000
+    },
+    {
+      "fold_id": 2,
+      "n_trades": 2,
+      "net_pnl": -38.437926300000086,
+      "profit_factor": 0.2991213945241966,
+      "eligible": false,
+      "positive": false,
+      "test_start_ms": 1624924800000,
+      "test_end_ms": 1632700800000
+    },
+    {
+      "fold_id": 3,
+      "n_trades": 5,
+      "net_pnl": 88.44797154999816,
+      "profit_factor": 2.548010054364897,
+      "eligible": false,
+      "positive": true,
+      "test_start_ms": 1632700800000,
+      "test_end_ms": 1640476800000
+    },
+    {
+      "fold_id": 4,
+      "n_trades": 1,
+      "net_pnl": 11.370247425000093,
+      "profit_factor": Infinity,
+      "eligible": false,
+      "positive": true,
+      "test_start_ms": 1640476800000,
+      "test_end_ms": 1648252800000
+    }
+  ],
+  "n_trials_in_registry": 78,
+  "principal_blocker": "min_pooled_trades"
+}

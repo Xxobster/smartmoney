@@ -1,0 +1,19 @@
+{
+  "ETHUSDT": {
+    "source": "Bybit get_executions on VPS 2026-08-12",
+    "entry": {"execTime_ms": 1786460430723, "price": 1872.33, "execFee": 0.01029782, "feeRate": 0.00055, "side": "Sell"},
+    "exit": {"execTime_ms": 1786508463659, "price": 1890.98, "execFee": 0.01040039, "feeRate": 0.00055, "side": "Buy", "execType": "Trade"},
+    "funding_credits": [
+      {"execTime_ms": 1786464000000, "execFee": -0.00059236, "feeRate": -0.000031, "price": 1862.21},
+      {"execTime_ms": 1786492800000, "execFee": -0.00155237, "feeRate": -0.000082, "price": 1881.67}
+    ],
+    "totals": {
+      "trade_fees_paid": 0.02069821,
+      "funding_credit": 0.00214473,
+      "gross_pnl_prices": -0.1865,
+      "implied_net": -0.20505348,
+      "exchange_closed_pnl": -0.20505348,
+      "identity_check": "gross - trade_fees + funding_credit ~= closedPnl"
+    }
+  }
+}

@@ -1,0 +1,657 @@
+{
+  "generated_utc": "2026-08-12T15:08:27.601146+00:00",
+  "units": [
+    "tsm-chandelier@BTCUSDT",
+    "tsm-chandelier@ETHUSDT",
+    "tsm-chandelier@SOLUSDT"
+  ],
+  "account": "Xxobster6",
+  "venue": "Bybit USDT linear perp",
+  "timeframe": "1h",
+  "strategy": "tsm_chandelier",
+  "vps_ssh_status": "UNREACHABLE_banner_timeout_ping_ok",
+  "research": {
+    "freeze": {
+      "freeze_id": "tsm_chandelier_1h_shadow_freeze_20260810",
+      "package_hash": "9b65a02fdd4fa444a3477ce9099f32a8609eedda28686c57a2ae8bcb4d14f9e0",
+      "params": {
+        "strategy_id": "tsm_chandelier",
+        "strategy_version": "0.1.0",
+        "timeframe": "1h",
+        "atr_band_mult": 2.5,
+        "chandelier_lookback": 22,
+        "chandelier_atr_mult": 3.0,
+        "ema_filter": 50,
+        "max_hold_bars": 36,
+        "search_space": {}
+      },
+      "symbols_frozen_primary": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "maximum_earned_readiness": "LIVE_STOP / SHADOW_READY"
+    },
+    "historical_oos_stitched": {
+      "pooled_trades": 394,
+      "net_pnl": 108.7826255449927,
+      "pooled_pf": 1.5641253019586832,
+      "expectancy": 0.2760980343781723,
+      "win_rate_trade_weighted": 0.47715736040609136,
+      "sharpe_daily_ann_mean_symbols": 1.5861402475641468,
+      "hac_sharpe_ann_mean_symbols": 1.571888985682518,
+      "max_drawdown": 0.001751124475514548,
+      "positive_eligible_fold_fraction": 1.0,
+      "n_outer_folds": 5,
+      "per_symbol": {
+        "BTCUSDT": {
+          "n_trades": 202,
+          "net_pnl": 62.97277795500668,
+          "expectancy": 0.3117464255198016,
+          "profit_factor": 1.485064855978614,
+          "win_rate": 0.4801980198019802,
+          "sharpe_ann": 1.3725331125277316,
+          "hac_sharpe_ann": 1.39150549084423,
+          "max_drawdown": 0.001751124475514548,
+          "gross_profit": 192.79619677999995,
+          "gross_loss": 129.82341882500003,
+          "total_fees": 17.600122045000003,
+          "total_slippage": 8.017199999999997,
+          "total_funding": 0.0,
+          "symbol": "BTCUSDT"
+        },
+        "ETHUSDT": {
+          "n_trades": 192,
+          "net_pnl": 45.80984758998602,
+          "expectancy": 0.23859295619791654,
+          "profit_factor": 1.7270165506811883,
+          "win_rate": 0.4739583333333333,
+          "sharpe_ann": 1.7997473826005619,
+          "hac_sharpe_ann": 1.752272480520806,
+          "max_drawdown": 0.0006343040010348534,
+          "gross_profit": 108.82058310499998,
+          "gross_loss": 63.01073551500002,
+          "total_fees": 6.064952410000001,
+          "total_slippage": 2.7700000000000227,
+          "total_funding": 0.0,
+          "symbol": "ETHUSDT"
+        },
+        "SOLUSDT": {
+          "symbol": "SOLUSDT",
+          "n_trades": 131,
+          "net_pnl": 19.006311399999998,
+          "profit_factor": 1.7625739247206254,
+          "status": "exploratory_not_in_primary_freeze",
+          "liquidation_status": "MODELLED",
+          "avg_trades_per_month": 4.366666666666666,
+          "note": "NOT in frozen primary symbols; exploratory only. Adding SOL requires a new preregistered generation before claiming readiness."
+        }
+      },
+      "fold_summaries": [
+        {
+          "fold_id": 0,
+          "n_trades": 73,
+          "net_pnl": 11.764545409996572,
+          "gross_profit": 38.20735171,
+          "gross_loss": 26.442806300000015,
+          "eligible": true,
+          "positive": true,
+          "pf_fold": 1.4449053279946302,
+          "test_start_ms": 1698825600000,
+          "test_end_ms": 1714377600000,
+          "test_start_utc": "2023-11-01T08:00:00+00:00",
+          "test_end_utc": "2024-04-29T08:00:00+00:00"
+        },
+        {
+          "fold_id": 1,
+          "n_trades": 85,
+          "net_pnl": 37.98554774499644,
+          "gross_profit": 68.49004034499998,
+          "gross_loss": 30.50449259999999,
+          "eligible": true,
+          "positive": true,
+          "pf_fold": 2.2452443724633535,
+          "test_start_ms": 1714377600000,
+          "test_end_ms": 1729929600000,
+          "test_start_utc": "2024-04-29T08:00:00+00:00",
+          "test_end_utc": "2024-10-26T08:00:00+00:00"
+        },
+        {
+          "fold_id": 2,
+          "n_trades": 67,
+          "net_pnl": 4.693442844993115,
+          "gross_profit": 53.85688139999999,
+          "gross_loss": 49.163438555,
+          "eligible": true,
+          "positive": true,
+          "pf_fold": 1.0954661224468536,
+          "test_start_ms": 1729929600000,
+          "test_end_ms": 1745481600000,
+          "test_start_utc": "2024-10-26T08:00:00+00:00",
+          "test_end_utc": "2025-04-24T08:00:00+00:00"
+        },
+        {
+          "fold_id": 3,
+          "n_trades": 80,
+          "net_pnl": 34.34672555500765,
+          "gross_profit": 75.27990829499998,
+          "gross_loss": 40.933182740000035,
+          "eligible": true,
+          "positive": true,
+          "pf_fold": 1.8390924735358098,
+          "test_start_ms": 1745481600000,
+          "test_end_ms": 1761033600000,
+          "test_start_utc": "2025-04-24T08:00:00+00:00",
+          "test_end_utc": "2025-10-21T08:00:00+00:00"
+        },
+        {
+          "fold_id": 4,
+          "n_trades": 89,
+          "net_pnl": 19.860236699998495,
+          "gross_profit": 65.78259813499997,
+          "gross_loss": 45.92236143500003,
+          "eligible": true,
+          "positive": true,
+          "pf_fold": 1.4324742038388152,
+          "test_start_ms": 1761033600000,
+          "test_end_ms": 1776585600000,
+          "test_start_utc": "2025-10-21T08:00:00+00:00",
+          "test_end_utc": "2026-04-19T08:00:00+00:00"
+        }
+      ],
+      "evidence_class": "nested_outer_oos_stitched_tradesim_RESEARCH_PROXY"
+    },
+    "gate_bcd": {
+      "maximum_earned_readiness": "LIVE_STOP / SHADOW_READY",
+      "dsr_preregistered": 1.0,
+      "bootstrap_pos_exp": 1.0,
+      "moderate_stress_pf": 1.4940358076626294,
+      "engine_conformance_green": true,
+      "liquidation_status": "MODELLED"
+    },
+    "micro_live_reconcile_asof_2026_08_12": {
+      "generated_utc": "2026-08-12T05:49:18.213283+00:00",
+      "open_trades": [
+        {
+          "symbol": "BTCUSDT",
+          "side": "short",
+          "entry_utc": "2026-08-11T15:00:00+00:00",
+          "entry_price": 63766.7,
+          "stop": 64240.614285714284,
+          "target": 62266.15714285715
+        }
+      ],
+      "closed_reconcile": [
+        {
+          "symbol": "ETHUSDT",
+          "live": {
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "exit_utc": "2026-08-12T04:21:03.663000+00:00",
+            "side_close_record": "Buy",
+            "qty": 0.01,
+            "entry": 1872.33,
+            "exit": 1890.98,
+            "planned_stop": 1890.1749999999997,
+            "planned_target": 1820.155000000001,
+            "closed_pnl_exchange": -0.20505348,
+            "exec_type": "Trade",
+            "stop_exit_slip": 0.805000000000291
+          },
+          "fee_model_taker": {
+            "entry_fee": 0.010297815,
+            "exit_fee": 0.01040039,
+            "total_fee": 0.020698205,
+            "rate": 0.00055,
+            "note": "Bybit USDT perp Fee = Qty * ExecutedPrice * Rate; baseline taker 0.055%"
+          },
+          "execution_truth": {
+            "source": "Bybit get_executions on VPS 2026-08-12",
+            "entry": {
+              "execTime_ms": 1786460430723,
+              "price": 1872.33,
+              "execFee": 0.01029782,
+              "feeRate": 0.00055,
+              "side": "Sell"
+            },
+            "exit": {
+              "execTime_ms": 1786508463659,
+              "price": 1890.98,
+              "execFee": 0.01040039,
+              "feeRate": 0.00055,
+              "side": "Buy",
+              "execType": "Trade"
+            },
+            "funding_credits": [
+              {
+                "execTime_ms": 1786464000000,
+                "execFee": -0.00059236,
+                "feeRate": -3.1e-05,
+                "price": 1862.21
+              },
+              {
+                "execTime_ms": 1786492800000,
+                "execFee": -0.00155237,
+                "feeRate": -8.2e-05,
+                "price": 1881.67
+              }
+            ],
+            "totals": {
+              "trade_fees_paid": 0.02069821,
+              "funding_credit": 0.00214473,
+              "gross_pnl_prices": -0.1865,
+              "implied_net": -0.20505348,
+              "exchange_closed_pnl": -0.20505348,
+              "identity_check": "gross - trade_fees + funding_credit ~= closedPnl"
+            }
+          },
+          "accounting": {
+            "gross_pnl_from_prices": -0.18650000000000092,
+            "gross_minus_model_fees": -0.2071982050000009,
+            "exchange_closed_pnl": -0.20505348,
+            "exchange_vs_gross_minus_fees": 0.002144725000000902
+          },
+          "resim": {
+            "status": "ok",
+            "n_signals": 1,
+            "n_trades": 1,
+            "trades": [
+              {
+                "side": -1,
+                "entry_ts_ms": 1786460400000,
+                "entry_utc": "2026-08-11T15:00:00+00:00",
+                "exit_ts_ms": 1786507200000,
+                "exit_utc": "2026-08-12T04:00:00+00:00",
+                "entry_price": 1871.74,
+                "exit_price": 1890.17,
+                "qty": 0.01,
+                "fees": 0.020690505000000005,
+                "funding": 0.0,
+                "slippage_cost": 0.009400000000000545,
+                "gross_pnl": -0.18430000000000063,
+                "realized_pnl": -0.20499050500000063,
+                "exit_reason": "stop",
+                "stop_price": 1890.17,
+                "target_price": 1820.16
+              }
+            ],
+            "fills": [
+              {
+                "ts_ms": 1786460400000,
+                "ts_utc": "2026-08-11T15:00:00+00:00",
+                "role": "entry",
+                "side": "sell",
+                "qty": 0.01,
+                "price": 1871.74,
+                "fee": 0.010294570000000001,
+                "fee_rate": 0.00055,
+                "slippage_cost": 0.009400000000000545
+              },
+              {
+                "ts_ms": 1786507200000,
+                "ts_utc": "2026-08-12T04:00:00+00:00",
+                "role": "stop",
+                "side": "buy",
+                "qty": 0.01,
+                "price": 1890.17,
+                "fee": 0.010395935000000002,
+                "fee_rate": 0.00055,
+                "slippage_cost": 0.0
+              }
+            ],
+            "metrics": {
+              "net_pnl": -0.204990505000751,
+              "n_trades": 1
+            },
+            "compare_notes": [
+              "Resim entry uses next-bar open +/- entry slippage model; live uses Bybit market fill.",
+              "Resim stop exit uses planned stop (no exit slip when limit-touch assumed); live SL was market-triggered.",
+              "1m touch series may be absent locally \u2014 exit bar then comes from 1h path."
+            ]
+          },
+          "funding_while_open": [
+            {
+              "symbol": "ETHUSDT",
+              "ts_utc": "2026-08-11T16:00:00+00:00",
+              "funding": 0.00059236,
+              "cash_flow": 0.0,
+              "size": -0.01,
+              "side": "Sell"
+            },
+            {
+              "symbol": "ETHUSDT",
+              "ts_utc": "2026-08-12T00:00:00+00:00",
+              "funding": 0.00155237,
+              "cash_flow": 0.0,
+              "size": -0.01,
+              "side": "Sell"
+            }
+          ]
+        }
+      ],
+      "equity_mtm": {
+        "BTCUSDT": {
+          "n": 428,
+          "first_utc": "2026-08-10T16:27:56Z",
+          "last_utc": "2026-08-12T05:45:23Z",
+          "equity_start": 13.09170546,
+          "equity_end": 12.79609688,
+          "equity_min": 12.77348111,
+          "equity_max": 13.66181296,
+          "delta": -0.2956085799999997
+        },
+        "ETHUSDT": {
+          "n": 428,
+          "first_utc": "2026-08-10T16:28:01Z",
+          "last_utc": "2026-08-12T05:44:27Z",
+          "equity_start": 13.09170546,
+          "equity_end": 12.79707775,
+          "equity_min": 12.78274216,
+          "equity_max": 13.66181296,
+          "delta": -0.2946277100000003
+        }
+      },
+      "verdict": {
+        "signal_stop_target_parity": "PASS (prior)",
+        "closed_trade_count": 1,
+        "open_trade_count": 1,
+        "full_live_backtest_identity": false,
+        "principal_blockers": [
+          "BTCUSDT (or other) still open \u2014 full exit/funding/MTM parity incomplete until flat.",
+          "funding_events.cash_flow is 0 while funding!=0 \u2014 verify Bybit funding field mapping before trusting wallet funding parity.",
+          "Evidence remains RESEARCH_PROXY (Binance signal candles vs Bybit fills).",
+          "Do not raise size/leverage on this thin forward sample."
+        ],
+        "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY"
+      }
+    }
+  },
+  "live": {
+    "db_path": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_chandelier\\live_vps94_tsm_chandelier_live.sqlite",
+    "db_mtime_utc": "2026-08-12T06:06:19.509419+00:00",
+    "tables": [
+      "handled_entries",
+      "open_trades",
+      "events",
+      "sqlite_sequence",
+      "closed_trades",
+      "equity_snapshots",
+      "funding_events"
+    ],
+    "note": "Local copy pulled earlier from VPS94; SSH banner timeout prevented a fresh pull today.",
+    "count_handled_entries": 2,
+    "count_open_trades": 1,
+    "count_events": 12,
+    "count_sqlite_sequence": 2,
+    "count_closed_trades": 1,
+    "count_equity_snapshots": 1301,
+    "count_funding_events": 2,
+    "open_trades": [
+      {
+        "symbol": "BTCUSDT",
+        "side": "short",
+        "entry_ts_ms": 1786460400000,
+        "entry_price": 63766.7,
+        "stop_price": 64240.614285714284,
+        "target_price": 62266.15714285715,
+        "qty": 0.001,
+        "leverage": 55,
+        "position_idx": 2,
+        "pattern": "chand_atr_band",
+        "detail_json": "{\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460420000, \"decision_delay_sec\": 20.0, \"entry_est\": 63766.7, \"qty\": 0.001, \"leverage\": 55, \"equity_base\": 13.10336746, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"64240.6\", \"target\": \"62266.2\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.001, \"avgPrice\": 63766.7}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 55}",
+        "created_utc": "2026-08-11T15:00:26Z",
+        "entry_utc": "2026-08-11T15:00:00+00:00"
+      }
+    ],
+    "closed_trades": [
+      {
+        "order_id": "7506e3fa-19b2-45e7-865e-248fde553737",
+        "symbol": "ETHUSDT",
+        "side": "Buy",
+        "qty": 0.01,
+        "avg_entry_price": 1872.33,
+        "avg_exit_price": 1890.98,
+        "closed_pnl": -0.20505348,
+        "cum_entry_value": 18.7233,
+        "cum_exit_value": 18.9098,
+        "leverage": 48.0,
+        "created_ms": 1786460430726,
+        "updated_ms": 1786508463663,
+        "exec_type": "Trade",
+        "planned_stop": 1890.1749999999997,
+        "planned_target": 1820.155000000001,
+        "planned_entry_ts_ms": 1786460400000,
+        "pattern": "chand_atr_band",
+        "raw_json": "{\"symbol\": \"ETHUSDT\", \"orderType\": \"Market\", \"leverage\": \"48\", \"updatedTime\": \"1786508463663\", \"side\": \"Buy\", \"orderId\": \"7506e3fa-19b2-45e7-865e-248fde553737\", \"closedPnl\": \"-0.20505348\", \"openFee\": \"0.01029782\", \"closeFee\": \"0.01040039\", \"avgEntryPrice\": \"1872.33\", \"qty\": \"0.01\", \"cumEntryValue\": \"18.7233\", \"createdTime\": \"1786460430726\", \"orderPrice\": \"1927.31\", \"closedSize\": \"0.01\", \"avgExitPrice\": \"1890.98\", \"execType\": \"Trade\", \"fillCount\": \"1\", \"cumExitValue\": \"18.9098\"}",
+        "recorded_utc": "2026-08-12T04:21:13Z"
+      }
+    ],
+    "handled_entries": [
+      {
+        "symbol": "BTCUSDT",
+        "entry_ts_ms": 1786460400000,
+        "side": "short",
+        "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3612.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+        "created_utc": "2026-08-11T16:00:16Z",
+        "entry_utc": "2026-08-11T15:00:00+00:00"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "entry_ts_ms": 1786460400000,
+        "side": "short",
+        "detail_json": "{\"skipped\": \"stale_entry\", \"delay_sec\": 3619.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 1872.67, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}}",
+        "created_utc": "2026-08-11T16:00:25Z",
+        "entry_utc": "2026-08-11T15:00:00+00:00"
+      }
+    ],
+    "event_counts": [
+      {
+        "symbol": "BTCUSDT",
+        "kind": "bootstrap",
+        "n": 3
+      },
+      {
+        "symbol": "BTCUSDT",
+        "kind": "entry_filled",
+        "n": 1
+      },
+      {
+        "symbol": "ETHUSDT",
+        "kind": "bootstrap",
+        "n": 3
+      },
+      {
+        "symbol": "ETHUSDT",
+        "kind": "entry_filled",
+        "n": 1
+      },
+      {
+        "symbol": "ETHUSDT",
+        "kind": "position_closed",
+        "n": 1
+      },
+      {
+        "symbol": "SOLUSDT",
+        "kind": "bootstrap",
+        "n": 3
+      }
+    ],
+    "per_symbol_live": {
+      "BTCUSDT": {
+        "n_closed": 0,
+        "n_open": 1,
+        "n_handled_entries": 1,
+        "realized_pnl_sum": 0.0,
+        "closed_trades": [],
+        "open_trades": [
+          {
+            "symbol": "BTCUSDT",
+            "side": "short",
+            "entry_ts_ms": 1786460400000,
+            "entry_price": 63766.7,
+            "stop_price": 64240.614285714284,
+            "target_price": 62266.15714285715,
+            "qty": 0.001,
+            "leverage": 55,
+            "position_idx": 2,
+            "pattern": "chand_atr_band",
+            "detail_json": "{\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460420000, \"decision_delay_sec\": 20.0, \"entry_est\": 63766.7, \"qty\": 0.001, \"leverage\": 55, \"equity_base\": 13.10336746, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"64240.6\", \"target\": \"62266.2\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.001, \"avgPrice\": 63766.7}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 55}",
+            "created_utc": "2026-08-11T15:00:26Z",
+            "entry_utc": "2026-08-11T15:00:00+00:00"
+          }
+        ]
+      },
+      "ETHUSDT": {
+        "n_closed": 1,
+        "n_open": 0,
+        "n_handled_entries": 1,
+        "realized_pnl_sum": -0.20505348,
+        "closed_trades": [
+          {
+            "order_id": "7506e3fa-19b2-45e7-865e-248fde553737",
+            "symbol": "ETHUSDT",
+            "side": "Buy",
+            "qty": 0.01,
+            "avg_entry_price": 1872.33,
+            "avg_exit_price": 1890.98,
+            "closed_pnl": -0.20505348,
+            "cum_entry_value": 18.7233,
+            "cum_exit_value": 18.9098,
+            "leverage": 48.0,
+            "created_ms": 1786460430726,
+            "updated_ms": 1786508463663,
+            "exec_type": "Trade",
+            "planned_stop": 1890.1749999999997,
+            "planned_target": 1820.155000000001,
+            "planned_entry_ts_ms": 1786460400000,
+            "pattern": "chand_atr_band",
+            "raw_json": "{\"symbol\": \"ETHUSDT\", \"orderType\": \"Market\", \"leverage\": \"48\", \"updatedTime\": \"1786508463663\", \"side\": \"Buy\", \"orderId\": \"7506e3fa-19b2-45e7-865e-248fde553737\", \"closedPnl\": \"-0.20505348\", \"openFee\": \"0.01029782\", \"closeFee\": \"0.01040039\", \"avgEntryPrice\": \"1872.33\", \"qty\": \"0.01\", \"cumEntryValue\": \"18.7233\", \"createdTime\": \"1786460430726\", \"orderPrice\": \"1927.31\", \"closedSize\": \"0.01\", \"avgExitPrice\": \"1890.98\", \"execType\": \"Trade\", \"fillCount\": \"1\", \"cumExitValue\": \"18.9098\"}",
+            "recorded_utc": "2026-08-12T04:21:13Z"
+          }
+        ],
+        "open_trades": [],
+        "win_rate": 0.0,
+        "expectancy": -0.20505348,
+        "profit_factor": 0.0,
+        "best_trade": -0.20505348,
+        "worst_trade": -0.20505348
+      },
+      "SOLUSDT": {
+        "n_closed": 0,
+        "n_open": 0,
+        "n_handled_entries": 0,
+        "realized_pnl_sum": 0.0,
+        "closed_trades": [],
+        "open_trades": []
+      }
+    },
+    "funding_events": [
+      {
+        "tx_id": "29388096_ETHUSDT_431645001293_0",
+        "symbol": "ETHUSDT",
+        "ts_ms": 1786492800000,
+        "funding": 0.00155237,
+        "cash_flow": 0.00155237,
+        "size": -0.01,
+        "side": "Sell",
+        "raw_json": "{\"transSubType\": \"\", \"symbol\": \"ETHUSDT\", \"side\": \"Sell\", \"funding\": \"0.00155237\", \"orderLinkId\": \"\", \"orderId\": \"822a059c-b026-4f6a-a73d-f9cd01e85732\", \"fee\": \"0\", \"change\": \"0.00155237\", \"cashFlow\": \"0\", \"transactionTime\": \"1786492800000\", \"type\": \"SETTLEMENT\", \"feeRate\": \"-0.000083\", \"bonusChange\": \"0\", \"displayType\": \"SETTLEMENT\", \"size\": \"-0.01\", \"qty\": \"0.01\", \"cashBalance\": \"13.06391897\", \"currency\": \"USDT\", \"id\": \"29388096_ETHUSDT_431645001293_0\", \"category\": \"linear\", \"tradePrice\": \"1881.67\", \"extraFees\": \"\", \"tradeId\": \"fdc191fc-8c50-42e7-83a6-95ff80d4fe70\"}",
+        "recorded_utc": "2026-08-12T04:21:13Z"
+      },
+      {
+        "tx_id": "29388096_ETHUSDT_431530845813_0",
+        "symbol": "ETHUSDT",
+        "ts_ms": 1786464000000,
+        "funding": 0.00059236,
+        "cash_flow": 0.00059236,
+        "size": -0.01,
+        "side": "Sell",
+        "raw_json": "{\"transSubType\": \"\", \"symbol\": \"ETHUSDT\", \"side\": \"Sell\", \"funding\": \"0.00059236\", \"orderLinkId\": \"\", \"orderId\": \"e9090267-be93-4692-8314-0c137010b203\", \"fee\": \"0\", \"change\": \"0.00059236\", \"cashFlow\": \"0\", \"transactionTime\": \"1786464000000\", \"type\": \"SETTLEMENT\", \"feeRate\": \"-0.000032\", \"bonusChange\": \"0\", \"displayType\": \"SETTLEMENT\", \"size\": \"-0.01\", \"qty\": \"0.01\", \"cashBalance\": \"13.0608773\", \"currency\": \"USDT\", \"id\": \"29388096_ETHUSDT_431530845813_0\", \"category\": \"linear\", \"tradePrice\": \"1862.21\", \"extraFees\": \"\", \"tradeId\": \"33c631e3-108b-4380-8e67-eb8e40081a6b\"}",
+        "recorded_utc": "2026-08-12T04:21:13Z"
+      }
+    ],
+    "events_tail": [
+      {
+        "id": 12,
+        "ts_utc": "2026-08-12T05:49:13Z",
+        "symbol": "ETHUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 58798, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.01, \"qty_step\": 0.01, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 11,
+        "ts_utc": "2026-08-12T05:49:13Z",
+        "symbol": "SOLUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 51790, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.1, \"qty_step\": 0.1, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 10,
+        "ts_utc": "2026-08-12T05:49:13Z",
+        "symbol": "BTCUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 60708, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.001, \"qty_step\": 0.001, \"min_notional\": 5.0, \"tick_size\": 0.1, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 9,
+        "ts_utc": "2026-08-12T05:46:56Z",
+        "symbol": "SOLUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 51790, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.1, \"qty_step\": 0.1, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 8,
+        "ts_utc": "2026-08-12T05:46:56Z",
+        "symbol": "ETHUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 58798, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.01, \"qty_step\": 0.01, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 7,
+        "ts_utc": "2026-08-12T05:46:56Z",
+        "symbol": "BTCUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 60708, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.001, \"qty_step\": 0.001, \"min_notional\": 5.0, \"tick_size\": 0.1, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 6,
+        "ts_utc": "2026-08-12T04:21:13Z",
+        "symbol": "ETHUSDT",
+        "kind": "position_closed",
+        "detail": "{\"symbol\": \"ETHUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 1872.33, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"qty\": 0.01, \"leverage\": 48, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"si"
+      },
+      {
+        "id": 5,
+        "ts_utc": "2026-08-11T15:00:41Z",
+        "symbol": "ETHUSDT",
+        "kind": "entry_filled",
+        "detail": "{\"symbol\": \"ETHUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 1872.33, \"stop_price\": 1890.1749999999997, \"target_price\": 1820.155000000001, \"qty\": 0.01, \"leverage\": 48, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"si"
+      },
+      {
+        "id": 4,
+        "ts_utc": "2026-08-11T15:00:39Z",
+        "symbol": "BTCUSDT",
+        "kind": "entry_filled",
+        "detail": "{\"symbol\": \"BTCUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 63766.7, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"qty\": 0.001, \"leverage\": 55, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"s"
+      },
+      {
+        "id": 3,
+        "ts_utc": "2026-08-10T16:27:54Z",
+        "symbol": "ETHUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 58761, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.01, \"qty_step\": 0.01, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 2,
+        "ts_utc": "2026-08-10T16:27:54Z",
+        "symbol": "SOLUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 51753, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.1, \"qty_step\": 0.1, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      },
+      {
+        "id": 1,
+        "ts_utc": "2026-08-10T16:27:54Z",
+        "symbol": "BTCUSDT",
+        "kind": "bootstrap",
+        "detail": "{\"bars\": 60671, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.001, \"qty_step\": 0.001, \"min_notional\": 5.0, \"tick_size\": 0.1, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+      }
+    ]
+  }
+}

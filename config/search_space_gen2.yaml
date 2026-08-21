@@ -1,0 +1,154 @@
+# GENERATION 2 — preregistered BEFORE any Gen2 outer OOS is viewed.
+# Frozen: 2026-07-27. Do not relax gates after viewing OOS.
+# Reason for redesign (from Gen1 sitrep): Gen1 was too sparse (14 OOS trades).
+# Changes are methodological (fold length + execution TF + confluence floor),
+# not post-hoc gate relaxation.
+
+generation_id: gen2_sparse_redesign_20260727
+parent_generation: gen1_smc_confluence_retrace
+hypothesis_family: smc_confluence_retrace_freq
+economic_rationale: >
+  Same SMC economic story as Gen1 (HTF order flow + liquidity event + structure
+  shift + zone retrace), but redesigned for sample sufficiency: 5m execution,
+  lower min confluence, optional FVG, longer outer test windows, and folds
+  anchored from the end of the research calendar so evidence uses recent regimes.
+  Engine of record: botsgeneral tradesim (Bybit taker 0.055%, RESEARCH_PROXY Binance OHLCV).
+
+root_random_seed: 20260727
+trial_budget_total: 120
+llm_proposal_budget: 8
+optuna_trials_per_proposal: 6
+engine: tradesim
+evidence_class_market: RESEARCH_PROXY_binance_ohlcv_bybit_cost_model
+
+# Longer folds for sparse/medium-frequency strategies (preregistered)
+outer_folds:
+  count: 5
+  scheme: expanding_from_end
+  min_train_days: 540
+  test_days: 180
+  purge_bars_execution_tf: 96
+  embargo_bars_execution_tf: 48
+
+inner_folds:
+  count: 3
+  scheme: expanding
+  purge_bars_execution_tf: 48
+  embargo_bars_execution_tf: 24
+
+selection_objective: inner_mean_expectancy_after_costs
+tie_breaker: more_trades_then_lower_mdd
+
+# Preregistered hypothesis families (bounded — do not add after OOS)
+families:
+  - id: H1_freq_confluence2
+    description: 5m exec, min confluence 2, sweep+structure required, FVG optional
+    logical_seed:
+      name: SMC_Gen2_H1_Freq
+      bias_timeframe: 4h
+      structure_timeframe: 1h
+      execution_timeframe: 5m
+      swing_left: 3
+      swing_right: 3
+      bos_requires_close: true
+      fvg_model: wick
+      require_liquidity_sweep: true
+      require_bos_or_choch: true
+      require_fvg: false
+      require_order_block: false
+      require_premium_discount: true
+      min_confluence_count: 2
+      volume_confirm_lookback: 5
+      volume_confirm_mult: 1.1
+      stop_beyond_sweep_atr_mult: 0.15
+      target_rr: 2.5
+      use_pd_targets: true
+      max_hold_bars: 120
+      risk_fraction: 0.005
+      event_lookback: 36
+
+  - id: H2_structure_volume
+    description: Structure + volume + HTF/PD; sweep preferred but FVG/OB off
+    logical_seed:
+      name: SMC_Gen2_H2_StructVol
+      bias_timeframe: 1h
+      structure_timeframe: 15m
+      execution_timeframe: 5m
+      swing_left: 2
+      swing_right: 2
+      bos_requires_close: true
+      fvg_model: wick
+      require_liquidity_sweep: false
+      require_bos_or_choch: true
+      require_fvg: false
+      require_order_block: false
+      require_premium_discount: true
+      min_confluence_count: 2
+      volume_confirm_lookback: 3
+      volume_confirm_mult: 1.2
+      stop_beyond_sweep_atr_mult: 0.2
+      target_rr: 2.0
+      use_pd_targets: false
+      max_hold_bars: 64
+      risk_fraction: 0.005
+      event_lookback: 24
+
+  - id: H3_hq_but_5m
+    description: Higher confluence on 5m to raise trade count vs Gen1 15m
+    logical_seed:
+      name: SMC_Gen2_H3_HQ5m
+      bias_timeframe: 4h
+      structure_timeframe: 1h
+      execution_timeframe: 5m
+      swing_left: 3
+      swing_right: 3
+      bos_requires_close: true
+      fvg_model: wick
+      require_liquidity_sweep: true
+      require_bos_or_choch: true
+      require_fvg: true
+      require_order_block: false
+      require_premium_discount: true
+      min_confluence_count: 3
+      volume_confirm_lookback: 5
+      volume_confirm_mult: 1.2
+      stop_beyond_sweep_atr_mult: 0.1
+      target_rr: 3.0
+      use_pd_targets: true
+      max_hold_bars: 96
+      risk_fraction: 0.005
+      event_lookback: 48
+
+search_space:
+  swing_left: [2, 3, 5]
+  swing_right: [2, 3, 5]
+  bias_timeframe: [4h, 1h]
+  structure_timeframe: [1h, 15m]
+  execution_timeframe: [5m]  # fixed for Gen2 frequency redesign
+  fvg_model: [wick, body]
+  bos_requires_close: [true, false]
+  require_liquidity_sweep: [true, false]
+  require_bos_or_choch: [true]
+  require_fvg: [true, false]
+  require_order_block: [false, true]
+  require_premium_discount: [true, false]
+  min_confluence_count: [2, 3]
+  volume_confirm_lookback: [3, 5, 8]
+  volume_confirm_mult: [1.0, 1.1, 1.2, 1.5]
+  stop_beyond_sweep_atr_mult: [0.1, 0.15, 0.25]
+  target_rr: [2.0, 2.5, 3.0, 4.0]
+  use_pd_targets: [true, false]
+  max_hold_bars: [48, 64, 96, 120]
+  risk_fraction: [0.005]
+  event_lookback: [24, 36, 48]
+
+symbols_primary:
+  - BTCUSDT
+  - ETHUSDT
+
+forward_lockbox_days: 90
+research_start_utc: "2020-01-01T00:00:00Z"
+
+# Gate profile unchanged (cannot relax after Gen1 OOS for same evidence class;
+# Gen2 is a new generation with redesigned folds — gates stay V2.1 defaults)
+gate_profile: trading_bot_v2_1_frozen

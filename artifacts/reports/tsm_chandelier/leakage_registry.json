@@ -1,0 +1,104 @@
+{
+  "columns": {
+    "is_complete": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "long_signal": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "price_type": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "short_signal": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "source": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "symbol": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "timeframe": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "ts_ms": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    },
+    "volume": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-10T11:36:35Z",
+      "last_seen_utc": "2026-08-10T11:36:35Z",
+      "reasons": [
+        "BUILDER_RESPONSIVENESS: column unchanged after tip shape-shock while sibling columns moved \u2014 likely read from an external warehouse/cache"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    }
+  },
+  "updated_at_utc": "2026-08-10T11:36:35Z"
+}

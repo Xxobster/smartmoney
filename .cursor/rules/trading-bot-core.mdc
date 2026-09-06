@@ -10,8 +10,9 @@ When a task touches market data, indicators, signals, strategy research, optimiz
 1. `docs/project_memory/TRADING_BOT_RESEARCH_STANDARD_V2.md`
 2. `docs/project_memory/FROZEN_DEFAULT_GATES_V2_1.md`
 3. `docs/project_memory/TRADING_PROJECT_PROFILE.md`
-4. relevant current-state, decision, testing and live/backtest-parity documentation
-5. the canonical research engine, strategy module and live runner
+4. `docs/project_memory/IN_SAMPLE_VS_OOS.md` (practice vs exam; required before any parameter, take-profit/stop-loss, or timeframe hunt)
+5. relevant current-state, decision, testing and live/backtest-parity documentation
+6. the canonical research engine, strategy module and live runner
 
 If these paths differ, locate the repository equivalents and record the mapping. If the detailed standard or completed project profile is absent, install/create it before claiming a strategy has passed research or live-readiness gates.
 
@@ -69,17 +70,18 @@ Never optimize TP/SL, multi-TP, break-even, leverage, size, filters, symbols or 
 
 - Model the actual live order type, time-in-force, latency, spread, slippage, queue/non-fill behavior, partial fills, rejections, retries, gaps and price/quantity rounding.
 - Maintain a conservative executable all-taker/next-executable scenario. A maker scenario cannot rescue a failing result without adequate fill evidence.
-- **Bybit USDT perp fees (canonical):** `Fee = Qty × ExecutedPrice × Rate` per fill. Non-VIP baseline taker **0.055%**, maker **0.02%** ([Fees Explained](https://www.bybit.com/en/help-center/article/Perpetual-Futures-Contract-Fees-Explained)). Slippage changes fill price; it is **not** added into the fee rate. Limit orders are maker only if they rest; crossing limits are taker; Post-Only = maker-or-cancel. If TP/SL maker fills are not proven, BT with **taker on exits** but **no exit slip** on limit TP/SL touch prices.
+- **Bybit USDT perp fees (canonical):** `Fee = Qty × ExecutedPrice × Rate` per fill. Non-VIP baseline taker **0.055%**, maker **0.02%** ([Fees Explained](https://www.bybit.com/en/help-center/article/Perpetual-Futures-Contract-Fees-Explained)). Slippage changes fill price; it is **not** added into the fee rate. Limit orders are maker only if they rest; crossing limits are taker; Post-Only = maker-or-cancel. **Take-profit / stop-loss MUST be bot-placed maker limits** (`docs/project_memory/TP_SL_MAKER.md`). Exchange stop-market is taker. Small size is not maker.
 - Charge fee per fill. Apply actual signed historical funding once at each settlement while the position is open. Funding affects wallet, margin, equity and liquidation chronologically.
 - TP/SL and risk are based on actual simulated/live fills, not signal prices.
 - Resolve same-bar entry/exit, TP/SL/BE/trailing/liquidation ambiguity with lower-timeframe target-venue data. If unresolved, use the adverse feasible sequence, label it and report sensitivity.
-- Normalize orders with current exchange rules. If the minimum executable order exceeds the risk cap, skip it. Reject non-executable partial exits; never round a leg to zero or silently change exit logic.
+- Normalize orders with current exchange rules. Round quantity **down** to the venue step. If that is below exchange min qty/notional, **raise to the exchange minimum**. Skip only if that minimum cannot be margined. Reject non-executable partial exits; never round a leg to zero or silently change exit logic.
 - Leverage is not alpha and does not change fixed-quantity PnL. Choose it only after sizing, using the lowest operational value that satisfies the frozen capital constraint plus conservative margin/liquidation buffers. Practical max before liq from SL alone: `floor(1 / (sl_pct + mm_buffer + mark_buffer))` then haircut (e.g. mm≈0.5%, mark≈0.2%); still not a substitute for full Mark/tier liquidation evidence.
 - Liquidation modelling uses the exact margin mode, maintenance tier, Mark Price, fees, funding, other positions and wallet state. A `1 / leverage` or OHLC-distance proxy is not deployment evidence.
 - Use chronological mark-to-market wallet equity. When bots share capital, deployment evidence comes from one shared-wallet event simulation, not added standalone equity curves.
 
 ## Research and validation honesty
 
+- **Practice vs exam (MUST).** Tweak indicator lengths, take-profit, stop-loss, filters, side and timeframe only on **in-sample / inner** windows registered before the exam is viewed. Headline proof is **stitched outer Out-Of-Sample (OOS)** only. If practice is profitable and the exam is not, the strategy is not working — report fail and stop that generation. **MUST NOT** search until 2020–2026 (or any window) looks good and then quote **that same window’s** Profit Factor (PF). **MUST NOT** expand the grid, change timeframe, or add a filter *because* the exam failed (that reuses the exam as practice). This is not code leakage; causal candles plus researcher look-ahead is still invalid. Full text: `docs/project_memory/IN_SAMPLE_VS_OOS.md` and standard §0.5 / §16.0.
 - Before a search, register and hash the hypothesis, economic rationale, complete candidate space, symbol/side/timeframe choices, costs, folds, selection objective, tie-breaker, seed, search budget and frozen gates.
 - Store every attempted, failed, interrupted and manually inspected trial. Do not reset trial history between scripts or sessions.
 - Derive per-fold/trial seeds deterministically from one recorded root seed.

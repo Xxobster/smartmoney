@@ -1,0 +1,16 @@
+{
+  "columns": {
+    "target_price": {
+      "engine_note": "",
+      "first_seen_utc": "2026-08-26T17:16:46Z",
+      "last_seen_utc": "2026-08-26T17:16:46Z",
+      "reasons": [
+        "NAME_SCAN: feature name contains label/outcome token 'target_'"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    }
+  },
+  "updated_at_utc": "2026-08-26T17:16:46Z"
+}

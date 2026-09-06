@@ -1,4 +1,4 @@
-# Live vs backtest — tsm_chandelier VPS94 — 2026-08-20
+# Live vs backtest — tsm_chandelier VPS94 — 2026-08-21 04:28 UTC
 
 Maximum earned readiness: **LIVE_STOP / RESEARCH_ONLY**  
 Evidence class: **FORWARD_MICRO_LIVE_RECONCILE + RESEARCH_PROXY**  
@@ -8,7 +8,7 @@ Principal blocker: live and backtest fills are not identical by design (Bybit ma
 
 Only this project's live bots: `tsm-chandelier@BTCUSDT|ETHUSDT|SOLUSDT` on VPS 94 (all active). Smart Money Concepts (SMC) is not deployed.
 
-Candles: local Binance REST was blocked from this workstation. 1-hour and 1-minute Binance USDT-M bars were fetched on the Virtual Private Server (VPS) and imported into `artifacts/datasets/research_ohlcv.sqlite` (1h through 2026-08-20 19:00 UTC; 1m from 2026-08-01).
+Candles (this run): local Binance 1-hour through **2026-08-21 03:00 UTC**, 1-minute through **04:27 UTC**, imported into `artifacts/datasets/research_ohlcv.sqlite`.
 
 ## Checks
 
@@ -35,6 +35,10 @@ Candles: local Binance REST was blocked from this workstation. 1-hour and 1-minu
 
 Fill prices differ (expected). Quantity matched min size on all seven.
 
+Open longs as of 2026-08-21 04:27 UTC (1-minute last vs planned stop / take-profit): Ethereum 2345 vs 2137 / 2460; Solana 89.02 vs 83.57 / 95.82; Bitcoin 74802 vs 69673 / 77222. None touched. Backtest still open (`end_of_data`).
+
+JSON: `artifacts/reports/tsm_chandelier/live_vs_bt_full_latest.json`
+
 ## Is the strategy working as specified?
 
 Yes on logic. Live is executing the frozen 1h chandelier rules (ATR-band break, chandelier stop, EMA50 filter, max hold 36, min size). Historical outer out-of-sample (OOS) freeze is profitable (pooled profit factor 1.56, 394 trades, Bitcoin+Ethereum). Micro-live is too small to confirm or deny that edge. Full-history last-six-month research prints were negative; that does not authorize a retune.
@@ -45,4 +49,4 @@ No strategy change. Designed execution gaps were not “fixed” (changing live 
 
 A previous `handled_entries` overwrite (`stale_entry` replacing a fill) is already guarded in current `state.py`; VPS hash matches local. First August 11/16 rows in the live database remain historically dirty but do not change current behavior.
 
-JSON: `artifacts/reports/tsm_chandelier/live_vs_bt_full_20260821.json`
+JSON: `artifacts/reports/tsm_chandelier/live_vs_bt_full_latest.json`

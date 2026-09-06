@@ -11,6 +11,8 @@ from typing import Any
 
 from pybit.unified_trading import HTTP
 
+from chand.live.exit_orders import maker_stop_limit_kwargs, maker_take_profit_kwargs
+
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 
@@ -206,6 +208,66 @@ class BybitClient:
         r = self.http.place_order(**kwargs)
         return self._ok(r)
 
+    def clear_trading_stop(self, symbol: str, position_idx: int) -> dict:
+        """Remove exchange attached TP/SL (those fire as market / taker)."""
+        r = self.http.set_trading_stop(
+            category="linear",
+            symbol=symbol,
+            positionIdx=position_idx,
+            tpslMode="Full",
+            takeProfit="0",
+            stopLoss="0",
+        )
+        return self._ok(r)
+
+    def place_maker_take_profit(
+        self,
+        symbol: str,
+        *,
+        side: str,
+        qty: str,
+        price: str,
+        position_idx: int,
+    ) -> dict:
+        exit_side = "Sell" if side == "long" else "Buy"
+        r = self.http.place_order(
+            **maker_take_profit_kwargs(
+                symbol, exit_side=exit_side, qty=qty, price=price, position_idx=position_idx
+            )
+        )
+        return self._ok(r)
+
+    def place_maker_stop_limit(
+        self,
+        symbol: str,
+        *,
+        side: str,
+        qty: str,
+        stop_price: str,
+        position_idx: int,
+    ) -> dict:
+        exit_side = "Sell" if side == "long" else "Buy"
+        r = self.http.place_order(
+            **maker_stop_limit_kwargs(
+                symbol,
+                exit_side=exit_side,
+                qty=qty,
+                stop_price=stop_price,
+                position_idx=position_idx,
+                is_long=side == "long",
+            )
+        )
+        return self._ok(r)
+
+    def has_reduce_only_working_order(self, symbol: str, position_idx: int) -> bool:
+        r = self.http.get_open_orders(category="linear", symbol=symbol, openOnly=0, limit=50)
+        for row in self._ok(r).get("list", []) or []:
+            if int(row.get("positionIdx", 0) or 0) != position_idx:
+                continue
+            if str(row.get("reduceOnly", "")).lower() in {"true", "1"}:
+                return True
+        return False
+
     def set_trading_stop(
         self,
         symbol: str,
@@ -280,7 +342,6 @@ class BybitClient:
         import time as _time
 
         return int(_time.time() * 1000)
-
 
 
 def round_qty(qty: float, step: float, min_qty: float) -> float:

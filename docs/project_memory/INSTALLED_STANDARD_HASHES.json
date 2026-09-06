@@ -1,0 +1,56 @@
+{
+  "written_utc": "2026-09-01T12:37:46Z",
+  "pack_zip": "C:\\projects\\BASE CURSOR\\TRADING_BOT_CURSOR_RULES_V2.zip",
+  "pack_zip_sha256": "58f24065288d4aad8ac5f386edee3df2154a5472f55ffcb67656eb744cc93d96",
+  "files": [
+    {
+      "file": "TRADING_BOT_RESEARCH_STANDARD_V2.md",
+      "path": "D:\\projects\\smartmoney\\docs\\project_memory\\TRADING_BOT_RESEARCH_STANDARD_V2.md",
+      "sha256": "545661d4b4555484524f981c100d71f1ef306c06cad84a930a2d4b0872daf534",
+      "pack_sha256": "1bacd663f67e621affcbf4fd9ff7d2361cfe61a6408fea7a7dbf2d1dea6ac01a",
+      "vs_pack": "DIFFERS_FROM_PACK",
+      "note": "Repo fork: shorter installed standard than the zip. Must still contain \u00a70.5 and \u00a716.0. Re-bootstrap from the zip to fully align."
+    },
+    {
+      "file": "IN_SAMPLE_VS_OOS.md",
+      "path": "D:\\projects\\smartmoney\\docs\\project_memory\\IN_SAMPLE_VS_OOS.md",
+      "sha256": "2d2a4f98c78a7f07e049c361f82d8cbb8239e9c26c04c9408ac5adf7cd680e4a",
+      "pack_sha256": "2d2a4f98c78a7f07e049c361f82d8cbb8239e9c26c04c9408ac5adf7cd680e4a",
+      "vs_pack": "MATCH",
+      "note": ""
+    },
+    {
+      "file": "TP_SL_MAKER.md",
+      "path": "D:\\projects\\smartmoney\\docs\\project_memory\\TP_SL_MAKER.md",
+      "sha256": "b8ec084d47615825f9afc1e21c92538b5a4211844870159d439289c124666a5f",
+      "pack_sha256": "b8ec084d47615825f9afc1e21c92538b5a4211844870159d439289c124666a5f",
+      "vs_pack": "MATCH",
+      "note": ""
+    },
+    {
+      "file": "FROZEN_DEFAULT_GATES_V2_1.md",
+      "path": "D:\\projects\\smartmoney\\docs\\project_memory\\FROZEN_DEFAULT_GATES_V2_1.md",
+      "sha256": "31598f7161bbdd7100f1ff8e3412fbeb904db81ccb1dc1aafbd95ddbb52676d0",
+      "pack_sha256": "31598f7161bbdd7100f1ff8e3412fbeb904db81ccb1dc1aafbd95ddbb52676d0",
+      "vs_pack": "MATCH",
+      "note": ""
+    },
+    {
+      "file": "RESEARCH_GENERATION_FREEZE.template.md",
+      "path": "D:\\projects\\smartmoney\\docs\\project_memory\\RESEARCH_GENERATION_FREEZE.template.md",
+      "sha256": "2538e9d7727f37c9ef4236ec16d42091aafdf3358ab16910fe7ccefadc94c482",
+      "pack_sha256": "2538e9d7727f37c9ef4236ec16d42091aafdf3358ab16910fe7ccefadc94c482",
+      "vs_pack": "MATCH",
+      "note": ""
+    },
+    {
+      "file": "trading-bot-core.mdc",
+      "path": "D:\\projects\\smartmoney\\.cursor\\rules\\trading-bot-core.mdc",
+      "sha256": "013963aa2764cf093fd15e539394323947a952107f5211bf2fff7ab1363a2712",
+      "pack_sha256": "c672ec9feca35d08851dfd52fdb8e7bc96822d4b9f0c4d10d527a2bc31a7bda5",
+      "vs_pack": "DIFFERS_FROM_PACK",
+      "note": "Repo fork: Bybit USDT perpetual fee bullets. Must still contain Practice vs exam (MUST). Not an old pack by itself."
+    }
+  ],
+  "mismatches": []
+}

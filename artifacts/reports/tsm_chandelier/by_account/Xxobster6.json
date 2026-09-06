@@ -1,0 +1,89 @@
+{
+  "generated_utc": "2026-08-25T12:16:34.624994+00:00",
+  "account": "Xxobster6",
+  "pack_id": "tsm_chandelier_1h_btc_eth_sol_xxobster6_v1",
+  "bots": [
+    "tsm-chandelier@BTCUSDT",
+    "tsm-chandelier@ETHUSDT",
+    "tsm-chandelier@SOLUSDT"
+  ],
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "FORWARD_MICRO_LIVE_RECONCILE + RESEARCH_PROXY",
+  "principal_blocker": "Live is taking the same 1h chandelier signals (side, stop, target, min size) as the research function. Fill prices and exit times differ by design (Bybit market slip vs Binance next-open + 0.05% entry slip, zero exit slip in backtest). Historical freeze remains SHADOW_READY; this micro-live window is not a new gate pass.",
+  "historical_freeze": "LIVE_STOP / SHADOW_READY (BTC+ETH 1h, artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json)",
+  "closed_trade_count": 11,
+  "open_trade_count": 0,
+  "closed_net_pnl_usdt": 7.54788956,
+  "per_bot_net_pnl_usdt": {
+    "BTCUSDT": 4.10608421,
+    "ETHUSDT": 2.3090307,
+    "SOLUSDT": 1.13277465
+  },
+  "closeness": {
+    "candles_pct": 100.0,
+    "calculations_pct": 100.0,
+    "signals_pct": 85.0,
+    "entries_exits_pct": 96.75925925925928,
+    "fill_price_pct": 99.81812552426635,
+    "overall_pct": 95.43981481481482
+  },
+  "per_bot_closeness": {
+    "BTCUSDT": {
+      "candles_pct": 100.0,
+      "calculations_pct": 100.0,
+      "signals_pct": 100.0,
+      "entries_exits_pct": 100.0,
+      "fill_price_pct": 99.87864453168233,
+      "overall_pct": 100.0,
+      "notes": {
+        "candles": "800 overlapping 1h bars",
+        "calculations": "Average True Range / Exponential Moving Average / stop / target functions",
+        "signals": "5 live-window signals (filled, open, or valid skip)",
+        "entries_exits": "side, bar, stop, target, exit reason, 1-minute first touch",
+        "fill_price": "relative live vs backtest fill prices (designed slip allowed)"
+      }
+    },
+    "ETHUSDT": {
+      "candles_pct": 100.0,
+      "calculations_pct": 100.0,
+      "signals_pct": 75.0,
+      "entries_exits_pct": 94.44444444444446,
+      "fill_price_pct": 99.68813362195186,
+      "overall_pct": 92.36111111111111,
+      "notes": {
+        "candles": "800 overlapping 1h bars",
+        "calculations": "Average True Range / Exponential Moving Average / stop / target functions",
+        "signals": "4 live-window signals (filled, open, or valid skip)",
+        "entries_exits": "side, bar, stop, target, exit reason, 1-minute first touch",
+        "fill_price": "relative live vs backtest fill prices (designed slip allowed)"
+      }
+    },
+    "SOLUSDT": {
+      "candles_pct": 100.0,
+      "calculations_pct": 100.0,
+      "signals_pct": 80.0,
+      "entries_exits_pct": 95.83333333333334,
+      "fill_price_pct": 99.88759841916487,
+      "overall_pct": 93.95833333333334,
+      "notes": {
+        "candles": "800 overlapping 1h bars",
+        "calculations": "Average True Range / Exponential Moving Average / stop / target functions",
+        "signals": "5 live-window signals (filled, open, or valid skip)",
+        "entries_exits": "side, bar, stop, target, exit reason, 1-minute first touch",
+        "fill_price": "relative live vs backtest fill prices (designed slip allowed)"
+      }
+    }
+  },
+  "strategy_working_as_specified": true,
+  "material_logic_bug": false,
+  "bot_report_paths": {
+    "BTCUSDT": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_chandelier\\by_bot\\Xxobster6_BTCUSDT.json",
+    "ETHUSDT": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_chandelier\\by_bot\\Xxobster6_ETHUSDT.json",
+    "SOLUSDT": "D:\\projects\\smartmoney\\artifacts\\reports\\tsm_chandelier\\by_bot\\Xxobster6_SOLUSDT.json"
+  }
+}

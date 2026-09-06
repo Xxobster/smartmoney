@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|--------|
 | **Maximum earned readiness** | `LIVE_STOP / RESEARCH_ONLY` |
-| **Evidence class** | `RESEARCH_PROXY` full-history (contaminated; not a winner) |
+| **Evidence class** | `EXPLORATORY_IN_SAMPLE` (full-history Hypothesis-0, not a 2027-style exam). Data: `RESEARCH_PROXY` (contaminated; not a winner) |
 | **Principal blocker** | Profit Factor below 1.00 on both legs; no nested outer Out-Of-Sample |
 | **Action** | **FROZEN**. Do not optimize SuperTrend, session clock, 2R, or symbols on this result. |
 

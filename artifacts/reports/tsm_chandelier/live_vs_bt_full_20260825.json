@@ -1,0 +1,1393 @@
+{
+  "generated_utc": "2026-08-25T12:16:34.624994+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "FORWARD_MICRO_LIVE_RECONCILE + RESEARCH_PROXY",
+  "principal_blocker": "Live is taking the same 1h chandelier signals (side, stop, target, min size) as the research function. Fill prices and exit times differ by design (Bybit market slip vs Binance next-open + 0.05% entry slip, zero exit slip in backtest). Historical freeze remains SHADOW_READY; this micro-live window is not a new gate pass.",
+  "code_hashes": {
+    "research_signals.py": "c9325a4e53929c44dfb91d655206d7431f6cd024f0de744026cac2f0141f3a17",
+    "live_signals_core.py": "8a2d6fe0a8ff145c013f4297031855cb75dc1d69881edb682aad6d65801279f4",
+    "live_bot.py": "2c79ef329a39586f4e932a695ac55a48e965d4749e2e92063613afe1111b6382",
+    "live_state.py": "0677da7738b31801948a285a72063efc60cb775f9d2e79dbe580b3316b4a4b2d",
+    "vps_bot.py": "2c79ef329a39586f4e932a695ac55a48e965d4749e2e92063613afe1111b6382",
+    "vps_state.py": "0677da7738b31801948a285a72063efc60cb775f9d2e79dbe580b3316b4a4b2d",
+    "vps_signals_core.py": "8a2d6fe0a8ff145c013f4297031855cb75dc1d69881edb682aad6d65801279f4"
+  },
+  "notes_on_models": {
+    "live_entry": "Bybit market ~20-26s after 1h open, LastPrice",
+    "bt_entry": "next-bar Binance open + 0.05% research entry slip",
+    "live_stop_tp": "Bybit StopLoss/TakeProfit trigger LastPrice, filled Market taker (exit slip)",
+    "bt_stop_tp": "fill at planned price, taker fee, zero exit slip",
+    "max_hold_bars": 36,
+    "candles": "Binance 1h signals (RESEARCH_PROXY) vs Bybit fills; 1m touch for exits"
+  },
+  "candles": {
+    "BTCUSDT": {
+      "research_1h": {
+        "n": 58284,
+        "first": "2020-01-01T00:00:00+00:00",
+        "last": "2026-08-25T11:00:00+00:00"
+      },
+      "research_1m": {
+        "n": 21675,
+        "first": "2026-08-10T11:00:00+00:00",
+        "last": "2026-08-25T12:14:00+00:00"
+      },
+      "vps_shared_vs_research": {
+        "n_overlap": 800,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-18T12:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      },
+      "fetch_1h_vs_research": {
+        "n_overlap": 1220,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-01T00:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      },
+      "vps_shared_vs_fetch": {
+        "n_overlap": 800,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-18T12:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      }
+    },
+    "ETHUSDT": {
+      "research_1h": {
+        "n": 58284,
+        "first": "2020-01-01T00:00:00+00:00",
+        "last": "2026-08-25T11:00:00+00:00"
+      },
+      "research_1m": {
+        "n": 21675,
+        "first": "2026-08-10T11:00:00+00:00",
+        "last": "2026-08-25T12:14:00+00:00"
+      },
+      "vps_shared_vs_research": {
+        "n_overlap": 800,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-18T12:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      },
+      "fetch_1h_vs_research": {
+        "n_overlap": 1220,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-01T00:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      },
+      "vps_shared_vs_fetch": {
+        "n_overlap": 800,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-18T12:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      }
+    },
+    "SOLUSDT": {
+      "research_1h": {
+        "n": 52109,
+        "first": "2020-09-14T07:00:00+00:00",
+        "last": "2026-08-25T11:00:00+00:00"
+      },
+      "research_1m": {
+        "n": 21676,
+        "first": "2026-08-10T11:00:00+00:00",
+        "last": "2026-08-25T12:15:00+00:00"
+      },
+      "vps_shared_vs_research": {
+        "n_overlap": 800,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-18T12:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      },
+      "fetch_1h_vs_research": {
+        "n_overlap": 1220,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-01T00:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      },
+      "vps_shared_vs_fetch": {
+        "n_overlap": 800,
+        "all_equal": true,
+        "n_diff": {
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0
+        },
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0
+        },
+        "first_ts": "2026-07-18T12:00:00+00:00",
+        "last_ts": "2026-08-20T19:00:00+00:00"
+      }
+    }
+  },
+  "indicators": {
+    "BTCUSDT": {
+      "research_vs_live_core_equal": true,
+      "detail": {
+        "atr": true,
+        "long_signal": true,
+        "short_signal": true,
+        "stop_price": true,
+        "target_price": true
+      },
+      "n_long_full": 333,
+      "n_short_full": 292
+    },
+    "ETHUSDT": {
+      "research_vs_live_core_equal": true,
+      "detail": {
+        "atr": true,
+        "long_signal": true,
+        "short_signal": true,
+        "stop_price": true,
+        "target_price": true
+      },
+      "n_long_full": 292,
+      "n_short_full": 282
+    },
+    "SOLUSDT": {
+      "research_vs_live_core_equal": true,
+      "detail": {
+        "atr": true,
+        "long_signal": true,
+        "short_signal": true,
+        "stop_price": true,
+        "target_price": true
+      },
+      "n_long_full": 193,
+      "n_short_full": 182
+    }
+  },
+  "signals_in_live_window": {
+    "BTCUSDT": [
+      {
+        "signal_ts_ms": 1786456800000,
+        "signal_utc": "2026-08-11T14:00:00+00:00",
+        "entry_ts_ms": 1786460400000,
+        "entry_utc": "2026-08-11T15:00:00+00:00",
+        "side": "short",
+        "stop": 64240.614285714284,
+        "target": 62266.15714285715
+      },
+      {
+        "signal_ts_ms": 1787140800000,
+        "signal_utc": "2026-08-19T12:00:00+00:00",
+        "entry_ts_ms": 1787144400000,
+        "entry_utc": "2026-08-19T13:00:00+00:00",
+        "side": "long",
+        "stop": 64426.700000000004,
+        "target": 66149.1
+      },
+      {
+        "signal_ts_ms": 1787148000000,
+        "signal_utc": "2026-08-19T14:00:00+00:00",
+        "entry_ts_ms": 1787151600000,
+        "entry_utc": "2026-08-19T15:00:00+00:00",
+        "side": "long",
+        "stop": 65203.32142857143,
+        "target": 67972.43571428573
+      },
+      {
+        "signal_ts_ms": 1787212800000,
+        "signal_utc": "2026-08-20T08:00:00+00:00",
+        "entry_ts_ms": 1787216400000,
+        "entry_utc": "2026-08-20T09:00:00+00:00",
+        "side": "long",
+        "stop": 69673.32857142857,
+        "target": 77222.4142857143
+      },
+      {
+        "signal_ts_ms": 1787299200000,
+        "signal_utc": "2026-08-21T08:00:00+00:00",
+        "entry_ts_ms": 1787302800000,
+        "entry_utc": "2026-08-21T09:00:00+00:00",
+        "side": "long",
+        "stop": 76666.92857142857,
+        "target": 87075.2142857143
+      }
+    ],
+    "ETHUSDT": [
+      {
+        "signal_ts_ms": 1786456800000,
+        "signal_utc": "2026-08-11T14:00:00+00:00",
+        "entry_ts_ms": 1786460400000,
+        "entry_utc": "2026-08-11T15:00:00+00:00",
+        "side": "short",
+        "stop": 1890.1749999999997,
+        "target": 1820.155000000001
+      },
+      {
+        "signal_ts_ms": 1787148000000,
+        "signal_utc": "2026-08-19T14:00:00+00:00",
+        "entry_ts_ms": 1787151600000,
+        "entry_utc": "2026-08-19T15:00:00+00:00",
+        "side": "long",
+        "stop": 1944.8157142857142,
+        "target": 2045.1128571428578
+      },
+      {
+        "signal_ts_ms": 1787169600000,
+        "signal_utc": "2026-08-19T20:00:00+00:00",
+        "entry_ts_ms": 1787173200000,
+        "entry_utc": "2026-08-19T21:00:00+00:00",
+        "side": "long",
+        "stop": 2137.2485714285713,
+        "target": 2460.494285714286
+      },
+      {
+        "signal_ts_ms": 1787299200000,
+        "signal_utc": "2026-08-21T08:00:00+00:00",
+        "entry_ts_ms": 1787302800000,
+        "entry_utc": "2026-08-21T09:00:00+00:00",
+        "side": "long",
+        "stop": 2368.238571428571,
+        "target": 2674.8442857142863
+      }
+    ],
+    "SOLUSDT": [
+      {
+        "signal_ts_ms": 1786914000000,
+        "signal_utc": "2026-08-16T21:00:00+00:00",
+        "entry_ts_ms": 1786917600000,
+        "entry_utc": "2026-08-16T22:00:00+00:00",
+        "side": "short",
+        "stop": 74.80357142857143,
+        "target": 72.7892857142857
+      },
+      {
+        "signal_ts_ms": 1787140800000,
+        "signal_utc": "2026-08-19T12:00:00+00:00",
+        "entry_ts_ms": 1787144400000,
+        "entry_utc": "2026-08-19T13:00:00+00:00",
+        "side": "long",
+        "stop": 77.50857142857144,
+        "target": 80.95428571428569
+      },
+      {
+        "signal_ts_ms": 1787148000000,
+        "signal_utc": "2026-08-19T14:00:00+00:00",
+        "entry_ts_ms": 1787151600000,
+        "entry_utc": "2026-08-19T15:00:00+00:00",
+        "side": "long",
+        "stop": 79.16142857142857,
+        "target": 85.8757142857143
+      },
+      {
+        "signal_ts_ms": 1787173200000,
+        "signal_utc": "2026-08-19T21:00:00+00:00",
+        "entry_ts_ms": 1787176800000,
+        "entry_utc": "2026-08-19T22:00:00+00:00",
+        "side": "long",
+        "stop": 83.56714285714285,
+        "target": 95.81857142857142
+      },
+      {
+        "signal_ts_ms": 1787299200000,
+        "signal_utc": "2026-08-21T08:00:00+00:00",
+        "entry_ts_ms": 1787302800000,
+        "entry_utc": "2026-08-21T09:00:00+00:00",
+        "side": "long",
+        "stop": 89.96142857142857,
+        "target": 103.27571428571432
+      }
+    ]
+  },
+  "closed_trades": [
+    {
+      "symbol": "ETHUSDT",
+      "live": {
+        "side": "short",
+        "qty": 0.01,
+        "leverage": 48.0,
+        "entry_px": 1872.33,
+        "exit_px": 1890.98,
+        "entry_utc": "2026-08-11T15:00:30.726000+00:00",
+        "exit_utc": "2026-08-12T04:21:03.663000+00:00",
+        "planned_stop": 1890.1749999999997,
+        "planned_target": 1820.155000000001,
+        "closed_pnl": -0.20505348,
+        "exit_type": "StopLoss",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-11T14:00:00+00:00",
+          "close": 1872.67,
+          "long_signal": false,
+          "short_signal": true,
+          "stop_price": 1890.1749999999997,
+          "target_price": 1820.155000000001,
+          "atr": 7.684999999999978
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "StopLoss",
+        "sl_ts_utc": "2026-08-12T04:21:00+00:00",
+        "tp_ts_utc": null,
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 2476.85
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-11T14:00:00+00:00",
+          "close": 1872.67,
+          "long_signal": false,
+          "short_signal": true,
+          "stop_price": 1890.1749999999997,
+          "target_price": 1820.155000000001,
+          "atr": 7.684999999999978
+        },
+        "trades": [
+          {
+            "side": -1,
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "exit_ts_ms": 1786507200000,
+            "exit_utc": "2026-08-12T04:00:00+00:00",
+            "entry_price": 1871.74,
+            "exit_price": 1890.17,
+            "qty": 0.01,
+            "fees": 0.020690505000000005,
+            "funding": 0.0,
+            "slippage_cost": 0.009400000000000545,
+            "gross_pnl": -0.18430000000000063,
+            "realized_pnl": -0.20499050500000063,
+            "exit_reason": "stop",
+            "stop_price": 1890.17,
+            "target_price": 1820.16,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": 0.5899999999999181,
+        "exit_live_minus_bt": 0.8099999999999454,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": -6.297499999938228e-05,
+        "same_entry_bar": true,
+        "bt_exit_reason": "stop",
+        "bt_exit_utc": "2026-08-12T04:00:00+00:00",
+        "live_exit_utc": "2026-08-12T04:21:03.663000+00:00"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "live": {
+        "side": "short",
+        "qty": 0.001,
+        "leverage": 55.0,
+        "entry_px": 63766.7,
+        "exit_px": 64243.3,
+        "entry_utc": "2026-08-11T15:00:25.618000+00:00",
+        "exit_utc": "2026-08-12T12:04:30.825000+00:00",
+        "planned_stop": 64240.614285714284,
+        "planned_target": 62266.15714285715,
+        "closed_pnl": -0.53846109,
+        "exit_type": "StopLoss",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-11T14:00:00+00:00",
+          "close": 63747.0,
+          "long_signal": false,
+          "short_signal": true,
+          "stop_price": 64240.614285714284,
+          "target_price": 62266.15714285715,
+          "atr": 186.87142857142837
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "StopLoss",
+        "sl_ts_utc": "2026-08-12T12:08:00+00:00",
+        "tp_ts_utc": null,
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 79055.3
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-11T14:00:00+00:00",
+          "close": 63747.0,
+          "long_signal": false,
+          "short_signal": true,
+          "stop_price": 64240.614285714284,
+          "target_price": 62266.15714285715,
+          "atr": 186.87142857142837
+        },
+        "trades": [
+          {
+            "side": -1,
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "exit_ts_ms": 1786536000000,
+            "exit_utc": "2026-08-12T12:00:00+00:00",
+            "entry_price": 63715.1,
+            "exit_price": 64240.6,
+            "qty": 0.001,
+            "fees": 0.070375635,
+            "funding": 0.0,
+            "slippage_cost": 0.031900000000001455,
+            "gross_pnl": -0.5255,
+            "realized_pnl": -0.595875635,
+            "exit_reason": "stop",
+            "stop_price": 64240.6,
+            "target_price": 62266.2,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": 51.599999999998545,
+        "exit_live_minus_bt": 2.7000000000043656,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": 0.057414544999999984,
+        "same_entry_bar": true,
+        "bt_exit_reason": "stop",
+        "bt_exit_utc": "2026-08-12T12:00:00+00:00",
+        "live_exit_utc": "2026-08-12T12:04:30.825000+00:00"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "live": {
+        "side": "short",
+        "qty": 0.1,
+        "leverage": 49.0,
+        "entry_px": 74.13,
+        "exit_px": 74.8,
+        "entry_utc": "2026-08-16T22:00:50.828000+00:00",
+        "exit_utc": "2026-08-17T01:01:48.126000+00:00",
+        "planned_stop": 74.80357142857143,
+        "planned_target": 72.7892857142857,
+        "closed_pnl": -0.0750593,
+        "exit_type": "StopLoss",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-16T21:00:00+00:00",
+          "close": 74.3,
+          "long_signal": false,
+          "short_signal": true,
+          "stop_price": 74.80357142857143,
+          "target_price": 72.7892857142857,
+          "atr": 0.26785714285714285
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "StopLoss",
+        "sl_ts_utc": "2026-08-17T01:01:00+00:00",
+        "tp_ts_utc": null,
+        "last_1m_utc": "2026-08-25T12:15:00+00:00",
+        "last_close": 98.39
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-16T21:00:00+00:00",
+          "close": 74.3,
+          "long_signal": false,
+          "short_signal": true,
+          "stop_price": 74.80357142857143,
+          "target_price": 72.7892857142857,
+          "atr": 0.26785714285714285
+        },
+        "trades": [
+          {
+            "side": -1,
+            "entry_ts_ms": 1786917600000,
+            "entry_utc": "2026-08-16T22:00:00+00:00",
+            "exit_ts_ms": 1786928400000,
+            "exit_utc": "2026-08-17T01:00:00+00:00",
+            "entry_price": 74.25,
+            "exit_price": 74.8,
+            "qty": 0.1,
+            "fees": 0.00819775,
+            "funding": 0.0,
+            "slippage_cost": 0.0040000000000006255,
+            "gross_pnl": -0.054999999999999716,
+            "realized_pnl": -0.06319774999999972,
+            "exit_reason": "stop",
+            "stop_price": 74.8,
+            "target_price": 72.79,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -0.12000000000000455,
+        "exit_live_minus_bt": 0.0,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": -0.011861550000000276,
+        "same_entry_bar": true,
+        "bt_exit_reason": "stop",
+        "bt_exit_utc": "2026-08-17T01:00:00+00:00",
+        "live_exit_utc": "2026-08-17T01:01:48.126000+00:00"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.1,
+        "leverage": 47.0,
+        "entry_px": 78.28,
+        "exit_px": 80.94,
+        "entry_utc": "2026-08-19T13:00:38.932000+00:00",
+        "exit_utc": "2026-08-19T14:58:12.745000+00:00",
+        "planned_stop": 77.50857142857144,
+        "planned_target": 80.95428571428569,
+        "closed_pnl": 0.2572429,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-19T12:00:00+00:00",
+          "close": 78.37,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 77.50857142857144,
+          "target_price": 80.95428571428569,
+          "atr": 0.41714285714285537
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-19T14:58:00+00:00",
+        "last_1m_utc": "2026-08-25T12:15:00+00:00",
+        "last_close": 98.39
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-19T12:00:00+00:00",
+          "close": 78.37,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 77.50857142857144,
+          "target_price": 80.95428571428569,
+          "atr": 0.41714285714285537
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787144400000,
+            "entry_utc": "2026-08-19T13:00:00+00:00",
+            "exit_ts_ms": 1787148000000,
+            "exit_utc": "2026-08-19T14:00:00+00:00",
+            "entry_price": 78.41,
+            "exit_price": 80.95,
+            "qty": 0.1,
+            "fees": 0.0087648,
+            "funding": 0.0,
+            "slippage_cost": 0.003999999999999205,
+            "gross_pnl": 0.2540000000000006,
+            "realized_pnl": 0.24523520000000062,
+            "exit_reason": "target",
+            "stop_price": 77.51,
+            "target_price": 80.95,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -0.12999999999999545,
+        "exit_live_minus_bt": -0.010000000000005116,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": 0.012007699999999372,
+        "same_entry_bar": true,
+        "bt_exit_reason": "target",
+        "bt_exit_utc": "2026-08-19T14:00:00+00:00",
+        "live_exit_utc": "2026-08-19T14:58:12.745000+00:00"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.001,
+        "leverage": 63.0,
+        "entry_px": 64787.8,
+        "exit_px": 66157.3,
+        "entry_utc": "2026-08-19T13:00:33.933000+00:00",
+        "exit_utc": "2026-08-19T15:05:16.047000+00:00",
+        "planned_stop": 64426.700000000004,
+        "planned_target": 66149.1,
+        "closed_pnl": 1.29748019,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-19T12:00:00+00:00",
+          "close": 64857.3,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 64426.700000000004,
+          "target_price": 66149.1,
+          "atr": 178.3999999999999
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-19T15:05:00+00:00",
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 79055.3
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-19T12:00:00+00:00",
+          "close": 64857.3,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 64426.700000000004,
+          "target_price": 66149.1,
+          "atr": 178.3999999999999
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787144400000,
+            "entry_utc": "2026-08-19T13:00:00+00:00",
+            "exit_ts_ms": 1787151600000,
+            "exit_utc": "2026-08-19T15:00:00+00:00",
+            "entry_price": 64889.8,
+            "exit_price": 66149.1,
+            "qty": 0.001,
+            "fees": 0.07207139500000001,
+            "funding": 0.0,
+            "slippage_cost": 0.0325,
+            "gross_pnl": 1.259300000000003,
+            "realized_pnl": 1.187228605000003,
+            "exit_reason": "target",
+            "stop_price": 64426.7,
+            "target_price": 66149.1,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -102.0,
+        "exit_live_minus_bt": 8.19999999999709,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": 0.11025158499999699,
+        "same_entry_bar": true,
+        "bt_exit_reason": "target",
+        "bt_exit_utc": "2026-08-19T15:00:00+00:00",
+        "live_exit_utc": "2026-08-19T15:05:16.047000+00:00"
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.01,
+        "leverage": 39.0,
+        "entry_px": 1970.71,
+        "exit_px": 2045.44,
+        "entry_utc": "2026-08-19T15:00:27.475000+00:00",
+        "exit_utc": "2026-08-19T15:26:56.983000+00:00",
+        "planned_stop": 1944.8157142857142,
+        "planned_target": 2045.1128571428578,
+        "closed_pnl": 0.72521117,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-19T14:00:00+00:00",
+          "close": 1969.89,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 1944.8157142857142,
+          "target_price": 2045.1128571428578,
+          "atr": 11.651428571428596
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-19T15:26:00+00:00",
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 2476.85
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-19T14:00:00+00:00",
+          "close": 1969.89,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 1944.8157142857142,
+          "target_price": 2045.1128571428578,
+          "atr": 11.651428571428596
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787151600000,
+            "entry_utc": "2026-08-19T15:00:00+00:00",
+            "exit_ts_ms": 1787151600000,
+            "exit_utc": "2026-08-19T15:00:00+00:00",
+            "entry_price": 1970.89,
+            "exit_price": 2045.11,
+            "qty": 0.01,
+            "fees": 0.022088000000000003,
+            "funding": 0.0,
+            "slippage_cost": 0.009900000000000091,
+            "gross_pnl": 0.742199999999998,
+            "realized_pnl": 0.720111999999998,
+            "exit_reason": "target_entry_bar",
+            "stop_price": 1944.82,
+            "target_price": 2045.11,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -0.18000000000006366,
+        "exit_live_minus_bt": 0.3300000000001546,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": 0.00509917000000204,
+        "same_entry_bar": true,
+        "bt_exit_reason": "target_entry_bar",
+        "bt_exit_utc": "2026-08-19T15:00:00+00:00",
+        "live_exit_utc": "2026-08-19T15:26:56.983000+00:00"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.1,
+        "leverage": 27.0,
+        "entry_px": 80.91,
+        "exit_px": 85.84,
+        "entry_utc": "2026-08-19T15:00:24.861000+00:00",
+        "exit_utc": "2026-08-19T21:06:13.995000+00:00",
+        "planned_stop": 79.16142857142857,
+        "planned_target": 85.8757142857143,
+        "closed_pnl": 0.48374522,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-19T14:00:00+00:00",
+          "close": 80.84,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 79.16142857142857,
+          "target_price": 85.8757142857143,
+          "atr": 0.6028571428571416
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-19T21:06:00+00:00",
+        "last_1m_utc": "2026-08-25T12:15:00+00:00",
+        "last_close": 98.39
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-19T14:00:00+00:00",
+          "close": 80.84,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 79.16142857142857,
+          "target_price": 85.8757142857143,
+          "atr": 0.6028571428571416
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787151600000,
+            "entry_utc": "2026-08-19T15:00:00+00:00",
+            "exit_ts_ms": 1787173200000,
+            "exit_utc": "2026-08-19T21:00:00+00:00",
+            "entry_price": 80.89,
+            "exit_price": 85.88,
+            "qty": 0.1,
+            "fees": 0.00917235,
+            "funding": 0.0,
+            "slippage_cost": 0.0049999999999997165,
+            "gross_pnl": 0.4989999999999995,
+            "realized_pnl": 0.4898276499999995,
+            "exit_reason": "target",
+            "stop_price": 79.16,
+            "target_price": 85.88,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": 0.01999999999999602,
+        "exit_live_minus_bt": -0.03999999999999204,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": -0.006082429999999528,
+        "same_entry_bar": true,
+        "bt_exit_reason": "target",
+        "bt_exit_utc": "2026-08-19T21:00:00+00:00",
+        "live_exit_utc": "2026-08-19T21:06:13.995000+00:00"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.001,
+        "leverage": 24.0,
+        "entry_px": 71522.0,
+        "exit_px": 77216.1,
+        "entry_utc": "2026-08-20T09:00:39.321000+00:00",
+        "exit_utc": "2026-08-21T08:14:01.014000+00:00",
+        "planned_stop": 69673.32857142857,
+        "planned_target": 77222.4142857143,
+        "closed_pnl": 5.60288819,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-20T08:00:00+00:00",
+          "close": 71560.6,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 69673.32857142857,
+          "target_price": 77222.4142857143,
+          "atr": 708.7571428571433
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-21T08:18:00+00:00",
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 79055.3
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-20T08:00:00+00:00",
+          "close": 71560.6,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 69673.32857142857,
+          "target_price": 77222.4142857143,
+          "atr": 708.7571428571433
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787216400000,
+            "entry_utc": "2026-08-20T09:00:00+00:00",
+            "exit_ts_ms": 1787299200000,
+            "exit_utc": "2026-08-21T08:00:00+00:00",
+            "entry_price": 71596.3,
+            "exit_price": 77222.4,
+            "qty": 0.001,
+            "fees": 0.081850285,
+            "funding": 0.0,
+            "slippage_cost": 0.03580000000000291,
+            "gross_pnl": 5.626099999999991,
+            "realized_pnl": 5.544249714999991,
+            "exit_reason": "target",
+            "stop_price": 69673.3,
+            "target_price": 77222.4,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -74.30000000000291,
+        "exit_live_minus_bt": -6.2999999999883585,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": 0.058638475000008405,
+        "same_entry_bar": true,
+        "bt_exit_reason": "target",
+        "bt_exit_utc": "2026-08-21T08:00:00+00:00",
+        "live_exit_utc": "2026-08-21T08:14:01.014000+00:00"
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.01,
+        "leverage": 17.0,
+        "entry_px": 2220.08,
+        "exit_px": 2402.58,
+        "entry_utc": "2026-08-21T10:00:29.236000+00:00",
+        "exit_utc": "2026-08-21T10:00:29.239000+00:00",
+        "planned_stop": 2137.2485714285713,
+        "planned_target": 2460.494285714286,
+        "closed_pnl": 1.78887301,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-19T20:00:00+00:00",
+          "close": 2218.06,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 2137.2485714285713,
+          "target_price": 2460.494285714286,
+          "atr": 36.917142857142935
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-21T21:23:00+00:00",
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 2476.85
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-19T20:00:00+00:00",
+          "close": 2218.06,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 2137.2485714285713,
+          "target_price": 2460.494285714286,
+          "atr": 36.917142857142935
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787173200000,
+            "entry_utc": "2026-08-19T21:00:00+00:00",
+            "exit_ts_ms": 1787302800000,
+            "exit_utc": "2026-08-21T09:00:00+00:00",
+            "entry_price": 2219.17,
+            "exit_price": 2444.89,
+            "qty": 0.01,
+            "fees": 0.02565233,
+            "funding": 0.0,
+            "slippage_cost": 0.011100000000001274,
+            "gross_pnl": 2.257199999999998,
+            "realized_pnl": 2.2315476699999977,
+            "exit_reason": "max_hold",
+            "stop_price": 2137.25,
+            "target_price": 2460.49,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": 0.9099999999998545,
+        "exit_live_minus_bt": -42.309999999999945,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": -0.44267465999999756,
+        "same_entry_bar": true,
+        "bt_exit_reason": "max_hold",
+        "bt_exit_utc": "2026-08-21T09:00:00+00:00",
+        "live_exit_utc": "2026-08-21T10:00:29.239000+00:00"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.1,
+        "leverage": 19.0,
+        "entry_px": 86.55,
+        "exit_px": 91.36,
+        "entry_utc": "2026-08-21T11:00:23.007000+00:00",
+        "exit_utc": "2026-08-21T11:00:23.011000+00:00",
+        "planned_stop": 83.56714285714285,
+        "planned_target": 95.81857142857142,
+        "closed_pnl": 0.46684583,
+        "exit_type": "TakeProfit",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-19T21:00:00+00:00",
+          "close": 86.63,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 83.56714285714285,
+          "target_price": 95.81857142857142,
+          "atr": 1.2442857142857144
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "TakeProfit",
+        "sl_ts_utc": null,
+        "tp_ts_utc": "2026-08-22T02:44:00+00:00",
+        "last_1m_utc": "2026-08-25T12:15:00+00:00",
+        "last_close": 98.39
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-19T21:00:00+00:00",
+          "close": 86.63,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 83.56714285714285,
+          "target_price": 95.81857142857142,
+          "atr": 1.2442857142857144
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787176800000,
+            "entry_utc": "2026-08-19T22:00:00+00:00",
+            "exit_ts_ms": 1787306400000,
+            "exit_utc": "2026-08-21T10:00:00+00:00",
+            "entry_price": 86.68,
+            "exit_price": 91.67,
+            "qty": 0.1,
+            "fees": 0.009809250000000002,
+            "funding": 0.0,
+            "slippage_cost": 0.005000000000001137,
+            "gross_pnl": 0.4989999999999995,
+            "realized_pnl": 0.4891907499999995,
+            "exit_reason": "max_hold",
+            "stop_price": 83.57,
+            "target_price": 95.82,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -0.13000000000000966,
+        "exit_live_minus_bt": -0.3100000000000023,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": -0.02234491999999949,
+        "same_entry_bar": true,
+        "bt_exit_reason": "max_hold",
+        "bt_exit_utc": "2026-08-21T10:00:00+00:00",
+        "live_exit_utc": "2026-08-21T11:00:23.011000+00:00"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "live": {
+        "side": "long",
+        "qty": 0.001,
+        "leverage": 23.0,
+        "entry_px": 78833.4,
+        "exit_px": 76663.1,
+        "entry_utc": "2026-08-21T09:00:32.008000+00:00",
+        "exit_utc": "2026-08-21T11:33:36.693000+00:00",
+        "planned_stop": 76666.92857142857,
+        "planned_target": 87075.2142857143,
+        "closed_pnl": -2.25582308,
+        "exit_type": "StopLoss",
+        "exit_exec_fee_rate": "0.00055"
+      },
+      "signal_match": {
+        "stop_match": true,
+        "target_match": true,
+        "side_match": true,
+        "signal": {
+          "ts_utc": "2026-08-21T08:00:00+00:00",
+          "close": 79269.0,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 76666.92857142857,
+          "target_price": 87075.2142857143,
+          "atr": 962.8571428571429
+        }
+      },
+      "one_m_path": {
+        "status": "ok",
+        "first_touch": "StopLoss",
+        "sl_ts_utc": "2026-08-21T11:33:00+00:00",
+        "tp_ts_utc": null,
+        "last_1m_utc": "2026-08-25T12:14:00+00:00",
+        "last_close": 79055.3
+      },
+      "backtest": {
+        "status": "ok",
+        "used_1m_touch": true,
+        "n_1m": 2701,
+        "signal_bar": {
+          "ts_utc": "2026-08-21T08:00:00+00:00",
+          "close": 79269.0,
+          "long_signal": true,
+          "short_signal": false,
+          "stop_price": 76666.92857142857,
+          "target_price": 87075.2142857143,
+          "atr": 962.8571428571429
+        },
+        "trades": [
+          {
+            "side": 1,
+            "entry_ts_ms": 1787302800000,
+            "entry_utc": "2026-08-21T09:00:00+00:00",
+            "exit_ts_ms": 1787310000000,
+            "exit_utc": "2026-08-21T11:00:00+00:00",
+            "entry_price": 79308.6,
+            "exit_price": 76666.9,
+            "qty": 0.001,
+            "fees": 0.085786525,
+            "funding": 0.0,
+            "slippage_cost": 0.03970000000001164,
+            "gross_pnl": -2.6417000000000117,
+            "realized_pnl": -2.7274865250000118,
+            "exit_reason": "stop",
+            "stop_price": 76666.9,
+            "target_price": 87075.2,
+            "ambiguous_intrabar": false
+          }
+        ],
+        "still_open": false
+      },
+      "diffs_live_minus_bt": {
+        "entry_live_minus_bt": -475.20000000001164,
+        "exit_live_minus_bt": -3.7999999999883585,
+        "qty_live_minus_bt": 0.0,
+        "pnl_live_minus_bt": 0.4716634450000119,
+        "same_entry_bar": true,
+        "bt_exit_reason": "stop",
+        "bt_exit_utc": "2026-08-21T11:00:00+00:00",
+        "live_exit_utc": "2026-08-21T11:33:36.693000+00:00"
+      }
+    }
+  ],
+  "open_trades": [],
+  "missed_or_extra_signals": [
+    {
+      "symbol": "BTCUSDT",
+      "signal_ts_ms": 1787148000000,
+      "signal_utc": "2026-08-19T14:00:00+00:00",
+      "entry_ts_ms": 1787151600000,
+      "entry_utc": "2026-08-19T15:00:00+00:00",
+      "side": "long",
+      "stop": 65203.32142857143,
+      "target": 67972.43571428573,
+      "live": "skipped",
+      "reason": "in_position"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "signal_ts_ms": 1787299200000,
+      "signal_utc": "2026-08-21T08:00:00+00:00",
+      "entry_ts_ms": 1787302800000,
+      "entry_utc": "2026-08-21T09:00:00+00:00",
+      "side": "long",
+      "stop": 2368.238571428571,
+      "target": 2674.8442857142863,
+      "live": "skipped",
+      "reason": "in_position"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "signal_ts_ms": 1787299200000,
+      "signal_utc": "2026-08-21T08:00:00+00:00",
+      "entry_ts_ms": 1787302800000,
+      "entry_utc": "2026-08-21T09:00:00+00:00",
+      "side": "long",
+      "stop": 89.96142857142857,
+      "target": 103.27571428571432,
+      "live": "skipped",
+      "reason": "in_position"
+    }
+  ],
+  "fixes": [],
+  "verdict": {
+    "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+    "historical_freeze": "LIVE_STOP / SHADOW_READY (BTC+ETH 1h, artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json)",
+    "end_to_end_identical": false,
+    "candles_match": true,
+    "indicator_functions_match": true,
+    "signal_side_stop_target_match": true,
+    "vps_code_matches_local_deploy": true,
+    "closed_trade_count": 11,
+    "open_trade_count": 0,
+    "material_logic_bug": false,
+    "principal_blocker": "Live is taking the same 1h chandelier signals (side, stop, target, min size) as the research function. Fill prices and exit times differ by design (Bybit market slip vs Binance next-open + 0.05% entry slip, zero exit slip in backtest). Historical freeze remains SHADOW_READY; this micro-live window is not a new gate pass.",
+    "principal_blockers": [
+      "Live StopLoss/TakeProfit fill as Bybit market (taker + slip). Backtester fills at planned price with zero exit slip.",
+      "Live entry is Bybit last/market; backtester uses next-bar Binance open plus 0.05% entry slip.",
+      "Live applies signed Bybit funding; this re-sim does not inject the Bybit funding series (funding near 0 in backtest trades).",
+      "Evidence remains RESEARCH_PROXY (Binance signal candles vs Bybit fills).",
+      "handled_entries for the first Aug 11/16 fills were overwritten by stale_entry (fixed in current live state.py; VPS hash matches local)."
+    ],
+    "strategy_working_as_specified": true
+  }
+}

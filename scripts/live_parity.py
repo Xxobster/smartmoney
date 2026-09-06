@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "research"))
+from live_parity_closeness import fmt_pct, format_glimpse_table  # noqa: E402
 OUT = ROOT / "artifacts" / "reports" / "tsm_chandelier"
 LIVE_DB = OUT / "live_vps94_tsm_chandelier_live.sqlite"
 SSH_DEFAULT = "eventactivities-vps"
@@ -74,20 +76,75 @@ def print_verdict(path: Path) -> int:
     v = data.get("verdict") or {}
     print("\n======== LIVE PARITY SITREP ========", flush=True)
     print("Generated:", data.get("generated_utc") or datetime.now(timezone.utc).isoformat(), flush=True)
-    print("Report:", path, flush=True)
+    print("Combined JSON:", path, flush=True)
     print("Maximum earned readiness:", v.get("maximum_earned_readiness"), flush=True)
     print("Evidence class:", data.get("evidence_class"), flush=True)
     print("Principal blocker:", v.get("principal_blocker") or data.get("principal_blocker"), flush=True)
-    print("Candles match:", v.get("candles_match"), flush=True)
-    print("Indicators match:", v.get("indicator_functions_match"), flush=True)
-    print("Signal side/stop/target match:", v.get("signal_side_stop_target_match"), flush=True)
-    print("Strategy working as specified:", v.get("strategy_working_as_specified"), flush=True)
     print("Material logic bug:", v.get("material_logic_bug"), flush=True)
-    print("Closed / open:", v.get("closed_trade_count"), "/", v.get("open_trade_count"), flush=True)
+
+    acc_json = OUT / "by_account" / "Xxobster6.json"
+    acc_md = OUT / "by_account" / "Xxobster6.md"
+    bot_dir = OUT / "by_bot"
+
+    glimpse_rows: list[dict] = []
+    if bot_dir.exists():
+        for jp in sorted(bot_dir.glob("*.json")):
+            bot = json.loads(jp.read_text(encoding="utf-8"))
+            c = bot.get("closeness") or (bot.get("verdict") or {}).get("closeness") or {}
+            glimpse_rows.append(
+                {
+                    "label": f"{bot.get('account')} {bot.get('bot_unit')}",
+                    **c,
+                }
+            )
+    if acc_json.exists():
+        acc = json.loads(acc_json.read_text(encoding="utf-8"))
+        c = acc.get("closeness") or {}
+        glimpse_rows.append({"label": f"ACCOUNT {acc.get('account')} mean", **c})
+        print("\n" + format_glimpse_table(glimpse_rows, title="CLOSENESS  live vs backtest  (logic %; fill prices allow designed slip)"), flush=True)
+        print("\n--- ACCOUNT", acc.get("account"), "---", flush=True)
+        print("  pack:", acc.get("pack_id"), flush=True)
+        print("  bots:", ", ".join(acc.get("bots") or []), flush=True)
+        print("  closed / open:", acc.get("closed_trade_count"), "/", acc.get("open_trade_count"), flush=True)
+        net = acc.get("closed_net_pnl_usdt")
+        if net is not None:
+            print(f"  closed net USDT: {float(net):+.4f}", flush=True)
+        print("  working as specified:", acc.get("strategy_working_as_specified"), flush=True)
+        print("  report:", acc_md if acc_md.exists() else acc_json, flush=True)
+    elif glimpse_rows:
+        print("\n" + format_glimpse_table(glimpse_rows, title="CLOSENESS  live vs backtest"), flush=True)
+    elif acc_md.exists():
+        print("Account report:", acc_md, flush=True)
+
+    if bot_dir.exists():
+        for jp in sorted(bot_dir.glob("*.json")):
+            bot = json.loads(jp.read_text(encoding="utf-8"))
+            bv = bot.get("verdict") or {}
+            c = bot.get("closeness") or bv.get("closeness") or {}
+            md = jp.with_suffix(".md")
+            print(f"\n--- BOT {bot.get('bot_unit')} ({bot.get('symbol')}) ---", flush=True)
+            print("  account:", bot.get("account"), flush=True)
+            print(
+                "  closeness: candles {c}  calculations {k}  signals {s}  entries/exits {e}  fill prices {f}".format(
+                    c=fmt_pct(c.get("candles_pct")),
+                    k=fmt_pct(c.get("calculations_pct")),
+                    s=fmt_pct(c.get("signals_pct")),
+                    e=fmt_pct(c.get("entries_exits_pct")),
+                    f=fmt_pct(c.get("fill_price_pct")),
+                ),
+                flush=True,
+            )
+            print("  freeze role:", bot.get("freeze_role"), flush=True)
+            print("  working as specified:", bv.get("strategy_working_as_specified"), flush=True)
+            print("  closed / open:", bv.get("closed_trade_count"), "/", bv.get("open_trade_count"), flush=True)
+            cnet = bv.get("closed_net_pnl_usdt")
+            if cnet is not None:
+                print(f"  closed net USDT: {float(cnet):+.4f}", flush=True)
+            print("  report:", md if md.exists() else jp, flush=True)
+
     md = path.with_suffix(".md")
     if md.exists():
-        print("Markdown:", md, flush=True)
-    # exit 2 only for material logic bugs (slippage alone is OK)
+        print("\nCombined markdown:", md, flush=True)
     if v.get("material_logic_bug"):
         print("\nACTION: material live/backtest mismatch — investigate and fix (safe fixes only).", flush=True)
         return 2

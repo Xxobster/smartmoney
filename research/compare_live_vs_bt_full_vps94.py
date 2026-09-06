@@ -589,6 +589,13 @@ def main() -> None:
     latest = OUT / "live_vs_bt_full_latest.json"
     latest.write_text(out.read_text(encoding="utf-8"), encoding="utf-8")
 
+    sys.path.insert(0, str(ROOT / "research"))
+    from write_live_parity_per_bot_reports import write_reports  # noqa: E402
+
+    per_bot = write_reports(report)
+    for p in per_bot.values():
+        print("WROTE", p)
+
     print("=== LIVE vs BACKTEST tsm_chandelier VPS94 ===")
     print("Max readiness:", report["verdict"]["maximum_earned_readiness"])
     print("Evidence class:", report["evidence_class"])

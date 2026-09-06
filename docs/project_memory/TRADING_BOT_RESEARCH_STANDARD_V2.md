@@ -2,10 +2,12 @@
 
 Version: 2.1  
 Date: 2026-07-16  
+Clarification: 2026-09-01 — §0.5 and companion `IN_SAMPLE_VS_OOS.md` (practice vs exam; does not change Frozen V2.1 gate numbers)  
 Intended use: Cursor rule/reference for automated trading projects  
 Default status of every new or materially changed strategy: `LIVE_STOP / RESEARCH_ONLY`
 
-Frozen default gate profile: `FROZEN_DEFAULT_GATES_V2_1.md`
+Frozen default gate profile: `FROZEN_DEFAULT_GATES_V2_1.md`  
+Plain-language in-sample vs out-of-sample: `IN_SAMPLE_VS_OOS.md`
 
 ## 0. Purpose, language and precedence
 
@@ -54,6 +56,17 @@ Label every result with its strongest valid evidence class:
 
 Never compare or describe these as interchangeable. Lead reports with the strongest uncontaminated evidence, not the best number.
 
+### 0.5 In-sample search vs out-of-sample proof (MUST)
+
+Using historical candles to search is **required**. Using the **same** candles both to pick settings and to prove an edge is **forbidden**. Full wording for agents: `IN_SAMPLE_VS_OOS.md`.
+
+- **Practice (in-sample / inner / `outer_train`):** the agent MAY tweak indicator lengths, take-profit, stop-loss, filters, side and timeframe, but only inside this window, and only from a list registered **before** the exam is viewed. The practice Profit Factor (PF) means “this **fit** that stretch.” It is not proof.
+- **Exam (out-of-sample / outer test / lockbox):** freeze **one** complete candidate, evaluate it **once**, do not tweak. Headline metrics come from this exam (stitched nested outer Out-Of-Sample). If practice is profitable and the exam is not, the strategy is **not working**.
+- **MUST NOT:** search Tenkan / Kijun / take-profit / stop-loss / timeframe until 2020–2026 (or any window) looks good, then report **that same window’s** Profit Factor (PF) as the edge.
+- **MUST NOT:** after viewing an exam failure, expand the grid, change timeframe, add a filter, drop a symbol, or retune take-profit / stop-loss **because** the exam failed. That reuses the exam as practice. Label `OOS_USED_FOR_SELECTION` / `RETROSPECTIVE_REUSED_HISTORY` and open a **new** hashed generation.
+- Walk-forward does **not** cancel this rule if the selector can see outer-test metrics, or if a full-history Hypothesis-0 (H0) screen is followed by nearby knobs on the same symbols and years.
+- Code leakage (future bars in features) is a different bug. Causal code plus researcher look-ahead is still invalid inference.
+
 ## 1. Installation and repository startup
 
 For each repository, keep:
@@ -62,6 +75,7 @@ For each repository, keep:
 - this detailed standard at `docs/project_memory/TRADING_BOT_RESEARCH_STANDARD_V2.md`;
 - the frozen default policy at `docs/project_memory/FROZEN_DEFAULT_GATES_V2_1.md`;
 - a completed project profile at `docs/project_memory/TRADING_PROJECT_PROFILE.md`;
+- the plain-language practice-vs-exam note at `docs/project_memory/IN_SAMPLE_VS_OOS.md`;
 - concise current-state, decisions, testing, experiment-log and live/backtest-parity documentation adapted to the repository.
 
 Reference the standard from `AGENTS.md` or the repository’s equivalent instruction index. Do not paste several competing constitutions into always-on context.
@@ -608,7 +622,7 @@ Rules agents must follow:
 1. Charge **per fill**, at **that fill’s executed price**. Open and close are two separate fees. Do not invent a single blended “0.225% round-trip” as if it were Bybit’s formula.
 2. **Slippage is not a fee.** Slippage changes the executable price; the fee is then `qty × (actual fill price) × rate`. Never add a slip percent into the fee rate.
 3. **Limit ≠ always maker.** A limit that rests on the book is maker; a limit that crosses and fills immediately is **taker**. Only **Post-Only** guarantees maker-or-cancel.
-4. **Conservative BT default:** if live TP/SL are plain trading-stop / limit exits without proven Post-Only maker fills, charge **taker fee on exits** too. Still fill TP/SL at the **limit price when touched** — do **not** apply market exit slippage to those limit prices unless modelling a stop-market.
+4. **Live take-profit / stop-loss MUST be maker-managed by the bot.** Full text: `TP_SL_MAKER.md`. The bot places a reduce-only **Post-Only limit** at take-profit and a reduce-only **stop-limit** at the stop. Charge **maker 0.02%** only on fills that **rest**. Bybit **Market** attached TP/SL is **taker**. Small size does not change that. Heartbeat **market-flatten** if the stop-limit does not protect. All-taker remains the **stress** path.
 5. Market / IOC opens: taker fee + directional entry slippage on price.
 6. Store per fill: role (entry/exit/liq), maker|taker, rate, qty, exec price, notional, fee amount.
 7. Never assume; re-check Bybit Help Center / account fee page when rates or product rules may have changed.
@@ -833,6 +847,8 @@ When multiple bots trade the same symbol, prove one cannot amend, cancel or clos
 
 ### 15.1 Register before search
 
+Tweak on practice years; prove on exam years. Do not register a search after the exam Profit Factor (PF) is already known. See §0.5 and `IN_SAMPLE_VS_OOS.md`.
+
 Before evaluating outer OOS, create and hash an immutable research-generation registry containing:
 
 - economic/behavioral rationale;
@@ -906,6 +922,14 @@ Do not automatically optimize every altcoin/forex/commodity after a BTC/ETH resu
 6. retain all tested symbols, including failures, in the trial history.
 
 ## 16. True nested walk-forward and lockboxes
+
+### 16.0 Practice vs exam (read this first)
+
+Walk-forward **is** allowed use of the past: search on earlier candles, test on later candles the search did not see. Example shape: fit on 2020–2026, test once on 2027 — **only if** 2027 was not used to choose Tenkan, take-profit, stop-loss, side, symbol or timeframe.
+
+If the fitted window is profitable and the held-out window is not, the strategy **failed**. The correct action is to report the fail and stop hunting that generation. The incorrect action is to keep changing parameters until the held-out window also looks good.
+
+`SHADOW_READY` still requires **nested** outer folds (several chronological exams), not one split chosen after looking at a full-history chart. Full-history Hypothesis-0 (H0) is not this protocol.
 
 ### 16.1 Outer and inner roles
 

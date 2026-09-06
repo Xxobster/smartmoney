@@ -3,21 +3,21 @@
   "created_utc": "2026-08-10",
   "mode": "LIVE",
   "readiness_earned": "LIVE_STOP / SHADOW_READY",
-  "authorization": "user_explicit_deploy_xxobster6_vps94_btc_eth_sol_min_size",
+  "authorization": "user_explicit_xxobster6_5pct_equity_risk_floor_min_20260901",
   "freeze_ref": "artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json",
   "notes": [
     "BTC+ETH inside historical SHADOW_READY freeze; SOL exploratory but user-authorized for this micro-live.",
     "Candles: botsgeneral shared Binance 1h (research proxy parity with backtest).",
-    "Size: exchange minimum. Leverage: stop-derived with mm/mark buffers + 80% haircut."
+    "Size: 5% of wallet equity cash-risk, round down to qty step, then floor at exchange minimum. Leverage: stop-derived with mm/mark buffers + 80% haircut."
   ],
   "venue": "bybit",
   "product": "usdt_linear_perpetual",
   "margin_mode": "isolated_preferred_uta_may_force_cross",
-  "wallet_policy": "exchange_minimum_size_until_full_size_authorized",
+  "wallet_policy": "five_pct_equity_risk_floor_exchange_min_round_down",
   "account": "Xxobster6",
   "timeframe": "1h",
   "candles_exchange": "binance",
-  "use_min_size": true,
+  "use_min_size": false,
   "symbols": ["BTCUSDT", "ETHUSDT", "SOLUSDT"],
   "strategy": {
     "name": "tsm_chandelier",
@@ -29,7 +29,7 @@
   },
   "costs": {
     "starting_equity_per_pair": 10000.0,
-    "risk_frac": 0.005,
+    "risk_frac": 0.05,
     "taker_fee": 0.00055,
     "slippage": 0.0002
   },

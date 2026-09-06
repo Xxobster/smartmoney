@@ -39,7 +39,7 @@ Failure outcome: `ENGINE_INVALID`, `DATA_PARITY_FAIL` or another precise blocker
 
 ## 3. Gate B — nested historical edge
 
-All values use stitched nested outer-OOS evidence, never full-history winners or means of fold ratios.
+All values use stitched nested outer-OOS evidence, never full-history winners or means of fold ratios. The window used to pick Tenkan, take-profit, stop-loss, side or timeframe is **practice**; Gate B is scored only on the **exam**. If practice is profitable and outer Out-Of-Sample (OOS) is not, Gate B **fails** — do not retune until the exam passes. See `IN_SAMPLE_VS_OOS.md`.
 
 | Test | Frozen default |
 | --- | ---: |

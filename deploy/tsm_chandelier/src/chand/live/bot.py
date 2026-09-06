@@ -9,13 +9,13 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
-from chand.margin import DEFAULT_CONTRACT, initial_margin, leverage_from_stop, stop_beyond_liquidation
+from chand.margin import DEFAULT_CONTRACT, leverage_from_stop, stop_beyond_liquidation
 from chand.live.bybit_client import BybitClient, BybitCredentials, format_price, format_qty
 from chand.live import shared_candles
 from chand.live.binance_fallback import fetch_closed_klines, merge_closed_bars, series_gaps
 from chand.live.schedule import sleep_sec_for_tf
 from chand.live.signals import TF_MS, LiveSignal, actionable_signal, generate_live_signals
-from chand.live.sizing import min_exchange_qty, round_qty
+from chand.live.sizing import min_exchange_qty, round_qty, size_qty_risk_with_min_floor
 from chand.live.state import LiveState
 
 log = logging.getLogger(__name__)
@@ -192,6 +192,8 @@ class ChandLiveBot:
 
     def _equity_base(self) -> float:
         wallet = self.client.get_wallet_balance_usdt()
+        if not self.use_min_size:
+            return max(0.0, float(wallet))
         cap = float(self.costs["starting_equity_per_pair"])
         return max(0.0, min(wallet, cap))
 
@@ -222,20 +224,77 @@ class ChandLiveBot:
                 return 0.0, lev, equity
             return qty, lev, equity
 
-        risk_per_unit = abs(entry - float(sig.stop_price))
-        if risk_per_unit <= 0:
-            return 0.0, lev, equity
-        risk_cash = equity * float(self.costs["risk_frac"])
-        qty = risk_cash / risk_per_unit
-        notional = qty * entry
-        margin = initial_margin(notional, lev)
         max_margin = equity * float(DEFAULT_CONTRACT.max_margin_utilization)
-        if margin > max_margin and lev > 0:
-            qty = (max_margin * lev) / entry
-        qty = round_qty(qty, self.instrument["qty_step"], self.instrument["min_qty"])
-        if qty * entry < float(self.instrument["min_notional"]):
-            return 0.0, lev, equity
+        qty = size_qty_risk_with_min_floor(
+            equity=equity,
+            risk_frac=float(self.costs["risk_frac"]),
+            entry=entry,
+            stop=float(sig.stop_price),
+            instrument=self.instrument,
+            notional_buffer=self.notional_buffer,
+            max_margin=max_margin,
+            leverage=lev,
+        )
         return qty, lev, equity
+
+    def _place_maker_exits(
+        self,
+        *,
+        side: str,
+        qty: float,
+        position_idx: int,
+        stop_price: float,
+        target_price: float,
+    ) -> None:
+        """Bot-owned reduce-only Post-Only take-profit + stop-limit. Not exchange stop-market."""
+        tick = float(self.instrument["tick_size"])
+        step = float(self.instrument["qty_step"])
+        floored = round_qty(qty, step, 0.0)
+        if floored <= 0:
+            raise RuntimeError(f"{self.symbol} maker-exit qty floors to 0")
+        qty_str = format_qty(floored, step)
+        sl = format_price(float(stop_price), tick)
+        tp = format_price(float(target_price), tick)
+        try:
+            self.client.clear_trading_stop(self.symbol, position_idx)
+        except Exception:
+            log.exception("%s clear_trading_stop (best-effort)", self.symbol)
+        self.client.place_maker_take_profit(
+            self.symbol,
+            side=side,
+            qty=qty_str,
+            price=tp,
+            position_idx=position_idx,
+        )
+        self.client.place_maker_stop_limit(
+            self.symbol,
+            side=side,
+            qty=qty_str,
+            stop_price=sl,
+            position_idx=position_idx,
+        )
+        self.state.log_event(
+            self.symbol,
+            "maker_exits_placed",
+            {"side": side, "qty": qty_str, "stop": sl, "target": tp, "position_idx": position_idx},
+        )
+
+    def _ensure_maker_exits(self) -> None:
+        local = self.state.get_open_trade(self.symbol)
+        if not local or not self._open_exchange_position():
+            return
+        if self.client.has_reduce_only_working_order(self.symbol, int(local["position_idx"])):
+            return
+        try:
+            self._place_maker_exits(
+                side=str(local["side"]),
+                qty=float(local.get("qty") or 0),
+                position_idx=int(local["position_idx"]),
+                stop_price=float(local["stop_price"]),
+                target_price=float(local["target_price"]),
+            )
+        except Exception:
+            log.exception("%s maker-exit ensure failed", self.symbol)
 
     def _maybe_time_exit(self, last_closed_ts_ms: int) -> None:
         local = self.state.get_open_trade(self.symbol)
@@ -351,8 +410,6 @@ class ChandLiveBot:
             side,
             qty_str,
             position_idx=idx,
-            take_profit=tp,
-            stop_loss=sl,
         )
         fill = self.client.wait_for_position_fill(self.symbol, idx)
         fill_px = float(fill["avgPrice"])
@@ -385,9 +442,27 @@ class ChandLiveBot:
             )
             return
         try:
-            self.client.set_trading_stop(self.symbol, idx, stop_loss=sl, take_profit=tp)
+            self._place_maker_exits(
+                side=sig.side,
+                qty=float(fill["size"]),
+                position_idx=idx,
+                stop_price=float(sig.stop_price),
+                target_price=float(sig.target_price),
+            )
         except Exception:
-            log.exception("%s set_trading_stop failed after fill", self.symbol)
+            log.exception("%s maker TP/SL place failed after fill — flattening", self.symbol)
+            exit_side = "Sell" if sig.side == "long" else "Buy"
+            self.client.place_market_order(
+                self.symbol,
+                exit_side,
+                format_qty(fill["size"], self.instrument["qty_step"]),
+                position_idx=idx,
+                reduce_only=True,
+            )
+            self.state.mark_entry_handled(
+                self.symbol, sig.entry_ts_ms, sig.side, {**detail, "flattened": "maker_exit_failed"}
+            )
+            return
         trade = {
             "symbol": self.symbol,
             "side": sig.side,
@@ -466,6 +541,7 @@ class ChandLiveBot:
 
         last_closed = int(df["ts_ms"].iloc[-1])
         self._maybe_time_exit(last_closed)
+        self._ensure_maker_exits()
         self._snapshot(now_ms)
 
         if self._last_seen_closed_ts != last_closed:

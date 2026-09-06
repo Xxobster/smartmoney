@@ -1,8 +1,10 @@
 # Trading Project Profile — smartmoney SMC finder
 
 Complete profile for this repository. Methodological rules in
-`TRADING_BOT_RESEARCH_STANDARD_V2.md` and `FROZEN_DEFAULT_GATES_V2_1.md` cannot
-be weakened by preferences below.
+`TRADING_BOT_RESEARCH_STANDARD_V2.md`, `IN_SAMPLE_VS_OOS.md`, and
+`FROZEN_DEFAULT_GATES_V2_1.md` cannot be weakened by preferences below.
+Installed file hashes: `INSTALLED_STANDARD_HASHES.md`. Pack zip:
+`C:\projects\BASE CURSOR\TRADING_BOT_CURSOR_RULES_V2.zip`.
 
 ## 1. Project identity
 

@@ -3,12 +3,15 @@ name: live-vs-backtest-parity
 description: >-
   Compare smartmoney VPS live bots vs local backtests (candles, indicators,
   signals, exits). Use when the user asks for live parity, live vs backtest,
-  reconcile live trades, or says “live parity” / “run live parity”.
+  reconcile live trades, or says “live parity” / “run live parity”, including
+  when the global /live-parity skill routes here.
 ---
 
-# Live vs backtest parity (this project only)
+# Live vs backtest parity (smartmoney pack detail)
 
 Scope: **bots deployed from this `smartmoney` repo** (currently `tsm_chandelier` on VPS `94.156.189.76` / `ln1` / `eventactivities-vps`). Do **not** include llm2, xgb, crypthor, or other repos.
+
+Global entry point: user may type `/live-parity` (personal skill). This file is the **detailed** pack skill for this repo.
 
 ## User workflow (verbatim)
 
@@ -38,13 +41,29 @@ python scripts/live_parity.py --plot         # also open finplot live vs BT over
 python scripts/live_parity.py --host ln1     # SSH host alias (default eventactivities-vps)
 ```
 
-This orchestrates: pull live SQLite from VPS → refresh local Binance 1h + 1m → run `research/compare_live_vs_bt_full_vps94.py` → print readiness / blockers / report paths.
+This orchestrates: pull live SQLite from VPS → refresh local Binance 1h + 1m → run `research/compare_live_vs_bt_full_vps94.py` → write **per-account** and **per-bot** reports → print a **closeness glimpse** (candles / calculations / signals / entries-exits percents per bot) plus readiness / blockers / report paths.
+
+The CLI sitrep must show, immediately after readiness / evidence / blocker, a table:
+
+```
+CLOSENESS  live vs backtest  (logic %; fill prices allow designed slip)
+bot                              candles  calculations  signals  entries/exits  fill prices
+Xxobster6 tsm-chandelier@BTCUSDT    100%           100%     100%           100%        99.9%
+ACCOUNT Xxobster6 mean              100%           100%     100%           100%        99.9%
+```
+
+Fill-price percent is **not** a bug score. Designed Bybit vs Binance slip stays in that column.
+
+Primary reports (always written):
+
+- Per account: `artifacts/reports/tsm_chandelier/by_account/<account>.md`
+- Per bot: `artifacts/reports/tsm_chandelier/by_bot/<account>_<SYMBOL>.md`
 
 ## Agent checklist
 
 1. Read `docs/project_memory/CURRENT_STATE.md` and trading-bot core rules.
 2. Run `python scripts/live_parity.py` (do not only describe it).
-3. Lead the reply with: maximum earned readiness, evidence class, principal blocker.
+3. Lead the reply with: maximum earned readiness, evidence class, principal blocker, then the **per-account / per-bot closeness percents** (candles, calculations, signals, entries/exits). Do not only paste long reports.
 4. Compare explicitly: candles, indicators/signal core, signals, entries/exits, strategy params (ATR band, chandelier, EMA filter, max hold, min size).
 5. **Acceptable by design:** Bybit market fill vs Binance next-open + entry slip; live Stop Loss market slip vs backtest planned-stop / zero exit slip; funding gaps; cross vs isolated margin.
 6. **Material bugs (fix):** wrong signal side/bar; stop/target mismatch beyond tick; exit reason disagrees with 1m path; research `signals.py` ≠ live `signals_core.py`; VPS deploy code ≠ local deploy; missing/stale candles causing wrong entries.
@@ -54,8 +73,10 @@ This orchestrates: pull live SQLite from VPS → refresh local Binance 1h + 1m �
 
 ## Reports
 
-- Full JSON: `artifacts/reports/tsm_chandelier/live_vs_bt_full_*.json`
+- Full JSON: `artifacts/reports/tsm_chandelier/live_vs_bt_full_*.json` and `live_vs_bt_full_latest.json`
 - Sitrep markdown when present: `artifacts/reports/tsm_chandelier/live_vs_bt_full_*.md`
+- Per account: `artifacts/reports/tsm_chandelier/by_account/<account>.md`
+- Per bot: `artifacts/reports/tsm_chandelier/by_bot/<account>_<SYMBOL>.md`
 - CLI also prints paths at the end.
 
 ## Related scripts

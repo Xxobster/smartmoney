@@ -1,0 +1,16 @@
+{
+  "columns": {
+    "stop_price": {
+      "engine_note": "",
+      "first_seen_utc": "2026-09-04T09:03:57Z",
+      "last_seen_utc": "2026-09-04T09:03:57Z",
+      "reasons": [
+        "FORWARD_CORR: |corr|=0.2099 vs forward return h=24"
+      ],
+      "status": "LEAKAGE_POTENTIAL",
+      "symbol": null,
+      "timeframe": "1h"
+    }
+  },
+  "updated_at_utc": "2026-09-04T09:03:57Z"
+}

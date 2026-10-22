@@ -11,6 +11,7 @@ from typing import Any
 
 from chand.margin import DEFAULT_CONTRACT, leverage_from_stop, stop_beyond_liquidation
 from chand.live.bybit_client import BybitClient, BybitCredentials, format_price, format_qty
+from chand.live.exit_orders import stop_limit_price
 from chand.live import shared_candles
 from chand.live.binance_fallback import fetch_closed_klines, merge_closed_bars, series_gaps
 from chand.live.schedule import sleep_sec_for_tf
@@ -67,6 +68,8 @@ class ChandLiveBot:
         self.snapshot_interval_sec = float(self.pack.get("snapshot_interval_sec", 300))
         self.bar_settle_sec = float(self.pack.get("bar_settle_sec", 20))
         self.max_entry_delay_sec = float(self.pack.get("max_entry_delay_sec", 600))
+        self.stop_limit_buffer = float(self.pack.get("stop_limit_buffer", 0.003))
+        self.position_poll_sec = float(self.pack.get("position_poll_sec", 10))
         self.account_margin_mode = "UNKNOWN"
         self._wait_logged = False
         self._last_seen_closed_ts: int | None = None
@@ -246,7 +249,7 @@ class ChandLiveBot:
         stop_price: float,
         target_price: float,
     ) -> None:
-        """Bot-owned reduce-only Post-Only take-profit + stop-limit. Not exchange stop-market."""
+        """Bot-owned reduce-only Post-Only take-profit + GTC stop-limit (limit past the trigger)."""
         tick = float(self.instrument["tick_size"])
         step = float(self.instrument["qty_step"])
         floored = round_qty(qty, step, 0.0)
@@ -266,42 +269,124 @@ class ChandLiveBot:
             price=tp,
             position_idx=position_idx,
         )
-        self.client.place_maker_stop_limit(
+        sl_limit = self._place_stop(side=side, qty_str=qty_str, position_idx=position_idx, stop_price=stop_price)
+        self.state.log_event(
+            self.symbol,
+            "maker_exits_placed",
+            {
+                "side": side,
+                "qty": qty_str,
+                "stop": sl,
+                "stop_limit": sl_limit,
+                "target": tp,
+                "position_idx": position_idx,
+            },
+        )
+
+    def _place_stop(self, *, side: str, qty_str: str, position_idx: int, stop_price: float) -> str:
+        tick = float(self.instrument["tick_size"])
+        sl = format_price(float(stop_price), tick)
+        sl_limit = format_price(
+            stop_limit_price(float(sl), is_long=side == "long", buffer=self.stop_limit_buffer, tick=tick), tick
+        )
+        self.client.place_stop_limit(
             self.symbol,
             side=side,
             qty=qty_str,
             stop_price=sl,
+            limit_price=sl_limit,
             position_idx=position_idx,
         )
-        self.state.log_event(
-            self.symbol,
-            "maker_exits_placed",
-            {"side": side, "qty": qty_str, "stop": sl, "target": tp, "position_idx": position_idx},
-        )
+        return sl_limit
 
     def _ensure_maker_exits(self) -> None:
+        """Every cycle while a position is open: keep a stop AND a take-profit working.
+
+        The stop is checked on its own (a resting take-profit used to hide a missing stop).
+        If price is through the stop with no stop order, or past the stop-limit price, flatten.
+        """
         local = self.state.get_open_trade(self.symbol)
         if not local or not self._open_exchange_position():
             return
-        if self.client.has_reduce_only_working_order(self.symbol, int(local["position_idx"])):
+        side = str(local["side"])
+        idx = int(local["position_idx"])
+        stop = float(local.get("stop_price") or 0)
+        target = float(local.get("target_price") or 0)
+        if stop <= 0:
+            log.error("%s open trade has no stop price, cannot protect it", self.symbol)
             return
+        orders = self.client.reduce_only_orders(self.symbol, idx)
+        has_stop = any(o.get("_kind") == "stop" for o in orders)
+        has_tp = any(o.get("_kind") == "limit" for o in orders)
         try:
-            self._place_maker_exits(
-                side=str(local["side"]),
-                qty=float(local.get("qty") or 0),
-                position_idx=int(local["position_idx"]),
-                stop_price=float(local["stop_price"]),
-                target_price=float(local["target_price"]),
-            )
+            last = self.client.get_ticker_last(self.symbol)
         except Exception:
-            log.exception("%s maker-exit ensure failed", self.symbol)
+            log.exception("%s ticker failed in exit check", self.symbol)
+            last = 0.0
+        is_long = side == "long"
+        if last > 0:
+            through = last <= stop if is_long else last >= stop
+            deep = (
+                last <= stop * (1.0 - self.stop_limit_buffer)
+                if is_long
+                else last >= stop * (1.0 + self.stop_limit_buffer)
+            )
+            if through and (deep or not has_stop):
+                self._flatten(local, "stop_watchdog_flatten", {"last": last, "has_stop": has_stop})
+                return
+            if target > 0 and (last >= target if is_long else last <= target) and not has_tp:
+                self._flatten(local, "target_through_flatten", {"last": last})
+                return
+        qty_str = format_qty(float(local.get("qty") or 0), self.instrument["qty_step"])
+        if not has_stop:
+            try:
+                sl_limit = self._place_stop(side=side, qty_str=qty_str, position_idx=idx, stop_price=stop)
+                self.state.log_event(self.symbol, "stop_replaced", {"stop": stop, "stop_limit": sl_limit})
+                log.warning("%s stop was missing, re-placed at %s (limit %s)", self.symbol, stop, sl_limit)
+            except Exception:
+                log.exception("%s stop re-place failed, flattening", self.symbol)
+                self._flatten(local, "stop_place_failed_flatten", {"last": last})
+                return
+        if not has_tp and target > 0:
+            try:
+                self.client.place_maker_take_profit(
+                    self.symbol,
+                    side=side,
+                    qty=qty_str,
+                    price=format_price(target, float(self.instrument["tick_size"])),
+                    position_idx=idx,
+                )
+                self.state.log_event(self.symbol, "take_profit_replaced", {"target": target})
+            except Exception:
+                log.exception("%s take-profit re-place failed", self.symbol)
+
+    def _flatten(self, local: dict[str, Any], reason: str, extra: dict[str, Any] | None = None) -> None:
+        pos = self._open_exchange_position()
+        if pos is None:
+            return
+        side = str(local["side"])
+        exit_side = "Sell" if side == "long" else "Buy"
+        qty = format_qty(float(pos.get("size") or local["qty"]), self.instrument["qty_step"])
+        idx = int(local["position_idx"])
+        log.warning("%s %s, market flatten qty=%s %s", self.symbol, reason, qty, extra or {})
+        if self.dry_run:
+            self.state.log_event(self.symbol, f"dry_run_{reason}", {"qty": qty, **(extra or {})})
+            return
+        self.client.place_market_order(self.symbol, exit_side, qty, position_idx=idx, reduce_only=True)
+        self.state.log_event(self.symbol, reason, {"qty": qty, **(extra or {}), **local})
+        time.sleep(2)
+        self._record_realized(local)
+        self.state.clear_open_trade(self.symbol)
+        self._snapshot(self._now_ms(), force=True)
 
     def _maybe_time_exit(self, last_closed_ts_ms: int) -> None:
         local = self.state.get_open_trade(self.symbol)
         if not local:
             return
         step = TF_MS.get(self.timeframe, 3_600_000)
-        held_bars = int((last_closed_ts_ms - int(local["entry_ts_ms"])) // step)
+        # last_closed_ts_ms is the OPEN of the last closed bar, so +1 counts that bar:
+        # flatten at entry + max_hold bars, like the backtest (was one bar late).
+        held_bars = int((last_closed_ts_ms - int(local["entry_ts_ms"])) // step) + 1
         if held_bars < self.max_hold:
             return
         pos = self._open_exchange_position()
@@ -634,4 +719,7 @@ class ChandLiveBot:
                 self.cycle()
             except Exception:
                 log.exception("%s cycle error", self.symbol)
-            time.sleep(max(1.0, self._next_sleep_sec()))
+            sleep = self._next_sleep_sec()
+            if self.state.get_open_trade(self.symbol):
+                sleep = min(sleep, self.position_poll_sec)
+            time.sleep(max(1.0, sleep))

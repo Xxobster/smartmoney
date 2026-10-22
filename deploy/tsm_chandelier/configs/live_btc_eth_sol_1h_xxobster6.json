@@ -8,7 +8,8 @@
   "notes": [
     "BTC+ETH inside historical SHADOW_READY freeze; SOL exploratory but user-authorized for this micro-live.",
     "Candles: botsgeneral shared Binance 1h (research proxy parity with backtest).",
-    "Size: 5% of wallet equity cash-risk, round down to qty step, then floor at exchange minimum. Leverage: stop-derived with mm/mark buffers + 80% haircut."
+    "Size: 5% of wallet equity cash-risk, round down to qty step, then floor at exchange minimum. Leverage: stop-derived with mm/mark buffers + 80% haircut.",
+    "2026-10-22: stop is a GTC conditional limit 0.3% past the trigger (Post-Only was cancelled on trigger); watchdog flattens at market if price is through the stop without a stop order or past the limit; max hold exits at entry+36h like the backtest."
   ],
   "venue": "bybit",
   "product": "usdt_linear_perpetual",
@@ -18,7 +19,11 @@
   "timeframe": "1h",
   "candles_exchange": "binance",
   "use_min_size": false,
-  "symbols": ["BTCUSDT", "ETHUSDT", "SOLUSDT"],
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
   "strategy": {
     "name": "tsm_chandelier",
     "atr_band_mult": 2.5,
@@ -45,5 +50,7 @@
   "bar_settle_sec": 20,
   "max_entry_delay_sec": 600,
   "trigger_price": "LastPrice",
-  "dry_run": false
+  "dry_run": false,
+  "stop_limit_buffer": 0.003,
+  "position_poll_sec": 10
 }

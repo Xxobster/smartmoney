@@ -11,7 +11,7 @@ from typing import Any
 
 from pybit.unified_trading import HTTP
 
-from chand.live.exit_orders import maker_stop_limit_kwargs, maker_take_profit_kwargs
+from chand.live.exit_orders import maker_take_profit_kwargs, stop_limit_kwargs
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
@@ -237,36 +237,46 @@ class BybitClient:
         )
         return self._ok(r)
 
-    def place_maker_stop_limit(
+    def place_stop_limit(
         self,
         symbol: str,
         *,
         side: str,
         qty: str,
         stop_price: str,
+        limit_price: str,
         position_idx: int,
     ) -> dict:
         exit_side = "Sell" if side == "long" else "Buy"
         r = self.http.place_order(
-            **maker_stop_limit_kwargs(
+            **stop_limit_kwargs(
                 symbol,
                 exit_side=exit_side,
                 qty=qty,
                 stop_price=stop_price,
+                limit_price=limit_price,
                 position_idx=position_idx,
                 is_long=side == "long",
             )
         )
         return self._ok(r)
 
+    def reduce_only_orders(self, symbol: str, position_idx: int) -> list[dict]:
+        """Working reduce-only orders, each tagged ``_kind`` = "stop" (conditional) or "limit"."""
+        out = []
+        for order_filter, kind in (("StopOrder", "stop"), ("Order", "limit")):
+            r = self.http.get_open_orders(
+                category="linear", symbol=symbol, openOnly=0, orderFilter=order_filter, limit=50
+            )
+            for row in self._ok(r).get("list", []) or []:
+                if int(row.get("positionIdx", 0) or 0) != position_idx:
+                    continue
+                if str(row.get("reduceOnly", "")).lower() in {"true", "1"}:
+                    out.append({**row, "_kind": kind})
+        return out
+
     def has_reduce_only_working_order(self, symbol: str, position_idx: int) -> bool:
-        r = self.http.get_open_orders(category="linear", symbol=symbol, openOnly=0, limit=50)
-        for row in self._ok(r).get("list", []) or []:
-            if int(row.get("positionIdx", 0) or 0) != position_idx:
-                continue
-            if str(row.get("reduceOnly", "")).lower() in {"true", "1"}:
-                return True
-        return False
+        return bool(self.reduce_only_orders(symbol, position_idx))
 
     def set_trading_stop(
         self,

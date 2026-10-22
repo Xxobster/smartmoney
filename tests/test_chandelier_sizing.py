@@ -9,7 +9,7 @@ SRC = Path(__file__).resolve().parents[1] / "deploy" / "tsm_chandelier" / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from chand.live.exit_orders import maker_stop_limit_kwargs, maker_take_profit_kwargs
+from chand.live.exit_orders import maker_take_profit_kwargs, stop_limit_kwargs, stop_limit_price
 from chand.live.sizing import size_qty_risk_with_min_floor
 
 
@@ -56,17 +56,27 @@ def test_maker_tp_is_post_only_reduce_only():
     assert "triggerPrice" not in kw
 
 
-def test_maker_sl_is_stop_limit_not_market():
-    kw = maker_stop_limit_kwargs(
+def test_sl_is_gtc_stop_limit_past_trigger():
+    kw = stop_limit_kwargs(
         "ETHUSDT",
         exit_side="Sell",
         qty="0.01",
         stop_price="3000",
+        limit_price="2991",
         position_idx=1,
         is_long=True,
     )
     assert kw["orderType"] == "Limit"
     assert kw["orderFilter"] == "StopOrder"
     assert kw["triggerDirection"] == 2
-    assert kw["timeInForce"] == "PostOnly"
+    # Post-Only was cancelled by Bybit on trigger (audit 2026-10-22)
+    assert kw["timeInForce"] == "GTC"
     assert kw["reduceOnly"] is True
+    assert kw["price"] == "2991" and kw["triggerPrice"] == "3000"
+
+
+def test_stop_limit_price_buffer_rounds_away_from_market():
+    assert abs(stop_limit_price(100.0, is_long=True, buffer=0.003, tick=0.01) - 99.70) < 1e-9
+    assert abs(stop_limit_price(100.0, is_long=False, buffer=0.003, tick=0.01) - 100.30) < 1e-9
+    assert stop_limit_price(105.44, is_long=True, buffer=0.003, tick=0.01) <= 105.44 * 0.997
+    assert stop_limit_price(110.28, is_long=False, buffer=0.003, tick=0.01) >= 110.28 * 1.003

@@ -10,12 +10,13 @@
     "Candles: botsgeneral shared Binance 1h (research proxy parity with backtest).",
     "Size: 5% of wallet equity cash-risk, round down to qty step, then floor at exchange minimum. Leverage: stop-derived with mm/mark buffers + 80% haircut.",
     "2026-10-22: stop is a GTC conditional limit 0.3% past the trigger (Post-Only was cancelled on trigger); watchdog flattens at market if price is through the stop without a stop order or past the limit; max hold exits at entry+36h like the backtest.",
-    "2026-10-22: risk per trade 5% -> 2% of wallet equity (user OK). Full-history backtest: 5% risk -> 55-86% max drawdown per symbol, 2% -> 24-52%. Exchange-minimum floor still applies, so on a small wallet BTC can exceed 2%."
+    "2026-10-22: risk per trade 5% -> 2% of wallet equity (user OK). Full-history backtest: 5% risk -> 55-86% max drawdown per symbol, 2% -> 24-52%. Exchange-minimum floor still applies, so on a small wallet BTC can exceed 2%.",
+    "2026-10-24: back to 5% risk after Micah topped up Xxobster6 (+15 -> 20.00 USDT), as he asked on 2026-10-22. Leftover reduce-only orders are cancelled when flat; only a stop at this trade's level counts as protection."
   ],
   "venue": "bybit",
   "product": "usdt_linear_perpetual",
   "margin_mode": "isolated_preferred_uta_may_force_cross",
-  "wallet_policy": "two_pct_equity_risk_floor_exchange_min_round_down",
+  "wallet_policy": "five_pct_equity_risk_floor_exchange_min_round_down",
   "account": "Xxobster6",
   "timeframe": "1h",
   "candles_exchange": "binance",
@@ -35,7 +36,7 @@
   },
   "costs": {
     "starting_equity_per_pair": 10000.0,
-    "risk_frac": 0.02,
+    "risk_frac": 0.05,
     "taker_fee": 0.00055,
     "slippage": 0.0002
   },

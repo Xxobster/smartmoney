@@ -159,6 +159,7 @@ class ChandLiveBot:
     def _sync_closed(self) -> None:
         local = self.state.get_open_trade(self.symbol)
         if not local:
+            self._cancel_stale_exits()
             return
         if self._open_exchange_position() is not None:
             return
@@ -166,6 +167,24 @@ class ChandLiveBot:
         self._record_realized(local)
         self.state.log_event(self.symbol, "position_closed", local)
         self.state.clear_open_trade(self.symbol)
+        self._cancel_stale_exits()
+
+    def _cancel_stale_exits(self) -> None:
+        """Flat on the exchange: cancel leftover reduce-only TP / stop orders.
+
+        A stop left from an earlier trade would close (or hide the missing stop of) the
+        next position on the same hedge side.
+        """
+        if self.dry_run or self._open_exchange_position() is not None:
+            return
+        try:
+            n = self.client.cancel_reduce_only_orders(self.symbol)
+        except Exception:
+            log.exception("%s cancel stale reduce-only orders failed", self.symbol)
+            return
+        if n:
+            log.warning("%s flat: cancelled %s stale reduce-only order(s)", self.symbol, n)
+            self.state.log_event(self.symbol, "stale_exits_cancelled", {"n": n})
 
     def _record_realized(self, local: dict[str, Any]) -> None:
         try:
@@ -316,8 +335,22 @@ class ChandLiveBot:
             log.error("%s open trade has no stop price, cannot protect it", self.symbol)
             return
         orders = self.client.reduce_only_orders(self.symbol, idx)
-        has_stop = any(o.get("_kind") == "stop" for o in orders)
+        tick = float(self.instrument["tick_size"])
+        has_stop = any(
+            o.get("_kind") == "stop" and abs(float(o.get("triggerPrice") or 0) - stop) <= tick * 1.5
+            for o in orders
+        )
         has_tp = any(o.get("_kind") == "limit" for o in orders)
+        for o in orders:
+            if o.get("_kind") == "stop" and abs(float(o.get("triggerPrice") or 0) - stop) > tick * 1.5:
+                try:
+                    self.client.http.cancel_order(
+                        category="linear", symbol=self.symbol, orderId=o["orderId"], orderFilter="StopOrder"
+                    )
+                    self.state.log_event(self.symbol, "foreign_stop_cancelled", {"trigger": o.get("triggerPrice")})
+                    log.warning("%s cancelled stop at %s (not this trade's stop %s)", self.symbol, o.get("triggerPrice"), stop)
+                except Exception:
+                    log.exception("%s cancel foreign stop failed", self.symbol)
         try:
             last = self.client.get_ticker_last(self.symbol)
         except Exception:

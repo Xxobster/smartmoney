@@ -275,6 +275,22 @@ class BybitClient:
                     out.append({**row, "_kind": kind})
         return out
 
+    def cancel_reduce_only_orders(self, symbol: str, position_idx: int | None = None) -> int:
+        """Cancel working reduce-only orders (conditional and plain) for ``symbol``.
+
+        ``position_idx`` None = both hedge sides. Returns the number cancelled.
+        """
+        n = 0
+        idxs = (1, 2) if position_idx is None else (position_idx,)
+        for idx in idxs:
+            for row in self.reduce_only_orders(symbol, idx):
+                kw = {"category": "linear", "symbol": symbol, "orderId": row["orderId"]}
+                if row.get("_kind") == "stop":
+                    kw["orderFilter"] = "StopOrder"
+                self._ok(self.http.cancel_order(**kw))
+                n += 1
+        return n
+
     def has_reduce_only_working_order(self, symbol: str, position_idx: int) -> bool:
         return bool(self.reduce_only_orders(symbol, position_idx))
 

@@ -36,12 +36,29 @@ H = 3_600_000
 SOL = {"tick_size": 0.01, "qty_step": 0.1, "min_qty": 0.1, "min_notional": 5.0, "max_leverage": 50}
 
 
+class FakeHTTP:
+    def __init__(self, client):
+        self.client = client
+
+    def cancel_order(self, **kw):
+        self.client.calls.append(("cancel", kw["orderId"]))
+        self.client.orders = [o for o in self.client.orders if o.get("orderId") != kw["orderId"]]
+
+
 class FakeClient:
     def __init__(self, last: float, orders: list[dict], size: float = 0.2):
         self.last = last
         self.orders = orders
         self.size = size
         self.calls: list[tuple] = []
+        self.http = FakeHTTP(self)
+
+    def cancel_reduce_only_orders(self, symbol, position_idx=None):
+        n = len(self.orders)
+        for o in list(self.orders):
+            self.calls.append(("cancel", o.get("orderId")))
+        self.orders = []
+        return n
 
     def get_positions(self, symbol):
         return [{"size": str(self.size), "positionIdx": 2, "side": "Sell", "avgPrice": "107.56"}] if self.size else []
@@ -153,3 +170,21 @@ def test_max_hold_flattens_at_entry_plus_36h_like_backtest(tmp_path):
     # last closed bar open = entry + 35h -> its close is entry + 36h: flatten now
     b._maybe_time_exit(100 * H + 35 * H)
     assert ("market", "Buy", "0.2", True) in c.calls
+
+
+def test_stale_stop_from_old_trade_is_not_protection(tmp_path):
+    # 2026-10-24: X6 had untriggered stops left from closed trades; one at another level
+    # must not count as this trade's stop, and is cancelled.
+    c = FakeClient(last=108.0, orders=[{"_kind": "stop", "orderId": "old", "triggerPrice": "117.14"}, {"_kind": "limit"}])
+    b = make_bot(tmp_path, c)
+    b._ensure_maker_exits()
+    assert ("cancel", "old") in c.calls
+    assert [x for x in c.calls if x[0] == "stop"][0][1]["stop_price"] == "110.28"
+
+
+def test_flat_cancels_leftover_reduce_only_orders(tmp_path):
+    c = FakeClient(last=108.0, orders=[{"_kind": "stop", "orderId": "s1", "triggerPrice": "85579.4"}], size=0)
+    b = make_bot(tmp_path, c)
+    b.state.clear_open_trade("SOLUSDT")
+    b._sync_closed()
+    assert ("cancel", "s1") in c.calls and c.orders == []

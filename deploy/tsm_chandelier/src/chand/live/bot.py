@@ -11,6 +11,7 @@ from typing import Any
 
 from chand.margin import DEFAULT_CONTRACT, leverage_from_stop, stop_beyond_liquidation
 from chand.live.bybit_client import BybitClient, BybitCredentials, format_price, format_qty
+from chand.live.entry_guard import REASON_PRICE_FAIL, evaluate_entry_guard
 from chand.live.exit_orders import stop_limit_price
 from chand.live import shared_candles
 from chand.live.binance_fallback import fetch_closed_klines, merge_closed_bars, series_gaps
@@ -451,11 +452,35 @@ class ChandLiveBot:
             self.state.mark_entry_handled(self.symbol, sig.entry_ts_ms, sig.side, {"skipped": "in_position"})
             return
 
+        # Entry guard (2026-11-10): same price source as before (last traded price), read right before sizing and the order.
+        # Fail closed: an unreadable price means no entry (retried on the next poll until max_entry_delay_sec).
         try:
-            last = self.client.get_ticker_last(self.symbol)
+            last = float(self.client.get_ticker_last(self.symbol))
         except Exception:
-            last = float(sig.entry_ref_price)
-        entry_est = last if last > 0 else float(sig.entry_ref_price)
+            log.exception("%s entry guard: ticker read failed", self.symbol)
+            last = None
+        verdict = evaluate_entry_guard(
+            side=sig.side, price=last, stop=float(sig.stop_price), entry_ref=float(sig.entry_ref_price)
+        )
+        if not verdict.ok:
+            skip = {
+                "skipped": "stop_proximity",
+                "guard": verdict.as_dict(),
+                "side": sig.side,
+                "entry_ts_ms": sig.entry_ts_ms,
+                "signal_ts_ms": sig.signal_ts_ms,
+                "pattern": sig.pattern,
+            }
+            log.warning(
+                "%s ENTRY_SKIP_STOP_PROXIMITY reason=%s side=%s price=%s stop=%s entry_ref=%s remaining_frac=%s",
+                self.symbol, verdict.reason, sig.side, verdict.price, verdict.stop, verdict.entry_ref, verdict.remaining_frac,
+            )
+            self.state.log_event(self.symbol, "ENTRY_SKIP_STOP_PROXIMITY", skip)
+            if verdict.reason != REASON_PRICE_FAIL:
+                # The opportunity is gone (price ran into the stop): do not retry this bar.
+                self.state.mark_entry_handled(self.symbol, sig.entry_ts_ms, sig.side, skip)
+            return
+        entry_est = last
         qty, lev, equity = self._size_order(sig, entry_est)
         if qty <= 0:
             log.warning("%s qty=0 after sizing (equity_base=%.2f)", self.symbol, equity)
